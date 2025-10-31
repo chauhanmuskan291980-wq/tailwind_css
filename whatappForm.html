@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook Account Recovery Form</title>
+    <title>WhatsApp Account Recovery Form</title>
     
     <style>
         /* ================================================= */
@@ -26,7 +26,7 @@
         .section-header h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            background: linear-gradient(45deg, #25D366, #128C7E); /* WhatsApp Green Accent */
             -webkit-text-fill-color: transparent;
         }
 
@@ -65,7 +65,7 @@
         .form-section h3 {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            color: #ff6b35;
+            color: #25D366; /* WhatsApp Green */
             display: flex;
             align-items: center;
         }
@@ -74,7 +74,7 @@
             content: '';
             width: 4px;
             height: 20px;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            background: linear-gradient(45deg, #25D366, #128C7E);
             margin-right: 10px;
             border-radius: 2px;
         }
@@ -114,14 +114,9 @@
             height: 20px;
         }
 
-        /* --- Input Icons (Simplified by reusing classes from original CSS) --- */
-        /* NOTE: In a production environment, you would use a CSS Sprite or an icon font
-           for better performance instead of these long data URLs. */
+        /* --- Input Icons (Reused/Updated) --- */
         .input-icon.user {
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E") no-repeat center center / contain;
-        }
-        .input-icon.email {
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E") no-repeat center center / contain;
         }
         .input-icon.phone {
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E") no-repeat center center / contain;
@@ -129,11 +124,11 @@
         .input-icon.website {
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z'/%3E%3C/svg%3E") no-repeat center center / contain;
         }
-        .input-icon.building {
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z'/%3E%3C/svg%3E") no-repeat center center / contain;
+        .input-icon.country {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M20 6c0-1.1-.9-2-2-2h-3V2h-2v2h-2V2H9v2H6c-1.1 0-2 .9-2 2v13h16V6zm-2 13H6V6h12v13zM9 8h2v2H9V8zm4 0h2v2h-2V8z'/%3E%3C/svg%3E") no-repeat center center / contain;
         }
-        .input-icon.instagram {
-             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E") no-repeat center center / contain;
+        .input-icon.meta {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm4 10h-3v3H9v-3H6v-2h3V8h3v3h3v2z'/%3E%3C/svg%3E") no-repeat center center / contain;
         }
 
 
@@ -173,23 +168,27 @@
         .custom-form select:focus,
         .custom-form textarea:focus {
             outline: none;
-            border-color: #ff6b35;
+            border-color: #25D366; /* WhatsApp Green Focus */
             background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+            box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
         }
-
-        .custom-form input.error,
-        .custom-form select.error,
-        .custom-form textarea.error {
-            border-color: #ff6b6b;
-            box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+        
+        /* Removed padding-left from number and country inputs since they're select/select */
+        .phone-group input {
+            padding-left: 1rem !important; /* No icon on number input */
         }
-
-        .field-error {
-            color: #ff6b6b;
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
-            display: block;
+        
+        /* Phone Number Group Styling */
+        .phone-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .phone-group select {
+            width: 40%;
+            padding-left: 1rem !important;
+        }
+        .phone-group input {
+            width: 60%;
         }
 
 
@@ -198,14 +197,12 @@
         /* -------------------------------------------------- */
 
         .file-upload-group {
-            /* Container for the custom file input elements */
             display: flex;
             flex-direction: column;
             width: 100%;
         }
 
         .file-upload-group label {
-            /* Override label display for the file input itself */
             flex-direction: row !important; 
             align-items: center;
             gap: 0; 
@@ -226,7 +223,6 @@
         }
 
         .file-custom {
-            /* The visible component containing the button and file name */
             display: flex;
             width: 100%;
             align-items: center;
@@ -238,17 +234,16 @@
         }
 
         .file-custom:hover {
-            border-color: #ff6b35; /* Highlight on hover */
+            border-color: #25D366; 
             background: rgba(255, 255, 255, 0.1);
         }
 
         .file-browse-btn {
-            /* The clickable button part */
             padding: 0 1rem;
             height: 100%;
             display: flex;
             align-items: center;
-            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            background: linear-gradient(90deg, #25D366, #128C7E);
             color: white;
             font-weight: bold;
             border-radius: 8px 0 0 8px;
@@ -257,23 +252,22 @@
         }
 
         .file-name-display {
-            /* Area that displays the selected file name */
             flex-grow: 1;
             padding: 0 1rem;
             color: rgba(255, 255, 255, 0.7);
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-            line-height: 50px; /* Vertically center the text */
+            line-height: 50px;
         }
 
         .file-name-display.empty {
-            color: rgba(255, 255, 255, 0.5); /* Placeholder color when no file is selected */
+            color: rgba(255, 255, 255, 0.5); 
         }
         /* -------------------------------------------------- */
         
         
-        /* ===== SELECT STYLING ===== */
+        /* ===== SELECT & RADIO/CHECKBOX STYLING (Standard) ===== */
         .custom-form select {
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
@@ -288,7 +282,6 @@
             color: white;
         }
 
-        /* ===== CHECKBOX & RADIO STYLING ===== */
         .checkbox-label {
             display: flex !important;
             flex-direction: row !important;
@@ -303,11 +296,11 @@
             width: 18px;
             height: 18px;
             margin: 0;
-            accent-color: #ff6b35;
+            accent-color: #25D366;
         }
 
         .checkbox-label a {
-            color: #ff6b35;
+            color: #25D366;
             text-decoration: none;
         }
 
@@ -322,7 +315,7 @@
 
         .submit-btn {
             padding: 1rem 3rem;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            background: linear-gradient(45deg, #25D366, #128C7E);
             color: white;
             border: none;
             border-radius: 8px;
@@ -335,16 +328,10 @@
 
         .submit-btn:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
         }
 
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* ===== RESPONSIVE DESIGN ===== */
+        /* ===== RESPONSIVE DESIGN (Same as before) ===== */
         @media (max-width: 768px) {
             .custom-form {
                 padding: 2rem 1.5rem;
@@ -355,44 +342,24 @@
                 gap: 1rem;
             }
 
-            .form-section {
-                margin-bottom: 2rem;
-                padding-bottom: 1.5rem;
-            }
-
             .custom-form input:not([type='checkbox']):not([type='radio']):not([type='file']),
             .custom-form select,
             .custom-form textarea {
                 padding: 0.875rem 0.875rem 0.875rem 2.5rem;
             }
-
-            .section-header h2 {
-                font-size: 2rem;
+            .phone-group select, .phone-group input {
+                width: 50%;
             }
         }
-
         @media (max-width: 480px) {
-            .custom-form {
-                padding: 1.5rem 1rem;
+            .phone-group {
+                flex-direction: column;
             }
-
-            .form-container {
-                padding: 3rem 0;
-            }
-
-            .section-header h2 {
-                font-size: 1.75rem;
-            }
-
-            .form-section h3 {
-                font-size: 1.25rem;
-            }
-
-            .submit-btn {
+            .phone-group select, .phone-group input {
                 width: 100%;
-                padding: 0.875rem 2rem;
             }
         }
+
         /* ================================================= */
         /* == END OF EMBEDDED CSS ========================== */
         /* ================================================= */
@@ -403,125 +370,147 @@
     <div class="form-container">
         <div class="form-wrapper">
             <div class="section-header">
-                <h2>💔 Facebook Account Recovery Request</h2>
+                <h2>📱 WhatsApp Account Recovery Request</h2>
                 <p>
-                    Please provide detailed information to help us quickly process the recovery of your Facebook account.
+                    Please provide detailed information to recover your **Business** or **Individual** WhatsApp account.
                 </p>
             </div>
 
-            <form action="/submit-facebook-recovery" method="POST" class="custom-form" enctype="multipart/form-data">
+            <form action="/submit-whatsapp-recovery" method="POST" class="custom-form" enctype="multipart/form-data">
                 
                 <div class="form-section">
-                    <h3>Account Identification</h3>
+                    <h3>Account Identification (Mandatory)</h3>
                     <div class="form-grid">
                         
                         <div class="form-group full-width">
                             <p style="margin-bottom: 0.5rem; font-weight: 500;">
-                                Is this a Personal Profile or a Page?
+                                Is this a Business or an Individual WhatsApp account?
                             </p>
                             <div style="display: flex; gap: 2rem;">
                                 <label class="checkbox-label">
-                                    <input type="radio" name="account_type" value="profile" required> Personal Profile
+                                    <input type="radio" name="account_type" value="individual" required> Individual Account
                                 </label>
                                 <label class="checkbox-label">
-                                    <input type="radio" name="account_type" value="page"> Facebook Page
+                                    <input type="radio" name="account_type" value="business"> Business Account
                                 </label>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="full_name">
-                                Name of the Profile (First and Last name)
-                                <span class="input-icon user"></span>
-                                <input type="text" id="full_name" name="full_name" placeholder="Name currently on the profile" required>
-                            </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="page_name">
-                                Name of the Facebook Page (if applicable)
-                                <span class="input-icon building"></span>
-                                <input type="text" id="page_name" name="page_name" placeholder="Leave blank if not a page">
-                            </label>
-                        </div>
-                        
                         <div class="form-group full-width">
-                            <label for="profile_url">
-                                Link (URL) to the Profile or Page
-                                <span class="input-icon website"></span>
-                                <input type="url" id="profile_url" name="profile_url" placeholder="e.g., facebook.com/profile.id or fb.me/username" required>
+                            <label for="phone_number">
+                                Phone Number Linked (Country Code and Number)
                             </label>
-                        </div>
-
-                        <div class="form-group full-width">
-                            <p style="margin-bottom: 0.5rem; font-weight: 500;">
-                                Was the profile set to Public or Private?
-                            </p>
-                            <div style="display: flex; gap: 2rem;">
-                                <label class="checkbox-label">
-                                    <input type="radio" name="profile_visibility" value="public" required> Public Profile
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="radio" name="profile_visibility" value="private"> Private Profile
-                                </label>
+                            <div class="phone-group">
+                                <select id="country_code" name="country_code" required>
+                                    <option value="" disabled selected>Country Code</option>
+                                    <option value="+1">+1 (USA/CAN)</option>
+                                    <option value="+44">+44 (UK)</option>
+                                    <option value="+91">+91 (India)</option>
+                                </select>
+                                <input type="tel" id="phone_number" name="phone_number" placeholder="Permissible digits according to country" required class="phone-group-input">
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="form-section">
-                    <h3>Linked Contact Information</h3>
-                    <p style="margin-bottom: 1.5rem; opacity: 0.9; font-size: 0.95rem;">
-                        Provide the primary contact details **last linked** to the account.
-                    </p>
-                    <div class="form-grid">
-                        
-                        <div class="form-group">
-                            <label for="linked_email">
-                                Email Last Linked
-                                <span class="input-icon email"></span>
-                                <input type="email" id="linked_email" name="linked_email" placeholder="e.g., recovery@example.com" required>
-                            </label>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="linked_number">
-                                Phone Number Last Linked
-                                <span class="input-icon phone"></span>
-                                <input type="tel" id="linked_number" name="linked_number" placeholder="Include country code, e.g., +1 555 123 4567">
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-section">
-                    <h3>Issue & Timeline</h3>
-                    <div class="form-grid">
-                        
                         <div class="form-group">
                             <label for="date_of_ban">
                                 Date of Ban/Loss of Access
                                 <input type="date" id="date_of_ban" name="date_of_ban" required>
                             </label>
                         </div>
-
+                        
                         <div class="form-group">
-                            <label for="screenshot_file" style="gap: 0.1rem;">
+                            <label>Social Media Platform Name (If connected)</label>
+                            <select id="social_platform" name="social_platform">
+                                <option value="" disabled selected>Select Platform (Optional)</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="facebook">Facebook</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>Issue Documentation</h3>
+                    <div class="form-grid">
+                        
+                        <div class="form-group">
+                            <label for="screenshot_login" style="gap: 0.1rem;">
                                 Screenshot while attempting login (Mandatory)
                                 <div class="file-upload-group">
-                                    <input type="file" id="screenshot_file" name="screenshot_file" accept=".pdf, image/jpeg, image/png" required onchange="updateFileName('screenshot_file', 'filename_display')">
-                                    <label for="screenshot_file">
+                                    <input type="file" id="screenshot_login" name="screenshot_login" accept=".pdf, image/jpeg, image/png" required onchange="updateFileName('screenshot_login', 'filename_login')">
+                                    <label for="screenshot_login">
                                         <div class="file-custom">
                                             <div class="file-browse-btn">Choose File</div>
-                                            <div class="file-name-display empty" id="filename_display">No file selected...</div>
+                                            <div class="file-name-display empty" id="filename_login">PDF or JPEG/PNG file</div>
                                         </div>
                                     </label>
                                 </div>
-                                </label>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="screenshot_meta_email" style="gap: 0.1rem;">
+                                Any email received from Meta or WhatsApp
+                                <div class="file-upload-group">
+                                    <input type="file" id="screenshot_meta_email" name="screenshot_meta_email" accept=".pdf, image/jpeg, image/png" onchange="updateFileName('screenshot_meta_email', 'filename_meta_email')">
+                                    <label for="screenshot_meta_email">
+                                        <div class="file-custom">
+                                            <div class="file-browse-btn">Choose File</div>
+                                            <div class="file-name-display empty" id="filename_meta_email">PDF or JPEG/PNG file (Optional)</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </label>
                         </div>
                         
                         <div class="form-group full-width">
-                            <label for="issue_description">
-                                Detailed Description of the Issue
-                                <textarea id="issue_description" name="issue_description" placeholder="e.g., My account was hacked on this date and the email/password was changed to X."></textarea>
+                            <label for="issue_comments">
+                                Detailed Comments or Message (Describe the loss of access)
+                                <textarea id="issue_comments" name="issue_comments" placeholder="e.g., I received a code out of the blue and was logged out."></textarea>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>Business Account Details (If applicable)</h3>
+                    <p style="margin-bottom: 1.5rem; opacity: 0.9; font-size: 0.95rem;">
+                        These fields are **only applicable** for **WhatsApp Business** accounts.
+                    </p>
+                    <div class="form-grid">
+                        
+                        <div class="form-group">
+                            <label for="business_name">
+                                Business Name (N/A for individual)
+                                <span class="input-icon website"></span>
+                                <input type="text" id="business_name" name="business_name" placeholder="Business Name">
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <p style="margin-bottom: 0.5rem; font-weight: 500;">
+                                Was the Business Account Verified?
+                            </p>
+                            <div style="display: flex; gap: 2rem;">
+                                <label class="checkbox-label">
+                                    <input type="radio" name="is_verified" value="yes"> Yes
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="radio" name="is_verified" value="no"> No
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                             <label for="screenshot_meta_veri" style="gap: 0.1rem;">
+                                Screenshot of Meta Verification (If Verified)
+                                <div class="file-upload-group">
+                                    <input type="file" id="screenshot_meta_veri" name="screenshot_meta_veri" accept=".pdf, image/jpeg, image/png" onchange="updateFileName('screenshot_meta_veri', 'filename_meta_veri')">
+                                    <label for="screenshot_meta_veri">
+                                        <div class="file-custom">
+                                            <div class="file-browse-btn">Choose File</div>
+                                            <div class="file-name-display empty" id="filename_meta_veri">Upload max file size applicable for business</div>
+                                        </div>
+                                    </label>
+                                </div>
                             </label>
                         </div>
                     </div>
@@ -532,15 +521,15 @@
                         
                         <div class="form-group">
                             <label for="max_budget">
-                                Maximum Budget in USD (Numeric field)
-                                <span class="input-icon website"></span>
-                                <input type="number" id="max_budget" name="max_budget" placeholder="e.g., 500" min="0">
+                                Maximum Budget in USD
+                                <span class="input-icon meta"></span>
+                                <input type="number" id="max_budget" name="max_budget" placeholder="Numeric field only" min="0">
                             </label>
                         </div>
                         
                         <div class="form-group">
                             <p style="margin-bottom: 0.5rem; font-weight: 500;">
-                                Did you apply for recovery before?
+                                Did you submit the account recovery form previously?
                             </p>
                             <div style="display: flex; gap: 2rem;">
                                 <label class="checkbox-label">
@@ -555,18 +544,16 @@
                         <div class="form-group full-width">
                             <label for="hear_about">
                                 How did you hear about us?
-                                <span class="input-icon instagram"></span>
                                 <select id="hear_about" name="hear_about_us" required>
                                     <option value="" disabled selected>Select Option</option>
                                     <option value="instagram">Instagram</option>
-                                    <option value="tiktok">TikTok</option>
+                                    <option value="facebook">Facebook</option>
                                     <option value="referral">Referral</option>
                                     <option value="search">Google Search/Other Engine</option>
                                     <option value="other">Other</option>
                                 </select>
                             </label>
                         </div>
-
                     </div>
                 </div>
                 <div class="terms-section form-group full-width">
@@ -578,7 +565,7 @@
 
                 <div class="form-actions">
                     <button type="submit" class="submit-btn">
-                        Submit Facebook Recovery Request
+                        Submit WhatsApp Recovery Request
                     </button>
                 </div>
 
@@ -589,20 +576,17 @@
     <script>
         /**
          * Updates the display label with the name of the selected file.
-         * @param {string} inputId - The ID of the hidden file input element.
-         * @param {string} displayId - The ID of the div used to display the file name.
          */
         function updateFileName(inputId, displayId) {
             const input = document.getElementById(inputId);
             const display = document.getElementById(displayId);
+            const placeholder = input.hasAttribute('required') ? 'PDF or JPEG/PNG file' : 'PDF or JPEG/PNG file (Optional)';
             
             if (input.files.length > 0) {
-                // Remove the 'empty' class and display the file name
                 display.textContent = input.files[0].name;
                 display.classList.remove('empty');
             } else {
-                // Add the 'empty' class and show the placeholder text
-                display.textContent = 'No file selected...';
+                display.textContent = placeholder;
                 display.classList.add('empty');
             }
         }
