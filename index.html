@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recover Your Social Media Account | Smipin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* 🎨 CSS Variables for a dynamic theme */
+        :root {
+            --primary-yellow: #ffc700;
+            /* Neon Yellow Accent */
+            --secondary-yellow: #ffd94f;
+            /* Lighter Yellow Hover */
+            --dark-bg: #121212;
+            /* Deep Charcoal Black */
+            --dark-surface: #1f1f1f;
+            /* Card/Header/Testimonial Background */
+            --dark-footer: #000000;
+            /* Pure Black for Footer */
+            --text-white: #ffffff;
+            /* Main Text Color */
+            --text-light: #bbb;
+            /* Secondary Text Color */
+        }
+
+        /* --- BASE STYLES --- */
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            background: var(--dark-bg);
+            color: var(--text-white);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--text-white);
+            font-weight: 800;
+        }
+
+        /* --- 🧭 HEADER / NAVIGATION --- */
+        header {
+            background: var(--dark-surface);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--primary-yellow);
+            /* Subtle accent line */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-yellow);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-yellow);
+            font-weight: 600;
+            transition: color 0.2s, text-shadow 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text-white);
+            text-shadow: 0 0 8px var(--primary-yellow);
+        }
+
+        /* --- 🌟 HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #252525 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0 0 1rem 0;
+            color: var(--primary-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            background: var(--primary-yellow);
+            color: var(--dark-bg);
+            padding: 1.1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 199, 0, 0.5);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .cta-btn:hover {
+            background: var(--secondary-yellow);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 199, 0, 0.7);
+        }
+
+        /* --- ✨ FEATURES / CARDS --- */
+        .features {
+            padding: 0 10px;
+        }
+
+        .features-section-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin: 5rem auto;
+        }
+
+        .features-image-wrapper {
+            flex: 1;
+            min-width: 300px;
+            max-width: 40%;
+            text-align: center;
+        }
+
+        .features-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(255, 199, 0, 0.3);
+            border: 2px solid var(--primary-yellow);
+        }
+
+        .feature-cards-wrapper {
+            flex: 2;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background: var(--dark-surface);
+            padding: 2.5rem 2rem;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            max-width: 340px;
+            min-width: 280px;
+            flex: 1;
+            margin: 0.6rem;
+            border-left: 5px solid var(--primary-yellow);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 199, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-yellow);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* --- 📱 PLATFORM SUPPORT SECTION (NEW) --- */
+        .platform-support {
+            background: #252525;
+            padding: 4rem 0 3rem;
+            text-align: center;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+        }
+
+        .platform-support h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-white);
+        }
+
+        .platform-list {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            /* Enable horizontal scrolling */
+            padding: 1rem 0 2rem;
+            justify-content: flex-start;
+            /* Align items to the start */
+            padding-left: 5%;
+            /* Add padding to match container edge */
+            padding-right: 5%;
+            margin: 0;
+            /* Style the scrollbar for visibility (optional, might vary by browser) */
+            scrollbar-color: var(--primary-yellow) #333;
+            scrollbar-width: thin;
+        }
+
+        .platform-card {
+            background: var(--dark-surface);
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            min-width: 200px;
+            /* Fixed width for consistent horizontal scrolling */
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+            border: 1px solid #333;
+            cursor: pointer;
+        }
+
+        .platform-card:hover {
+            border-color: var(--primary-yellow);
+            transform: scale(1.05);
+        }
+
+        .platform-card h3 {
+            color: var(--primary-yellow);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+        }
+
+        .platform-icon {
+            font-size: 3rem;
+            /* Make icons stand out */
+            color: var(--text-white);
+        }
+
+
+        /* --- 📣 TESTIMONIALS --- */
+        .testimonials {
+            background: var(--dark-bg);
+            /* Use primary dark background */
+            padding: 4rem 0 2.5rem;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .testimonials h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-list {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding: 1rem 0 2rem;
+            justify-content: center;
+            scrollbar-color: var(--primary-yellow) #333;
+            scrollbar-width: thin;
+        }
+
+        .testimonial {
+            background: var(--dark-surface);
+            border-radius: 16px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            min-width: 200px;
+            padding: 1.5rem;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            border: 1px solid #333;
+            transition: border-color 0.2s;
+        }
+
+        .testimonial:hover {
+            border-color: var(--primary-yellow);
+        }
+
+        .testimonial strong {
+            color: var(--primary-yellow);
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        /* --- ⚙️ FOOTER --- */
+        footer {
+            background: var(--dark-footer);
+            color: #666;
+            text-align: center;
+            padding: 2.5rem 0 1.5rem 0;
+            font-size: 0.95rem;
+            margin-top: 4rem;
+            border-top: 1px solid #333;
+        }
+
+        footer a {
+            color: var(--primary-yellow);
+            text-decoration: none;
+            margin: 0 0.4rem;
+            font-weight: 600;
+            transition: color 0.2s, text-shadow 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--text-white);
+            text-shadow: 0 0 5px var(--primary-yellow);
+        }
+
+        footer div {
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            font-size: 1.05em;
+            margin-top: 1rem;
+        }
+
+        .copyright {
+            color: #444;
+            font-size: 0.9em;
+            margin-top: 0.5rem;
+        }
+
+
+        /* --- 📱 MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .features-section-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .features-image-wrapper {
+                max-width: 80%;
+            }
+
+            .feature-cards-wrapper {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .platform-list {
+                justify-content: flex-start;
+                /* Always align left for scroll on mobile */
+            }
+
+            .platform-card {
+                min-width: 160px;
+                /* Slightly smaller cards on small screens */
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.9rem;
+                background: #252525;
+                padding: 1rem 0.6rem;
+                border-radius: 8px;
+                margin-top: 1rem;
+                width: 100%;
+            }
+
+            nav ul li {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="Screenshot (80).png" style="width: 100px;" alt="Application Logo">
+                </a>
+                <ul>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h1>Recover Your Instagram, TikTok, or Facebook Account Today!</h1>
+            <p>Is your social media account hacked, blocked, or disabled? Our free chatbot helps you recover your
+                account—easy, secure, and fast.</p>
+            <button class="cta-btn">Try it now!</button>
+        </div>
+    </section>
+<section class="platform-support">
+    <div class="container">
+        <h2>Top Services</h2> 
+        
+        <div class="platform-list">
+            
+            <div class="feature-card platform-card">
+                <div class="platform-icon"><i class="fas fa-lock-open"></i></div> 
+                <h3>Hacked Account Recovery</h3>
+                <p>Lost access? We guide you through the process to quickly regain control of your compromised Instagram, TikTok, or Facebook accounts.</p>
+            </div>
+            
+            <div class="feature-card platform-card">
+                <div class="platform-icon"><i class="fas fa-gavel"></i></div> 
+                <h3>Blocked/Banned Support</h3>
+                <p>If your account has been unjustly banned, blocked, or disabled, we provide personalized steps and appeal strategies to restore your access safely.</p>
+            </div>
+            
+            <div class="feature-card platform-card">
+                <div class="platform-icon"><i class="fas fa-tag"></i></div> 
+                <h3>Social Media Username Claim</h3>
+                <p>Secure dormant or desired usernames across major platforms. Our service assists businesses and brands in acquiring key digital real estate.</p>
+            </div>
+            
+            <div class="feature-card platform-card">
+                <div class="platform-icon"><i class="fas fa-copyright"></i></div> 
+                <h3>Copyright/DMCA Removal</h3>
+                <p>Expert assistance with copyright infringement, DMCA notices, and content removal across social media platforms to protect your intellectual property.</p>
+            </div>
+            
+            <div class="feature-card platform-card">
+                <div class="platform-icon"><i class="fas fa-badge-check"></i></div> 
+                <h3>Social Media Verification</h3>
+                <p>Increase credibility and trust. We offer consultation and strategic guidance to help eligible public figures and brands obtain their verification badge.</p>
+            </div>
+            
+            <div class="feature-card platform-card">
+                <div class="platform-icon"><i class="fas fa-newspaper"></i></div> 
+                <h3>News and Press Articles</h3>
+                <p>Boost your online presence and credibility. We assist in securing genuine press and media articles, a key step for verification and reputation management.</p>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+    <section class="platform-support">
+        <div class="container">
+            <h2>Supported Social Media Platforms</h2>
+            <div class="platform-list">
+
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fab fa-facebook-f"></i></div>
+                    <h3>Facebook</h3>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3>WhatsApp</h3>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fab fa-youtube"></i></div>
+                    <h3>YouTube</h3>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fab fa-linkedin-in"></i></div>
+                    <h3>LinkedIn</h3>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fab fa-tiktok"></i></div>
+                    <h3>TikTok</h3>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fab fa-snapchat-ghost"></i></div>
+                    <h3>Snapchat</h3>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fab fa-x-twitter"></i></div>
+                    <h3>X (Twitter)</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Trusted by Influencers</h2>
+            <div class="testimonial-list">
+                <div class="testimonial"><strong>@mattuphamtech</strong>68.4K followers</div>
+                <div class="testimonial"><strong>@haleylouiser</strong>605.1K followers</div>
+                <div class="testimonial"><strong>@thesoberraver</strong>21.5K followers</div>
+                <div class="testimonial"><strong>@jayrscottyy</strong>2.8M followers</div>
+                <div class="testimonial"><strong>@hannahdubb</strong>178.2K followers</div>
+                <div class="testimonial"><strong>@milicodes</strong>122K followers</div>
+                <div class="testimonial"><strong>@therealbabytay</strong>7K followers</div>
+            </div>
+            <button class="cta-btn" style="margin-top:2.5rem;">Start Free Trial</button>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div>
+                <a href="#">How It Works</a> |
+                <a href="#">Testimonials</a> |
+                <a href="#">Pricing</a> |
+                <a href="#">Blog</a> |
+                <a href="#">Careers</a> |
+                <a href="#">FAQ</a> |
+                <a href="#">About</a> |
+                <a href="#">Contact Us</a> |
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Terms of Use</a>
+            </div>
+            <div class="social-links">
+                Follow us on
+                <a href="#">LinkedIn</a>,
+                <a href="#">Facebook</a>,
+                <a href="#">Twitter</a>,
+                <a href="#">Instagram</a>
+            </div>
+            <div class="copyright">
+                &copy; 2023. All Rights Reserved. Digital Assets Security, Inc.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
