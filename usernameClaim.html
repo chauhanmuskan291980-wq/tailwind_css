@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Account Recovery Form</title>
-
+    <title>Username Claim Request Form</title>
+    
     <style>
         /* ================================================= */
-        /* == EMBEDDED CSS (YouTube Specific Style) ======== */
+        /* == EMBEDDED CSS (Username Claim - Purple Theme) = */
         /* ================================================= */
 
         /* ===== BASE STYLES ===== */
@@ -22,16 +21,17 @@
         .section-header {
             text-align: center;
             margin-bottom: 4rem;
-
         }
 
         .section-header h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            /* REMOVE the 3 gradient lines: */
-            background: linear-gradient(45deg, #ff0000, #ff4d4d);
+            /* Using a Neutral Purple Gradient for Claim Form */
+            background: linear-gradient(45deg, #a400ff, #5030e4);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent; 
+            -webkit-text-fill-color: transparent;
+            /* Added fallback for visibility - SEE PREVIOUS DISCUSSION */
+            color: #a400ff; 
         }
 
         .section-header p {
@@ -69,8 +69,7 @@
         .form-section h3 {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            color: #ff0000;
-            /* YouTube Red Accent */
+            color: #a400ff; /* Purple Accent */
             display: flex;
             align-items: center;
         }
@@ -79,7 +78,7 @@
             content: '';
             width: 4px;
             height: 20px;
-            background: linear-gradient(45deg, #ff0000, #ff4d4d);
+            background: linear-gradient(45deg, #a400ff, #5030e4);
             margin-right: 10px;
             border-radius: 2px;
         }
@@ -118,7 +117,7 @@
             width: 20px;
             height: 20px;
         }
-
+        
         /* Tooltip Container */
         .tooltip-icon {
             position: absolute;
@@ -130,7 +129,7 @@
             cursor: pointer;
             color: rgba(255, 255, 255, 0.5);
         }
-
+        
         .tooltip-icon::before {
             content: '?';
             display: block;
@@ -163,7 +162,7 @@
             font-size: 0.85rem;
             line-height: 1.3;
         }
-
+        
         .tooltip-icon:hover .tooltip-content {
             visibility: visible;
             opacity: 1;
@@ -174,17 +173,11 @@
         .input-icon.user {
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E") no-repeat center center / contain;
         }
-
         .input-icon.email {
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E") no-repeat center center / contain;
         }
-
         .input-icon.website {
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z'/%3E%3C/svg%3E") no-repeat center center / contain;
-        }
-
-        .input-icon.youtube {
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M10 15l5.5-3-5.5-3v6zm11.5-7.5c-.32-1.55-1.57-2.79-3.12-3.12-2.14-.47-10.74-.47-12.88 0-1.55.33-2.79 1.57-3.12 3.12-.47 2.14-.47 10.74 0 12.88.33 1.55 1.57 2.79 3.12 3.12 2.14.47 10.74.47 12.88 0 1.55-.33 2.79-1.57 3.12-3.12.47-2.14.47-10.74 0-12.88z'/%3E%3C/svg%3E") no-repeat center center / contain;
         }
 
 
@@ -192,7 +185,7 @@
         .custom-form input:not([type='checkbox']):not([type='radio']):not([type='file']),
         .custom-form select,
         .custom-form textarea {
-            padding: 1rem 1rem 1rem 3rem;
+            padding: 1rem 1rem 1rem 3rem; 
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.05);
@@ -201,10 +194,10 @@
             transition: all 0.3s ease;
             font-family: inherit;
         }
-
+        
         .custom-form input:not([type='checkbox']):not([type='radio']):not([type='file']),
         .custom-form select,
-        .custom-form input[type='date'] {
+        .custom-form input[type='date'] { 
             height: 50px;
         }
 
@@ -218,10 +211,9 @@
         .custom-form select:focus,
         .custom-form textarea:focus {
             outline: none;
-            border-color: #ff0000;
-            /* YouTube Red Focus */
+            border-color: #a400ff; /* Purple Focus */
             background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2);
+            box-shadow: 0 0 0 2px rgba(164, 0, 255, 0.2);
         }
 
         /* -------------------------------------------------- */
@@ -235,11 +227,11 @@
         }
 
         .file-upload-group label {
-            flex-direction: row !important;
+            flex-direction: row !important; 
             align-items: center;
-            gap: 0;
+            gap: 0; 
             cursor: pointer;
-            font-weight: normal;
+            font-weight: normal; 
         }
 
         /* Hide the actual file input */
@@ -266,7 +258,7 @@
         }
 
         .file-custom:hover {
-            border-color: #ff0000;
+            border-color: #a400ff; 
             background: rgba(255, 255, 255, 0.1);
         }
 
@@ -275,13 +267,12 @@
             height: 100%;
             display: flex;
             align-items: center;
-            background: linear-gradient(90deg, #ff0000, #cc0000);
-            /* Darker YouTube Red */
+            background: linear-gradient(90deg, #a400ff, #5030e4); 
             color: white;
             font-weight: bold;
             border-radius: 8px 0 0 8px;
             cursor: pointer;
-            white-space: nowrap;
+            white-space: nowrap; 
         }
 
         .file-name-display {
@@ -291,16 +282,15 @@
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-            line-height: 50px;
+            line-height: 50px; 
         }
 
         .file-name-display.empty {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.5); 
         }
-
         /* -------------------------------------------------- */
-
-
+        
+        
         /* ===== CHECKBOX & RADIO STYLING ===== */
         .checkbox-label {
             display: flex !important;
@@ -316,7 +306,7 @@
             width: 18px;
             height: 18px;
             margin: 0;
-            accent-color: #ff0000;
+            accent-color: #a400ff;
         }
 
         /* ===== SUBMIT BUTTON ===== */
@@ -326,7 +316,7 @@
 
         .submit-btn {
             padding: 1rem 3rem;
-            background: linear-gradient(45deg, #ff0000, #cc0000);
+            background: linear-gradient(45deg, #a400ff, #5030e4);
             color: white;
             border: none;
             border-radius: 8px;
@@ -339,8 +329,7 @@
 
         .submit-btn:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 0 0 5px rgba(255, 0, 0, 0.15);
-            /* Soft red glow */
+            box-shadow: 0 0 0 5px rgba(164, 0, 255, 0.15); 
         }
 
         /* --- Linked Account Repeater Styles --- */
@@ -351,12 +340,9 @@
             margin-bottom: 1.5rem;
             position: relative;
         }
-
         .linked-account-group:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.03);
-            /* Subtle striping */
+            background-color: rgba(255, 255, 255, 0.03); 
         }
-
         .remove-btn {
             position: absolute;
             top: 10px;
@@ -369,11 +355,9 @@
             line-height: 1;
             transition: color 0.2s;
         }
-
         .remove-btn:hover {
             color: #ff0000;
         }
-
         .add-btn {
             background: rgba(255, 255, 255, 0.1);
             color: white;
@@ -385,153 +369,133 @@
             font-weight: 500;
             margin-top: 1rem;
         }
-
         .add-btn:hover {
             background: rgba(255, 255, 255, 0.2);
         }
 
         /* ===== RESPONSIVE DESIGN (Standard) ===== */
         @media (max-width: 768px) {
-            .custom-form {
-                padding: 2rem 1.5rem;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
+            .custom-form { padding: 2rem 1.5rem; }
+            .form-grid { grid-template-columns: 1fr; gap: 1rem; }
             .custom-form input:not([type='checkbox']):not([type='radio']):not([type='file']),
             .custom-form select,
-            .custom-form textarea {
-                padding: 0.875rem 0.875rem 0.875rem 2.5rem;
-            }
+            .custom-form textarea { padding: 0.875rem 0.875rem 0.875rem 2.5rem; }
         }
     </style>
 </head>
-
 <body>
 
     <div class="form-container">
         <div class="form-wrapper">
             <div class="section-header">
-                <h2>▶️ YouTube Account Recovery Request</h2>
+                <h2>✨ Username Claim Request</h2>
                 <p>
-                    Use this form if your YouTube channel was hacked, terminated, or you have lost access.
+                    Submit this form with supporting documentation to claim a desired username across a social media platform.
                 </p>
             </div>
 
-            <form action="/submit-youtube-recovery" method="POST" class="custom-form" enctype="multipart/form-data">
-
+            <form action="/submit-username-claim" method="POST" class="custom-form" enctype="multipart/form-data">
+                
                 <div class="form-section">
-                    <h3>Channel Identification</h3>
+                    <h3>Target Claim Details</h3>
                     <div class="form-grid">
+                        
+                        <div class="form-group">
+                            <label for="target_platform">
+                                Target Platform for Claim
+                                <span class="input-icon website"></span>
+                                <select id="target_platform" name="target_platform" required>
+                                    <option value="" disabled selected>Select Platform (e.g., Instagram, TikTok, X)</option>
+                                    <option value="instagram">Instagram</option>
+                                    <option value="tiktok">TikTok</option>
+                                    <option value="x">X / Twitter</option>
+                                    <option value="facebook">Facebook</option>
+                                    <option value="youtube">YouTube</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </label>
+                        </div>
 
                         <div class="form-group">
-                            <label for="channel_name">
-                                Current/Last Known Channel Name
+                            <label for="desired_username">
+                                Desired Username
                                 <span class="input-icon user"></span>
-                                <input type="text" id="channel_name" name="channel_name"
-                                    placeholder="e.g., The Official Vlog Channel" required>
+                                <input type="text" id="desired_username" name="desired_username" placeholder="The exact username you want to claim" required>
                             </label>
                         </div>
-
-                        <div class="form-group">
-                            <label for="channel_url">
-                                Channel URL (Mandatory)
-                                <span class="input-icon youtube"></span>
-                                <input type="url" id="channel_url" name="channel_url"
-                                    placeholder="e.g., youtube.com/@channelname or /channel/UC..." required>
-                            </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="linked_email">
-                                Email Last Linked to the Google Account
+                        
+                        <div class="form-group full-width">
+                            <label for="contact_email">
+                                Best Contact Email
                                 <span class="input-icon email"></span>
-                                <input type="email" id="linked_email" name="linked_email"
-                                    placeholder="e.g., myrecoveryemail@gmail.com" required>
-                            </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="date_of_loss">
-                                Approximate Date of Hacking/Loss
-                                <input type="date" id="date_of_loss" name="date_of_loss" required>
+                                <input type="email" id="contact_email" name="contact_email" placeholder="Email for communication regarding the claim" required>
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="form-section">
-                    <h3>Linked Social Media (for verification)</h3>
+                    <h3>Supporting Evidence (Mandatory)</h3>
                     <p style="margin-bottom: 1.5rem; opacity: 0.9; font-size: 0.95rem;">
-                        Provide any accounts you have linked or used for verification (e.g., IG, TikTok, X, Twitch).
+                        Provide **at least two** established accounts or documents that verify your brand ownership of the desired username.
                     </p>
-
+                    
                     <div id="linked-accounts-container">
                         <div class="linked-account-group">
-                            <button type="button" class="remove-btn"
-                                onclick="removeLinkedAccount(this)">&times;</button>
+                            <button type="button" class="remove-btn" onclick="removeLinkedAccount(this)">&times;</button>
                             <div class="form-grid">
-
+                                
                                 <div class="form-group">
                                     <label for="platform_1">
-                                        Social Media Platform Name
-                                        <select id="platform_1" name="linked_platform[]" required>
-                                            <option value="" disabled selected>Select Platform</option>
+                                        Evidence Platform Name
+                                        <select id="platform_1" name="evidence_platform[]" required>
+                                            <option value="" disabled selected>Select Platform or Document Type</option>
                                             <option value="instagram">Instagram</option>
                                             <option value="tiktok">TikTok</option>
                                             <option value="twitch">Twitch</option>
-                                            <option value="x">X / Twitter</option>
-                                            <option value="facebook">Facebook</option>
+                                            <option value="trademark">Trademark / Legal Document</option>
+                                            <option value="website">Verified Website</option>
                                             <option value="other">Other</option>
                                         </select>
                                     </label>
                                 </div>
-
+                                
                                 <div class="form-group">
                                     <label for="username_1">
-                                        Username/Handle
-                                        <input type="text" id="username_1" name="linked_username[]"
-                                            placeholder="@myhandle" required>
+                                        Username or URL
+                                        <input type="text" id="username_1" name="evidence_username[]" placeholder="@yourbrand or https://yourdomain.com" required>
                                     </label>
                                 </div>
 
                                 <div class="form-group full-width">
                                     <label for="ss_1" style="gap: 0.1rem;">
-                                        Verification Screenshot (e.g., profile settings)
+                                        Proof Screenshot / Document (Mandatory)
                                         <span class="tooltip-icon">
                                             <span class="tooltip-content">
-                                                Please upload a screenshot of this account's settings page that clearly
-                                                shows the profile URL or handle, to prove ownership.
+                                                Please upload a screenshot of this account's settings/profile or a copy of the legal document (PDF/JPEG) that clearly links the brand to you.
                                             </span>
                                         </span>
-
+                                        
                                         <div class="file-upload-group">
-                                            <input type="file" id="ss_1" name="linked_screenshot[]"
-                                                accept=".pdf, image/jpeg, image/png"
-                                                onchange="updateFileName('ss_1', 'filename_1')">
+                                            <input type="file" id="ss_1" name="evidence_screenshot[]" accept=".pdf, image/jpeg, image/png" required onchange="updateFileName('ss_1', 'filename_1')">
                                             <label for="ss_1">
                                                 <div class="file-custom">
-                                                    <div class="file-browse-btn">Upload File</div>
-                                                    <div class="file-name-display empty" id="filename_1">PDF or JPEG
-                                                        file</div>
+                                                    <div class="file-browse-btn">Upload Proof</div>
+                                                    <div class="file-name-display empty" id="filename_1">PDF or JPEG file (max 5mb)</div>
                                                 </div>
                                             </label>
                                         </div>
-                                    </label>
+                                        </label>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <button type="button" class="add-btn" onclick="addLinkedAccount()">+ Add Another Linked
-                        Account</button>
+                    
+                    <button type="button" class="add-btn" onclick="addLinkedAccount()">+ Add More Supporting Evidence</button>
                 </div>
                 <div class="form-section">
-                    <h3>Submission Details</h3>
+                    <h3>Submission & Budget Details</h3>
                     <div class="form-grid">
-
+                        
                         <div class="form-group">
                             <label for="max_budget">
                                 Maximum Budget in USD (Only numeric field allowed)
@@ -539,10 +503,10 @@
                                 <input type="number" id="max_budget" name="max_budget" placeholder="e.g., 500" min="0">
                             </label>
                         </div>
-
+                        
                         <div class="form-group">
                             <p style="margin-bottom: 0.5rem; font-weight: 500;">
-                                Did you submit the account recovery form previously?
+                                Did you apply for this username claim before?
                             </p>
                             <div style="display: flex; gap: 2rem;">
                                 <label class="checkbox-label">
@@ -560,34 +524,31 @@
                                 <span class="input-icon website"></span>
                                 <select id="hear_about" name="hear_about_us" required>
                                     <option value="" disabled selected>Select Option</option>
-                                    <option value="youtube">YouTube</option>
-                                    <option value="instagram">Instagram</option>
                                     <option value="referral">Referral/Word-of-mouth</option>
                                     <option value="search">Google Search/Other Engine</option>
                                     <option value="other">Other</option>
                                 </select>
                             </label>
                         </div>
-
+                        
                         <div class="form-group full-width">
                             <label for="comments">
-                                Additional Comments or Message (Not mandatory)
-                                <textarea id="comments" name="comments"
-                                    placeholder="Any further details about the hack or termination..."></textarea>
+                                Additional Message / Context (Not mandatory)
+                                <textarea id="comments" name="comments" placeholder="Explain why this username is important and how you are currently using it elsewhere."></textarea>
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="submit-btn">
-                        Submit YouTube Recovery Request
+                        Submit Username Claim Request
                     </button>
                 </div>
 
             </form>
         </div>
     </div>
-
+    
     <script>
         let accountCount = 1;
 
@@ -597,93 +558,90 @@
         function updateFileName(inputId, displayId) {
             const input = document.getElementById(inputId);
             const display = document.getElementById(displayId);
-
+            
             if (input.files.length > 0) {
                 display.textContent = input.files[0].name;
                 display.classList.remove('empty');
             } else {
-                display.textContent = 'PDF or JPEG file';
+                display.textContent = 'PDF or JPEG file (max 5mb)';
                 display.classList.add('empty');
             }
         }
-
+        
         /**
          * Adds a new linked account entry to the form.
          */
         function addLinkedAccount() {
             accountCount++;
             const container = document.getElementById('linked-accounts-container');
-            const template = document.querySelector('.linked-account-group');
+            
+            // Get the first group to use as a clone template
+            const template = container.querySelector('.linked-account-group');
+            if (!template) return; // Should not happen
 
-            // Clone the template group
             const newGroup = template.cloneNode(true);
-
-            // Reset IDs and attributes for the new group
+            
+            // 1. Update IDs and 'for' attributes
             newGroup.querySelectorAll('[id]').forEach(el => {
                 const oldId = el.id;
-                const newId = oldId.replace(/\d+$/, accountCount); // Replace number at end
+                const newId = oldId.replace(/\d+$/, accountCount);
                 el.id = newId;
-
-                // Update label 'for' attribute
-                if (el.tagName === 'LABEL') {
-                    el.htmlFor = newId;
+            });
+            newGroup.querySelectorAll('label').forEach(label => {
+                const oldFor = label.htmlFor;
+                if (oldFor) {
+                    label.htmlFor = oldFor.replace(/\d+$/, accountCount);
                 }
             });
-
-            // Reset name attributes for arrays
+            
+            // 2. Clear input values and reset names
             newGroup.querySelectorAll('[name]').forEach(el => {
-                const oldName = el.name;
-                el.name = oldName.replace(/(\[\].*|\d+)$/, '[]'); // Ensure name is array (e.g., linked_platform[])
-
-                // Clear input values
                 if (el.tagName === 'INPUT' && el.type !== 'file') {
                     el.value = '';
                 }
-
+                
                 // Clear file input and display name
                 if (el.type === 'file') {
                     el.value = '';
-                    el.onchange = function () { updateFileName(el.id, `filename_${accountCount}`); };
+                    el.onchange = function() { updateFileName(el.id, `filename_${accountCount}`); };
                 }
-
-                // Reset select to default option
+                
                 if (el.tagName === 'SELECT') {
                     el.selectedIndex = 0;
                 }
             });
 
-            // Update file name display text
+            // 3. Update file name display text
             const newDisplay = newGroup.querySelector('.file-name-display');
             newDisplay.id = `filename_${accountCount}`;
-            newDisplay.textContent = 'PDF or JPEG file';
+            newDisplay.textContent = 'PDF or JPEG file (max 5mb)';
             newDisplay.classList.add('empty');
-
-            // Add to container
+            
+            // 4. Add to container
             container.appendChild(newGroup);
         }
-
+        
         /**
          * Removes a linked account entry from the form.
          */
         function removeLinkedAccount(button) {
             const group = button.closest('.linked-account-group');
             const container = document.getElementById('linked-accounts-container');
-
-            // Only remove if more than one exists
+            
+            // Only remove if more than one exists (enforcing minimum of 1 supporting evidence)
             if (container.children.length > 1) {
                 group.remove();
             } else {
-                alert("You must keep at least one linked account entry, or simply leave the fields blank.");
+                alert("You must provide at least one piece of supporting evidence for a username claim.");
             }
         }
-
+        
         // Initialize the first file input change listener
         document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('ss_1').onchange = function () {
+             document.getElementById('ss_1').onchange = function() {
                 updateFileName('ss_1', 'filename_1');
-            };
+             };
         });
     </script>
 </body>
-
 </html>
