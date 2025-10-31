@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Account Recovery Form</title>
+    <link rel="stylesheet" href="Forms.css">
+    <style>
+        /* Including the CSS content here for a self-contained example */
+        /* /* ===== BASE STYLES ===== */
+        .form-container {
+            padding: 5rem 0;
+            background: #0a0a0a;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .custom-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 3rem;
+        }
+
+        /* ===== FORM SECTIONS ===== */
+        .form-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 2rem;
+        }
+
+        .form-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #ff6b35;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-section h3::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        /* ===== FORM GRID ===== */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* ===== LABELS & INPUTS ===== */
+        .custom-form label {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-weight: 500;
+            position: relative;
+            color: white;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Social Media Icons (simplified for this example, you'd use the full data:image) */
+        .input-icon.user {
+            /* Placeholder for user icon */
+            background: rgba(255, 255, 255, 0.5);
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            top: 55%;
+            /* Adjustment for better alignment */
+        }
+
+        .input-icon.instagram {
+            /* Placeholder for instagram icon */
+            background: rgba(255, 255, 255, 0.5);
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            top: 55%;
+        }
+
+        .input-icon.platform {
+            /* Placeholder for a generic platform icon */
+            background: rgba(255, 255, 255, 0.5);
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            top: 55%;
+        }
+
+        .custom-form input,
+        .custom-form select,
+        .custom-form textarea {
+            padding: 1rem 1rem 1rem 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .custom-form input:not([type='checkbox']):not([type='radio']),
+        .custom-form select {
+            height: 50px;
+        }
+
+        .custom-form textarea {
+            padding-left: 1rem;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .custom-form input::placeholder,
+        .custom-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .custom-form input:focus,
+        .custom-form select:focus,
+        .custom-form textarea:focus {
+            outline: none;
+            border-color: #ff6b35;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+        }
+
+        .custom-form input.error,
+        .custom-form select.error,
+        .custom-form textarea.error {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+        }
+
+        .field-error {
+            color: #ff6b6b;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: block;
+        }
+
+        /* ===== SELECT STYLING ===== */
+        .custom-form select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 16px;
+            padding-right: 3rem;
+        }
+
+        .custom-form select option {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        /* ===== CHECKBOX & RADIO STYLING ===== */
+        .checkbox-label {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .checkbox-label input[type="checkbox"],
+        .checkbox-label input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            accent-color: #ff6b35;
+        }
+
+        .checkbox-label a {
+            color: #ff6b35;
+            text-decoration: none;
+        }
+
+        .checkbox-label a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== CHECKBOX GROUPS ===== */
+        .checkbox-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .checkbox-group label {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+        }
+
+        /* ===== SUBMIT BUTTON ===== */
+        .form-actions {
+            text-align: center;
+        }
+
+        .submit-btn {
+            padding: 1rem 3rem;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ===== TERMS SECTION ===== */
+        .terms-section {
+            margin-bottom: 2rem;
+        }
+
+
+        /* Re-purpose file upload input to fit the design better (optional, but helpful) */
+        input[type="file"] {
+            padding-left: 1rem !important;
+            /* Override the 3rem padding from icon to make file input usable */
+        }
+
+        /* End of CSS for this example */
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <div class="form-wrapper">
+            <div class="section-header">
+                <h2>🔒 Account Recovery & Support</h2>
+                <p>Please provide accurate and detailed information for the fastest recovery of your social media
+                    account(s).</p>
+            </div>
+
+            <form action="/submit-recovery" method="POST" class="custom-form" enctype="multipart/form-data">
+
+                <div class="form-section">
+                    <h3>Account Details (Up to 5 Accounts)</h3>
+                    <p class="section-header p"
+                        style="margin-bottom: 2rem; max-width: none; opacity: 1; text-align: left;">
+                        Please provide the details for each account you need to recover.
+                        <br>
+                        **Mandatory:** Upload a **screenshot** clearly showing the issue/error message for each account.
+                    </p>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="platform1">
+                                Social Media Platform Name (Mandatory)
+                                <span class="input-icon platform"></span>
+                                <select id="platform1" name="platform_1" required>
+                                    <option value="" disabled selected>Select Platform</option>
+                                    <option value="instagram">Instagram</option>
+                                    <option value="tiktok">TikTok</option>
+                                    <option value="youtube">YouTube</option>
+                                    <option value="facebook">Facebook</option>
+                                    <option value="twitter">X (Twitter)</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="username1">
+                                Username / Handle (Mandatory)
+                                <span class="input-icon user"></span>
+                                <input type="text" id="username1" name="username_1" placeholder="e.g., @myoldaccount"
+                                    required>
+                            </label>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="screenshot1">
+                                Screenshot of Issue (Mandatory - PDF or JPEG/PNG file)
+                                <input type="file" id="screenshot1" name="screenshot_1"
+                                    accept=".pdf, image/jpeg, image/png" required>
+                            </label>
+                        </div>
+                    </div>
+
+                    <hr style="border-color: rgba(255, 255, 255, 0.05); margin: 2rem 0;">
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="platform2">
+                                Social Media Platform Name
+                                <span class="input-icon platform"></span>
+                                <select id="platform2" name="platform_2">
+                                    <option value="" disabled selected>Select Platform (Optional)</option>
+                                    <option value="instagram">Instagram</option>
+                                    <option value="tiktok">TikTok</option>
+                                    <option value="youtube">YouTube</option>
+                                    <option value="facebook">Facebook</option>
+                                    <option value="twitter">X (Twitter)</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="username2">
+                                Username / Handle
+                                <span class="input-icon user"></span>
+                                <input type="text" id="username2" name="username_2" placeholder="e.g., @secondaccount">
+                            </label>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="screenshot2">
+                                Screenshot of Issue (Optional)
+                                <input type="file" id="screenshot2" name="screenshot_2"
+                                    accept=".pdf, image/jpeg, image/png">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>Additional Information</h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group full-width">
+                            <label for="budget">
+                                Maximum Budget in USD (Only numeric field allowed)
+                                <span class="input-icon website"></span>
+                                <input type="number" id="budget" name="max_budget" placeholder="e.g., 500" min="0">
+                            </label>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <p style="margin-bottom: 0.5rem; font-weight: 500;">
+                                Did you submit the account recovery form yourself?
+                            </p>
+                            <div style="display: flex; gap: 2rem;">
+                                <label class="checkbox-label">
+                                    <input type="radio" name="submitted_recovery" value="yes"> Yes
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="radio" name="submitted_recovery" value="no"> No
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <p style="margin-bottom: 0.5rem; font-weight: 500;">
+                                How did you hear about us?
+                            </p>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="hear_about_us[]" value="instagram"> Instagram
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="hear_about_us[]" value="tiktok"> TikTok
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="hear_about_us[]" value="referral"> Referral
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="hear_about_us[]" value="google"> Google Search
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="hear_about_us[]" value="other"> Other
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="comments">
+                                Additional Comments or Messages
+                                <textarea id="comments" name="comments"
+                                    placeholder="Any details that might help with the recovery..."></textarea>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="terms-section form-group full-width">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="terms_agree" required>
+                        I agree to the <a href="#terms">Terms and Conditions</a> and authorize the recovery process.
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">
+                        Submit Recovery Request
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

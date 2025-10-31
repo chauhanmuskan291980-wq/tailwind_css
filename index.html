@@ -58,10 +58,123 @@
             /* Subtle accent line */
         }
 
+
+
+        /* --- 🧭 HEADER / NAVIGATION ADJUSTMENTS --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            /* Allows wrapping on smaller screens */
+        }
+
+        .nav-content-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            /* Spacing between search, links, and toggle */
+        }
+
+        /* Style the main links wrapper to separate it from the new elements */
+        .nav-content-right .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* --- 🔍 SEARCH BOX STYLES --- */
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--primary-yellow);
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--dark-bg);
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            padding: 0.5rem 1rem;
+            color: var(--text-white);
+            outline: none;
+            width: 150px;
+            /* Adjust width as needed */
+        }
+
+        .search-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .search-btn {
+            background: var(--primary-yellow);
+            color: var(--dark-bg);
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-btn:hover {
+            background: var(--secondary-yellow);
+        }
+
+        /* --- 🌐 LANGUAGE TOGGLE STYLES --- */
+        .lang-toggle select {
+            background: var(--dark-surface);
+            border: 1px solid var(--primary-yellow);
+            color: var(--primary-yellow);
+            padding: 0.5rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            appearance: none;
+            /* Hide default arrow */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            outline: none;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .lang-toggle option {
+            background: var(--dark-bg);
+            color: var(--primary-yellow);
+        }
+
+        /* --- 📱 MEDIA QUERIES (For smaller screens) --- */
+        @media (max-width: 1100px) {
+
+            /* Adjust breakpoint for link stacking */
+            .nav-content-right {
+                gap: 1rem;
+            }
+
+            .nav-content-right .nav-links {
+                display: none;
+                /* Hide links on smaller screens to save space (often replaced by a hamburger menu) */
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-content-right {
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 1rem;
+            }
+
+            .search-input {
+                width: 100px;
+                /* Make search bar smaller on mobile */
+            }
         }
 
         .logo {
@@ -420,15 +533,31 @@
                 <a href="#" class="logo">
                     <img src="Screenshot (80).png" style="width: 100px;" alt="Application Logo">
                 </a>
-                <ul>
-                    <li><a href="#">How It Works</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Login</a></li>
-                </ul>
+
+                <div class="nav-content-right">
+
+                    <div class="search-box">
+                        <input type="text" placeholder="Search..." class="search-input">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <ul class="nav-links">
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Login</a></li>
+                    </ul>
+
+                    <div class="lang-toggle">
+                        <select>
+                            <option value="en">EN</option>
+                            <option value="es">ES</option>
+                            <option value="fr">FR</option>
+                        </select>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
@@ -440,51 +569,57 @@
             <button class="cta-btn">Try it now!</button>
         </div>
     </section>
-<section class="platform-support">
-    <div class="container">
-        <h2>Top Services</h2> 
-        
-        <div class="platform-list">
-            
-            <div class="feature-card platform-card">
-                <div class="platform-icon"><i class="fas fa-lock-open"></i></div> 
-                <h3>Hacked Account Recovery</h3>
-                <p>Lost access? We guide you through the process to quickly regain control of your compromised Instagram, TikTok, or Facebook accounts.</p>
+    <section class="platform-support">
+        <div class="container">
+            <h2>Top Services</h2>
+
+            <div class="platform-list">
+
+                <div class="feature-card platform-card">
+                    <div class="platform-icon"><i class="fas fa-lock-open"></i></div>
+                    <h3>Hacked Account Recovery</h3>
+                    <p>Lost access? We guide you through the process to quickly regain control of your compromised
+                        Instagram, TikTok, or Facebook accounts.</p>
+                </div>
+
+                <div class="feature-card platform-card">
+                    <div class="platform-icon"><i class="fas fa-gavel"></i></div>
+                    <h3>Blocked/Banned Support</h3>
+                    <p>If your account has been unjustly banned, blocked, or disabled, we provide personalized steps and
+                        appeal strategies to restore your access safely.</p>
+                </div>
+
+                <div class="feature-card platform-card">
+                    <div class="platform-icon"><i class="fas fa-tag"></i></div>
+                    <h3>Social Media Username Claim</h3>
+                    <p>Secure dormant or desired usernames across major platforms. Our service assists businesses and
+                        brands in acquiring key digital real estate.</p>
+                </div>
+
+                <div class="feature-card platform-card">
+                    <div class="platform-icon"><i class="fas fa-copyright"></i></div>
+                    <h3>Copyright/DMCA Removal</h3>
+                    <p>Expert assistance with copyright infringement, DMCA notices, and content removal across social
+                        media platforms to protect your intellectual property.</p>
+                </div>
+
+                <div class="feature-card platform-card">
+                    <div class="platform-icon"><i class="fas fa-badge-check"></i></div>
+                    <h3>Social Media Verification</h3>
+                    <p>Increase credibility and trust. We offer consultation and strategic guidance to help eligible
+                        public figures and brands obtain their verification badge.</p>
+                </div>
+
+                <div class="feature-card platform-card">
+                    <div class="platform-icon"><i class="fas fa-newspaper"></i></div>
+                    <h3>News and Press Articles</h3>
+                    <p>Boost your online presence and credibility. We assist in securing genuine press and media
+                        articles, a key step for verification and reputation management.</p>
+                </div>
+
             </div>
-            
-            <div class="feature-card platform-card">
-                <div class="platform-icon"><i class="fas fa-gavel"></i></div> 
-                <h3>Blocked/Banned Support</h3>
-                <p>If your account has been unjustly banned, blocked, or disabled, we provide personalized steps and appeal strategies to restore your access safely.</p>
-            </div>
-            
-            <div class="feature-card platform-card">
-                <div class="platform-icon"><i class="fas fa-tag"></i></div> 
-                <h3>Social Media Username Claim</h3>
-                <p>Secure dormant or desired usernames across major platforms. Our service assists businesses and brands in acquiring key digital real estate.</p>
-            </div>
-            
-            <div class="feature-card platform-card">
-                <div class="platform-icon"><i class="fas fa-copyright"></i></div> 
-                <h3>Copyright/DMCA Removal</h3>
-                <p>Expert assistance with copyright infringement, DMCA notices, and content removal across social media platforms to protect your intellectual property.</p>
-            </div>
-            
-            <div class="feature-card platform-card">
-                <div class="platform-icon"><i class="fas fa-badge-check"></i></div> 
-                <h3>Social Media Verification</h3>
-                <p>Increase credibility and trust. We offer consultation and strategic guidance to help eligible public figures and brands obtain their verification badge.</p>
-            </div>
-            
-            <div class="feature-card platform-card">
-                <div class="platform-icon"><i class="fas fa-newspaper"></i></div> 
-                <h3>News and Press Articles</h3>
-                <p>Boost your online presence and credibility. We assist in securing genuine press and media articles, a key step for verification and reputation management.</p>
-            </div>
-            
         </div>
-    </div>
-</section>
+    </section>
 
     <section class="platform-support">
         <div class="container">
