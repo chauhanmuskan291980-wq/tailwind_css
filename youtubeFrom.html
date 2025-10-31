@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Account Recovery Form</title>
+
+    <style>
+        /* ================================================= */
+        /* == EMBEDDED CSS (YouTube Specific Style) ======== */
+        /* ================================================= */
+
+        /* ===== BASE STYLES ===== */
+        .form-container {
+            padding: 5rem 0;
+            background: #0a0a0a;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            /* REMOVE the 3 gradient lines: */
+            /* background: linear-gradient(45deg, #ff0000, #ff4d4d); */
+            /* -webkit-background-clip: text; */
+            /* -webkit-text-fill-color: transparent; */
+
+            /* ADD a visible color: */
+            color: #ff0000;
+            /* Use YouTube Red */
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .custom-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 3rem;
+        }
+
+        /* ===== FORM SECTIONS ===== */
+        .form-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 2rem;
+        }
+
+        .form-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #ff0000;
+            /* YouTube Red Accent */
+            display: flex;
+            align-items: center;
+        }
+
+        .form-section h3::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(45deg, #ff0000, #ff4d4d);
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        /* ===== FORM GRID ===== */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* ===== LABELS & ICONS & TOOLTIP ===== */
+        .custom-form label {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-weight: 500;
+            position: relative;
+            color: white;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Tooltip Container */
+        .tooltip-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .tooltip-icon::before {
+            content: '?';
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 18px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .tooltip-content {
+            visibility: hidden;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 10;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            width: 250px;
+            font-weight: normal;
+            font-size: 0.85rem;
+            line-height: 1.3;
+        }
+
+        .tooltip-icon:hover .tooltip-content {
+            visibility: visible;
+            opacity: 1;
+        }
+
+
+        /* --- Input Icons (Standard set for consistency) --- */
+        .input-icon.user {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E") no-repeat center center / contain;
+        }
+
+        .input-icon.email {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E") no-repeat center center / contain;
+        }
+
+        .input-icon.website {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z'/%3E%3C/svg%3E") no-repeat center center / contain;
+        }
+
+        .input-icon.youtube {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M10 15l5.5-3-5.5-3v6zm11.5-7.5c-.32-1.55-1.57-2.79-3.12-3.12-2.14-.47-10.74-.47-12.88 0-1.55.33-2.79 1.57-3.12 3.12-.47 2.14-.47 10.74 0 12.88.33 1.55 1.57 2.79 3.12 3.12 2.14.47 10.74.47 12.88 0 1.55-.33 2.79-1.57 3.12-3.12.47-2.14.47-10.74 0-12.88z'/%3E%3C/svg%3E") no-repeat center center / contain;
+        }
+
+
+        /* ===== FORM CONTROLS (Standard Look) ===== */
+        .custom-form input:not([type='checkbox']):not([type='radio']):not([type='file']),
+        .custom-form select,
+        .custom-form textarea {
+            padding: 1rem 1rem 1rem 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .custom-form input:not([type='checkbox']):not([type='radio']):not([type='file']),
+        .custom-form select,
+        .custom-form input[type='date'] {
+            height: 50px;
+        }
+
+        .custom-form textarea {
+            padding-left: 1rem;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .custom-form input:focus,
+        .custom-form select:focus,
+        .custom-form textarea:focus {
+            outline: none;
+            border-color: #ff0000;
+            /* YouTube Red Focus */
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2);
+        }
+
+        /* -------------------------------------------------- */
+        /* 🚀 FILE INPUT STYLING (Customized) */
+        /* -------------------------------------------------- */
+
+        .file-upload-group {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .file-upload-group label {
+            flex-direction: row !important;
+            align-items: center;
+            gap: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        /* Hide the actual file input */
+        .custom-form input[type="file"] {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        .file-custom {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            height: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .file-custom:hover {
+            border-color: #ff0000;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .file-browse-btn {
+            padding: 0 1rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(90deg, #ff0000, #cc0000);
+            /* Darker YouTube Red */
+            color: white;
+            font-weight: bold;
+            border-radius: 8px 0 0 8px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .file-name-display {
+            flex-grow: 1;
+            padding: 0 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            line-height: 50px;
+        }
+
+        .file-name-display.empty {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* -------------------------------------------------- */
+
+
+        /* ===== CHECKBOX & RADIO STYLING ===== */
+        .checkbox-label {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .checkbox-label input[type="checkbox"],
+        .checkbox-label input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+            accent-color: #ff0000;
+        }
+
+        /* ===== SUBMIT BUTTON ===== */
+        .form-actions {
+            text-align: center;
+        }
+
+        .submit-btn {
+            padding: 1rem 3rem;
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 0 0 5px rgba(255, 0, 0, 0.15);
+            /* Soft red glow */
+        }
+
+        /* --- Linked Account Repeater Styles --- */
+        .linked-account-group {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .linked-account-group:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.03);
+            /* Subtle striping */
+        }
+
+        .remove-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .remove-btn:hover {
+            color: #ff0000;
+        }
+
+        .add-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .add-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ===== RESPONSIVE DESIGN (Standard) ===== */
+        @media (max-width: 768px) {
+            .custom-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .custom-form input:not([type='checkbox']):not([type='radio']):not([type='file']),
+            .custom-form select,
+            .custom-form textarea {
+                padding: 0.875rem 0.875rem 0.875rem 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <div class="form-wrapper">
+            <div class="section-header">
+                <h2>▶️ YouTube Account Recovery Request</h2>
+                <p>
+                    Use this form if your YouTube channel was hacked, terminated, or you have lost access.
+                </p>
+            </div>
+
+            <form action="/submit-youtube-recovery" method="POST" class="custom-form" enctype="multipart/form-data">
+
+                <div class="form-section">
+                    <h3>Channel Identification</h3>
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="channel_name">
+                                Current/Last Known Channel Name
+                                <span class="input-icon user"></span>
+                                <input type="text" id="channel_name" name="channel_name"
+                                    placeholder="e.g., The Official Vlog Channel" required>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="channel_url">
+                                Channel URL (Mandatory)
+                                <span class="input-icon youtube"></span>
+                                <input type="url" id="channel_url" name="channel_url"
+                                    placeholder="e.g., youtube.com/@channelname or /channel/UC..." required>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="linked_email">
+                                Email Last Linked to the Google Account
+                                <span class="input-icon email"></span>
+                                <input type="email" id="linked_email" name="linked_email"
+                                    placeholder="e.g., myrecoveryemail@gmail.com" required>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date_of_loss">
+                                Approximate Date of Hacking/Loss
+                                <input type="date" id="date_of_loss" name="date_of_loss" required>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>Linked Social Media (for verification)</h3>
+                    <p style="margin-bottom: 1.5rem; opacity: 0.9; font-size: 0.95rem;">
+                        Provide any accounts you have linked or used for verification (e.g., IG, TikTok, X, Twitch).
+                    </p>
+
+                    <div id="linked-accounts-container">
+                        <div class="linked-account-group">
+                            <button type="button" class="remove-btn"
+                                onclick="removeLinkedAccount(this)">&times;</button>
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <label for="platform_1">
+                                        Social Media Platform Name
+                                        <select id="platform_1" name="linked_platform[]" required>
+                                            <option value="" disabled selected>Select Platform</option>
+                                            <option value="instagram">Instagram</option>
+                                            <option value="tiktok">TikTok</option>
+                                            <option value="twitch">Twitch</option>
+                                            <option value="x">X / Twitter</option>
+                                            <option value="facebook">Facebook</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="username_1">
+                                        Username/Handle
+                                        <input type="text" id="username_1" name="linked_username[]"
+                                            placeholder="@myhandle" required>
+                                    </label>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="ss_1" style="gap: 0.1rem;">
+                                        Verification Screenshot (e.g., profile settings)
+                                        <span class="tooltip-icon">
+                                            <span class="tooltip-content">
+                                                Please upload a screenshot of this account's settings page that clearly
+                                                shows the profile URL or handle, to prove ownership.
+                                            </span>
+                                        </span>
+
+                                        <div class="file-upload-group">
+                                            <input type="file" id="ss_1" name="linked_screenshot[]"
+                                                accept=".pdf, image/jpeg, image/png"
+                                                onchange="updateFileName('ss_1', 'filename_1')">
+                                            <label for="ss_1">
+                                                <div class="file-custom">
+                                                    <div class="file-browse-btn">Upload File</div>
+                                                    <div class="file-name-display empty" id="filename_1">PDF or JPEG
+                                                        file</div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="add-btn" onclick="addLinkedAccount()">+ Add Another Linked
+                        Account</button>
+                </div>
+                <div class="form-section">
+                    <h3>Submission Details</h3>
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="max_budget">
+                                Maximum Budget in USD (Only numeric field allowed)
+                                <span class="input-icon website"></span>
+                                <input type="number" id="max_budget" name="max_budget" placeholder="e.g., 500" min="0">
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <p style="margin-bottom: 0.5rem; font-weight: 500;">
+                                Did you submit the account recovery form previously?
+                            </p>
+                            <div style="display: flex; gap: 2rem;">
+                                <label class="checkbox-label">
+                                    <input type="radio" name="previous_attempt" value="yes" required> Yes
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="radio" name="previous_attempt" value="no"> No
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="hear_about">
+                                How did you hear about us?
+                                <span class="input-icon website"></span>
+                                <select id="hear_about" name="hear_about_us" required>
+                                    <option value="" disabled selected>Select Option</option>
+                                    <option value="youtube">YouTube</option>
+                                    <option value="instagram">Instagram</option>
+                                    <option value="referral">Referral/Word-of-mouth</option>
+                                    <option value="search">Google Search/Other Engine</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="comments">
+                                Additional Comments or Message (Not mandatory)
+                                <textarea id="comments" name="comments"
+                                    placeholder="Any further details about the hack or termination..."></textarea>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">
+                        Submit YouTube Recovery Request
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let accountCount = 1;
+
+        /**
+         * Updates the display label with the name of the selected file.
+         */
+        function updateFileName(inputId, displayId) {
+            const input = document.getElementById(inputId);
+            const display = document.getElementById(displayId);
+
+            if (input.files.length > 0) {
+                display.textContent = input.files[0].name;
+                display.classList.remove('empty');
+            } else {
+                display.textContent = 'PDF or JPEG file';
+                display.classList.add('empty');
+            }
+        }
+
+        /**
+         * Adds a new linked account entry to the form.
+         */
+        function addLinkedAccount() {
+            accountCount++;
+            const container = document.getElementById('linked-accounts-container');
+            const template = document.querySelector('.linked-account-group');
+
+            // Clone the template group
+            const newGroup = template.cloneNode(true);
+
+            // Reset IDs and attributes for the new group
+            newGroup.querySelectorAll('[id]').forEach(el => {
+                const oldId = el.id;
+                const newId = oldId.replace(/\d+$/, accountCount); // Replace number at end
+                el.id = newId;
+
+                // Update label 'for' attribute
+                if (el.tagName === 'LABEL') {
+                    el.htmlFor = newId;
+                }
+            });
+
+            // Reset name attributes for arrays
+            newGroup.querySelectorAll('[name]').forEach(el => {
+                const oldName = el.name;
+                el.name = oldName.replace(/(\[\].*|\d+)$/, '[]'); // Ensure name is array (e.g., linked_platform[])
+
+                // Clear input values
+                if (el.tagName === 'INPUT' && el.type !== 'file') {
+                    el.value = '';
+                }
+
+                // Clear file input and display name
+                if (el.type === 'file') {
+                    el.value = '';
+                    el.onchange = function () { updateFileName(el.id, `filename_${accountCount}`); };
+                }
+
+                // Reset select to default option
+                if (el.tagName === 'SELECT') {
+                    el.selectedIndex = 0;
+                }
+            });
+
+            // Update file name display text
+            const newDisplay = newGroup.querySelector('.file-name-display');
+            newDisplay.id = `filename_${accountCount}`;
+            newDisplay.textContent = 'PDF or JPEG file';
+            newDisplay.classList.add('empty');
+
+            // Add to container
+            container.appendChild(newGroup);
+        }
+
+        /**
+         * Removes a linked account entry from the form.
+         */
+        function removeLinkedAccount(button) {
+            const group = button.closest('.linked-account-group');
+            const container = document.getElementById('linked-accounts-container');
+
+            // Only remove if more than one exists
+            if (container.children.length > 1) {
+                group.remove();
+            } else {
+                alert("You must keep at least one linked account entry, or simply leave the fields blank.");
+            }
+        }
+
+        // Initialize the first file input change listener
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('ss_1').onchange = function () {
+                updateFileName('ss_1', 'filename_1');
+            };
+        });
+    </script>
+</body>
+
+</html>
