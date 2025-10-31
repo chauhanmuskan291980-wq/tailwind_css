@@ -467,6 +467,18 @@
             margin-top: 0.5rem;
         }
 
+        /* Forms.css (or whichever CSS file you are using) */
+
+        .card-link-wrapper {
+            /* Ensures the link element acts like a block and takes up the card's space */
+            display: block;
+            /* Remove default underline if the text is inside the 'a' tag */
+            text-decoration: none;
+            /* Ensures the text color inside the card remains the color you want (e.g., white from your form CSS) */
+            color: inherit;
+        }
+
+        
 
         /* --- 📱 MEDIA QUERIES --- */
         @media (max-width: 992px) {
@@ -575,47 +587,61 @@
 
             <div class="platform-list">
 
-                <div class="feature-card platform-card">
-                    <div class="platform-icon"><i class="fas fa-lock-open"></i></div>
-                    <h3>Hacked Account Recovery</h3>
-                    <p>Lost access? We guide you through the process to quickly regain control of your compromised
-                        Instagram, TikTok, or Facebook accounts.</p>
-                </div>
+                <a href="form.html" class="card-link-wrapper">
+                    <div class="feature-card platform-card">
+                        <div class="platform-icon"><i class="fas fa-lock-open"></i></div>
+                        <h3>Hacked Account Recovery</h3>
+                        <p>Lost access? We guide you through the process to quickly regain control of your compromised
+                            Instagram, TikTok, or Facebook accounts.</p>
+                    </div>
+                </a>
 
+                <a href="form.html" class="card-link-wrapper">
                 <div class="feature-card platform-card">
                     <div class="platform-icon"><i class="fas fa-gavel"></i></div>
                     <h3>Blocked/Banned Support</h3>
                     <p>If your account has been unjustly banned, blocked, or disabled, we provide personalized steps and
                         appeal strategies to restore your access safely.</p>
                 </div>
-
+                </a>
+               <a href="form.html" class="card-link-wrapper"> 
                 <div class="feature-card platform-card">
                     <div class="platform-icon"><i class="fas fa-tag"></i></div>
                     <h3>Social Media Username Claim</h3>
                     <p>Secure dormant or desired usernames across major platforms. Our service assists businesses and
                         brands in acquiring key digital real estate.</p>
                 </div>
+                </a>
 
+
+                 <a href="form.html" class="card-link-wrapper"> 
                 <div class="feature-card platform-card">
                     <div class="platform-icon"><i class="fas fa-copyright"></i></div>
                     <h3>Copyright/DMCA Removal</h3>
                     <p>Expert assistance with copyright infringement, DMCA notices, and content removal across social
                         media platforms to protect your intellectual property.</p>
                 </div>
+                </a>
 
+
+                 <a href="form.html" class="card-link-wrapper"> 
                 <div class="feature-card platform-card">
                     <div class="platform-icon"><i class="fas fa-badge-check"></i></div>
                     <h3>Social Media Verification</h3>
                     <p>Increase credibility and trust. We offer consultation and strategic guidance to help eligible
                         public figures and brands obtain their verification badge.</p>
                 </div>
+                </a>
 
+
+                 <a href="form.html" class="card-link-wrapper"> 
                 <div class="feature-card platform-card">
                     <div class="platform-icon"><i class="fas fa-newspaper"></i></div>
                     <h3>News and Press Articles</h3>
                     <p>Boost your online presence and credibility. We assist in securing genuine press and media
                         articles, a key step for verification and reputation management.</p>
                 </div>
+                </a>
 
             </div>
         </div>
