@@ -73,6 +73,85 @@
         .nav1 a:hover::after {
             transform: scaleX(1);
         }
+
+
+        .nav2{
+            background-color: #343a40;
+            width: 200px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .nav2 ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .nav2 li{
+            margin-bottom: 12px;
+
+        }
+        .nav a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            padding: 10px;
+            width: 100%;
+        }
+        .nav2 a:hover{
+            background-color: #137e0a;
+        }
+
+        .nav2 .login-btn{
+            background-color:  #048a2f;
+            color:#ffff;
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .nav2 .login-btn:hover{
+            background-color: #137e0a;
+             border: #fff;
+        }
+
+
+        .nav3{
+            background-color: #b262e1;
+            padding: 10px;
+
+        }
+
+        .nav3 ul{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .nav3 a{
+            text-decoration: none;
+            color: #fff;
+            padding: 10px;
+            display: block;
+        }
+
+        .nav3 .dropdown-content{
+            display: none;
+        }
+        
+          .nav3 .dropdown:hover  .dropdown-content{
+             display: block;
+             position:absolute;
+             background-color: #353335;
+             min-width: 150px;
+             border-radius: 10px;
+          }
+
+
     </style>
 </head>
 
@@ -106,7 +185,7 @@
         <nav class="nav3">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">About</a>
+                <li class="dropdown"><a href="#">About</a>
                     <div class="dropdown-content">
                         <a href="#">Our Story</a>
                         <a href="#">Our Story</a>
