@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+            color: #fff;
+        }
+
+        /* Title */
+        .container h2 {
+            color: #e4e4e4;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        /* Platform card */
+        .platform-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .platform-card {
+            background: linear-gradient(135deg, #3b5998, #1e3c72);
+            border-radius: 16px;
+            padding: 25px;
+            width: 280px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Icon */
+        .platform-icon {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        /* Title inside card */
+        .platform-card h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        /* List items */
+        .platform-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .platform-card ul li {
+            margin: 8px 0;
+        }
+
+        /* Links inside list */
+        .platform-card ul li a {
+            color: #eadcdc;
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effects */
+        .platform-card ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Optional: add focus/click effect */
+        .platform-card ul li a:active {
+            transform: scale(0.98);
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>Supported Social Media Platforms</h2>
+        <div class="platform-list">
+            <a href="facebookFrom.html" class="card-link-wrapper">
+                <div class="platform-card">
+                    <div class="platform-icon"><i class="fab fa-facebook-f"></i></div>
+                    <h3>Facebook</h3>
+                    <ul>
+                        <li><a href="#">Facebook Recovery Account</a></li>
+                        <li><a href="#">Username Claim</a></li>
+                        <li><a href="#">Copyright Removal</a></li>
+                        <li><a href="#">Social Media Verification</a></li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

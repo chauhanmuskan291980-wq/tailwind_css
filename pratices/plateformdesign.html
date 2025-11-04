@@ -1,0 +1,232 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scrolling Service Cards</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <style>
+    /* --- 📱 PLATFORM SUPPORT SECTION (FIXED + SCROLL LOOP) --- */
+.platform-support {
+    background: #252525;
+    padding: 4rem 0 3rem;
+    text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+    overflow: hidden; /* ✅ Allow animation to move smoothly */
+}
+
+.platform-support h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-white);
+}
+
+/* Outer wrapper acts as viewport */
+.platform-slider {
+    width: 100%;
+    overflow: hidden; /* ✅ Prevent scrollbar & hide overflow */
+    position: relative;
+}
+
+/* Animated list */
+.platform-list {
+    display: flex;
+    gap: 20px;
+    animation: scrollCards 35s linear infinite;
+    width: max-content;
+    padding: 0 20px;
+}
+
+/* ✅ Pause on hover */
+.platform-slider:hover .platform-list {
+    animation-play-state: paused;
+}
+
+/* Card wrapper */
+.card-link-wrapper {
+    text-decoration: none;
+    color: inherit;
+    flex-shrink: 0;
+}
+
+/* Card design */
+.platform-card {
+    background: var(--dark-surface);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    min-width: 280px;
+    max-width: 300px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s, border-color 0.3s;
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+.platform-card:hover {
+    border-color: var(--primary-yellow);
+    transform: scale(1.05);
+}
+
+.platform-card h3 {
+    color: var(--primary-yellow);
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.platform-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--text-white);
+}
+
+/* Supported platforms list */
+.platform-supported {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.platform-supported li {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: color 0.3s, transform 0.3s;
+}
+
+.platform-supported li i {
+    font-size: 1.1rem;
+    color: var(--primary-yellow);
+    width: 22px;
+    text-align: center;
+}
+
+.platform-supported li:hover {
+    color: var(--text-white);
+    transform: translateX(5px);
+}
+
+/* --- 🔁 Infinite Scroll Animation --- */
+@keyframes scrollCards {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+     
+  </style>
+</head>
+<body>
+  <section class="platform-support">
+   <section class="platform-support">
+  <h2>Top Services</h2>
+  <div class="platform-slider">
+    <div class="platform-list">
+      <!-- Repeat your cards here -->
+      <a href="form.html" class="card-link-wrapper">
+        <div class="platform-card">
+          <div class="platform-icon"><i class="fas fa-lock-open"></i></div>
+          <h3>Social Media Account Recovery</h3>
+          <ul class="platform-supported">
+            <li><i class="fab fa-instagram"></i> Instagram</li>
+            <li><i class="fab fa-tiktok"></i> TikTok</li>
+            <li><i class="fab fa-facebook-f"></i> Facebook</li>
+            <li><i class="fab fa-whatsapp"></i> WhatsApp</li>
+            <li><i class="fab fa-snapchat-ghost"></i> Snapchat</li>
+            <li><i class="fab fa-x-twitter"></i> X</li>
+            <li><i class="fab fa-youtube"></i> YouTube</li>
+          </ul>
+        </div>
+      </a>
+
+
+      <a href="form.html" class="card-link-wrapper">
+        <div class="platform-card">
+          <div class="platform-icon"><i class="fas fa-lock-open"></i></div>
+          <h3>Social Media Account Recovery</h3>
+          <ul class="platform-supported">
+            <li><i class="fab fa-instagram"></i> Instagram</li>
+            <li><i class="fab fa-tiktok"></i> TikTok</li>
+            <li><i class="fab fa-facebook-f"></i> Facebook</li>
+            <li><i class="fab fa-whatsapp"></i> WhatsApp</li>
+            <li><i class="fab fa-snapchat-ghost"></i> Snapchat</li>
+            <li><i class="fab fa-x-twitter"></i> X</li>
+            <li><i class="fab fa-youtube"></i> YouTube</li>
+          </ul>
+        </div>
+      </a>
+
+
+      <a href="form.html" class="card-link-wrapper">
+        <div class="platform-card">
+          <div class="platform-icon"><i class="fas fa-lock-open"></i></div>
+          <h3>Social Media Account Recovery</h3>
+          <ul class="platform-supported">
+            <li><i class="fab fa-instagram"></i> Instagram</li>
+            <li><i class="fab fa-tiktok"></i> TikTok</li>
+            <li><i class="fab fa-facebook-f"></i> Facebook</li>
+            <li><i class="fab fa-whatsapp"></i> WhatsApp</li>
+            <li><i class="fab fa-snapchat-ghost"></i> Snapchat</li>
+            <li><i class="fab fa-x-twitter"></i> X</li>
+            <li><i class="fab fa-youtube"></i> YouTube</li>
+          </ul>
+        </div>
+      </a>
+
+
+      <a href="form.html" class="card-link-wrapper">
+        <div class="platform-card">
+          <div class="platform-icon"><i class="fas fa-lock-open"></i></div>
+          <h3>Social Media Account Recovery</h3>
+          <ul class="platform-supported">
+            <li><i class="fab fa-instagram"></i> Instagram</li>
+            <li><i class="fab fa-tiktok"></i> TikTok</li>
+            <li><i class="fab fa-facebook-f"></i> Facebook</li>
+            <li><i class="fab fa-whatsapp"></i> WhatsApp</li>
+            <li><i class="fab fa-snapchat-ghost"></i> Snapchat</li>
+            <li><i class="fab fa-x-twitter"></i> X</li>
+            <li><i class="fab fa-youtube"></i> YouTube</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="form.html" class="card-link-wrapper">
+        <div class="platform-card">
+          <div class="platform-icon"><i class="fas fa-lock-open"></i></div>
+          <h3>Social Media Account Recovery</h3>
+          <ul class="platform-supported">
+            <li><i class="fab fa-instagram"></i> Instagram</li>
+            <li><i class="fab fa-tiktok"></i> TikTok</li>
+            <li><i class="fab fa-facebook-f"></i> Facebook</li>
+            <li><i class="fab fa-whatsapp"></i> WhatsApp</li>
+            <li><i class="fab fa-snapchat-ghost"></i> Snapchat</li>
+            <li><i class="fab fa-x-twitter"></i> X</li>
+            <li><i class="fab fa-youtube"></i> YouTube</li>
+          </ul>
+        </div>
+      </a>
+
+      <!-- Duplicate a few cards for seamless loop -->
+      <!-- Add others below -->
+    </div>
+  </div>
+</section>
+
+  </section>
+</body>
+</html>
