@@ -42,24 +42,38 @@
 
         /* 🧭 Header */
         header {
+            position: relative;
             background: var(--dark-surface);
-            padding: 0.8rem 0;
+            padding: 1rem 0;
             border-bottom: 1px solid var(--primary-yellow);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        header .container {
+            width: 85%;
+            max-width: 1150px;
+            margin: 0 auto;
         }
 
         nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            position: relative;
         }
 
-        .logo {
-            flex-shrink: 0;
+        
+        .leftDesign {
+            position: absolute;
+            top: 50%;
+            left: 2rem;
+            transform: translateY(-50%);
         }
 
-        .logo img {
+        .leftDesign .logo img {
             width: 55px;
+            height: auto;
             display: block;
         }
 
@@ -293,7 +307,7 @@
             border: 1px solid #333;
             border-radius: 12px;
             padding: 1.5rem;
-            width: 320px;
+            width: 325px;
             height: 420px;
             display: flex;
             flex-direction: column;
@@ -465,115 +479,117 @@
 
 
         /* 🌙 Footer Styling */
-.site-footer {
-    background: var(--dark-surface);
-    color: var(--text-light);
-    padding: 3rem 0 1.5rem;
-    border-top: 1px solid var(--primary-yellow);
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
-    margin-top: 4rem;
-}
+        .site-footer {
+            background: var(--dark-surface);
+            color: var(--text-light);
+            padding: 3rem 0 1.5rem;
+            border-top: 1px solid var(--primary-yellow);
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+            margin-top: 4rem;
+        }
 
-.footer-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    align-items: start;
-}
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            align-items: start;
+        }
 
-.footer-col h3,
-.footer-col h4 {
-    color: var(--primary-yellow);
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
+        .footer-col h3,
+        .footer-col h4 {
+            color: var(--primary-yellow);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
 
-.footer-col p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
+        .footer-col p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
 
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-}
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
 
-.footer-col ul li {
-    margin-bottom: 0.6rem;
-}
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
 
-.footer-col ul a {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
+        .footer-col ul a {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
 
-.footer-col ul a:hover {
-    color: var(--primary-yellow);
-    transform: translateX(4px);
-}
+        .footer-col ul a:hover {
+            color: var(--primary-yellow);
+            transform: translateX(4px);
+        }
 
-/* 🔗 Social Icons */
-.social-links {
-    display: flex;
-    gap: 0.8rem;
-    margin-bottom: 1rem;
-}
+        /* 🔗 Social Icons */
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
 
-.social-links a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border: 1px solid var(--primary-yellow);
-    border-radius: 50%;
-    color: var(--primary-yellow);
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--primary-yellow);
+            border-radius: 50%;
+            color: var(--primary-yellow);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
 
-.social-links a:hover {
-    background: var(--primary-yellow);
-    color: var(--dark-bg);
-    transform: translateY(-3px);
-}
+        .social-links a:hover {
+            background: var(--primary-yellow);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+        }
 
-/* 📜 Bottom Bar */
-.footer-bottom {
-    text-align: center;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 2rem;
-}
+        /* 📜 Bottom Bar */
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+        }
 
-.footer-bottom p {
-    font-size: 0.9rem;
-    color: var(--text-light);
-}
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
 
-/* 📱 Responsive */
-@media (max-width: 768px) {
-    .footer-container {
-        text-align: center;
-    }
-    .social-links {
-        justify-content: center;
-    }
-}
+        /* 📱 Responsive */
+        @media (max-width: 768px) {
+            .footer-container {
+                text-align: center;
+            }
 
+            .social-links {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 
 <body>
     <!-- HEADER -->
     <header>
+        <div class="leftDesign">
+            <a href="#" class="logo">
+                <img src="Screenshot (80).png" alt="Smipin Logo" />
+            </a>
+        </div>
+
         <div class="container">
             <nav>
-                <a href="#" class="logo">
-                    <img src="Screenshot (80).png" alt="Smipin Logo" />
-                </a>
-
                 <div class="nav-content-right">
                     <div class="search-box">
                         <input type="text" class="search-input" placeholder="Search..." />
@@ -581,11 +597,14 @@
                     </div>
 
                     <ul class="nav-links">
-                        <li><a href="mailto:info@example.com"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="mailto:info@example.com"><i class="fas fa-envelope"></i></a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">About</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="mailto:info@example.com"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="mailto:info@example.com"><i class="fas fa-envelope"></i></a></li>
+                        <li><a href="mailto:info@example.com"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="mailto:info@example.com"><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="mailto:info@example.com"><i class="fab fa-youtube"></i></a></li>
+                         <li><a href="mailto:info@example.com"><i class="fab fa-x-twitter"></i></a></li>
                     </ul>
 
                     <div class="select-wrapper">
@@ -814,61 +833,78 @@
     </section>
 
 
-   <footer class="site-footer">
-    <div class="container footer-container">
-        <div class="footer-col">
-            <h3>Smipin</h3>
-            <p>Your trusted partner for social media account recovery, verification, and digital support.</p>
-        </div>
-
-        <div class="footer-col">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Testimonials</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>Services</h4>
-            <ul>
-                <li><a href="#">Account Recovery</a></li>
-                <li><a href="#">Username Claim</a></li>
-                <li><a href="#">Verification</a></li>
-                <li><a href="#">Copyright Removal</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>Follow Us</h4>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-x-twitter"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Smipin</h3>
+                <p>Your trusted partner for social media account recovery, verification, and digital support.</p>
             </div>
-            <p><i class="fas fa-envelope"></i> support@smipin.com</p>
-        </div>
-    </div>
 
-    <div class="footer-bottom">
-        <p>&copy; 2025 Smipin. All Rights Reserved.</p>
-    </div>
-</footer>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Data Policy</h4>
+                <ul>
+                    <li><a href="#">Terms and payments terms </a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Data Policy</a></li>
+                    <li><a href="#">Conact us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Terms and payments terms </a></li>
+                    <li><a href="#">Refunds policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Account Recovery</a></li>
+                    <li><a href="#">Username Claim</a></li>
+                    <li><a href="#">Verification</a></li>
+                    <li><a href="#">Copyright Removal</a></li>
+                    <li><a href="#">Whatapp marketing</a></li>
+                    <li><a href="#">Instagram Collaboration</a></li>
+
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p><i class="fas fa-envelope"></i> support@smipin.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Smipin. All Rights Reserved.</p>
+        </div>
+    </footer>
 
 
     <!-- JS for Scrolling -->
     <script>
         const list = document.getElementById("platformList");
         document.querySelector(".next").addEventListener("click", () => {
-            list.scrollBy({ left: 335, behavior: "smooth" });
+            list.scrollBy({ left: 337, behavior: "smooth" });
         });
         document.querySelector(".prev").addEventListener("click", () => {
-            list.scrollBy({ left: -320, behavior: "smooth" });
+            list.scrollBy({ left: -337, behavior: "smooth" });
         });
     </script>
 </body>
