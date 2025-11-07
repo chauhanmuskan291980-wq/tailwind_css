@@ -1,752 +1,323 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recover Your Social Media Account | Smipin</title>
-
-    <!-- Google Font + Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-    <style>
-        /* 🎨 Theme Colors */
-        :root {
-            --primary-yellow: #ffc700;
-            --secondary-yellow: #ffd94f;
-            --dark-bg: #121212;
-            --dark-surface: #1f1f1f;
-            --text-white: #ffffff;
-            --text-light: #bbb;
-        }
-
-        /* 🌍 Base Styles */
-        body {
-            margin: 0;
-            font-family: "Inter", sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-white);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1150px;
-            margin: 0 auto;
-        }
-
-        /* 🧭 Header */
-        header {
-            position: relative;
-            background: var(--dark-surface);
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--primary-yellow);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        header .container {
-            width: 85%;
-            max-width: 1150px;
-            margin: 0 auto;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            position: relative;
-        }
-
-        
-        .leftDesign {
-            position: absolute;
-            top: 50%;
-            left: 2rem;
-            transform: translateY(-50%);
-        }
-
-        .leftDesign .logo img {
-            width: 55px;
-            height: auto;
-            display: block;
-        }
-
-        .nav-content-right {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            flex-grow: 1;
-            gap: 1.2rem;
-        }
-
-
-        .search-box {
-            display: flex;
-            align-items: center;
-            border: 1px solid var(--primary-yellow);
-            border-radius: 25px;
-            overflow: hidden;
-            background: var(--dark-bg);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .search-box:focus-within {
-            box-shadow: 0 0 10px rgba(255, 199, 0, 0.3);
-        }
-
-
-
-        .search-input {
-            border: none;
-            background: transparent;
-            color: var(--text-white);
-            padding: 0.6rem 1rem;
-            width: 160px;
-        }
-
-        .search-input::placeholder {
-            color: var(--text-light);
-        }
-
-        .search-btn {
-            background: var(--primary-yellow);
-            border: none;
-            color: var(--dark-bg);
-            padding: 0.6rem 1rem;
-            cursor: pointer;
-        }
-
-        /* Nav Links */
-        .nav-content-right {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--primary-yellow);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-
-        .nav-links a:hover {
-            color: var(--text-white);
-            text-shadow: 0 0 8px var(--primary-yellow);
-        }
-
-        /* 🔽 Custom Dropdown Styling */
-        .select-wrapper {
-            position: relative;
-        }
-
-        .select-wrapper select {
-            background: var(--dark-bg);
-            color: var(--text-white);
-            border: 1px solid var(--primary-yellow);
-            border-radius: 25px;
-            padding: 0.6rem 2rem 0.6rem 1rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            appearance: none;
-            outline: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .select-wrapper::after {
-            content: "\25BC";
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--primary-yellow);
-            pointer-events: none;
-            font-size: 0.8rem;
-        }
-
-        .select-wrapper select:hover,
-        .select-wrapper select:focus {
-            border-color: var(--secondary-yellow);
-            box-shadow: 0 0 12px rgba(255, 199, 0, 0.4);
-            transform: translateY(-2px);
-        }
-
-
-        .loginBtn {
-            background: var(--primary-yellow);
-            color: var(--dark-bg);
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(255, 199, 0, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        .loginBtn:hover {
-            background: var(--secondary-yellow);
-            transform: translateY(-2px);
-        }
-
-        /* 📱 Responsive tweak */
-        @media (max-width: 992px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-
-            .nav-content-right {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-
-        /* 🌟 Hero Section */
-        .hero {
-            text-align: center;
-            padding: 5rem 1rem;
-            background: linear-gradient(135deg, var(--dark-bg), #252525);
-        }
-
-        .hero h1 {
-            color: var(--primary-yellow);
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            max-width: 650px;
-            margin: 0 auto 2rem;
-            color: var(--text-light);
-            font-size: 1.2rem;
-        }
-
-        .cta-btn {
-            background: var(--primary-yellow);
-            color: var(--dark-bg);
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(255, 199, 0, 0.5);
-        }
-
-        .cta-btn:hover {
-            background: var(--secondary-yellow);
-            transform: translateY(-3px);
-        }
-
-        /* 💫 Platform Support Section */
-        .platform-support {
-            background: #252525;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .platform-support h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--text-white);
-        }
-
-        .platform-list-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            position: relative;
-        }
-
-        .scroll-btn {
-            background: var(--primary-yellow);
-            color: var(--dark-bg);
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.3rem;
-            transition: background 0.3s;
-            flex-shrink: 0;
-        }
-
-        .scroll-btn:hover {
-            background: var(--secondary-yellow);
-        }
-
-        .platform-list {
-            display: flex;
-            gap: 1.5rem;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            padding: 1rem 0;
-            width: 70%;
-        }
-
-        .platform-card {
-            background: var(--dark-surface);
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 1.5rem;
-            width: 325px;
-            height: 420px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            transition: transform 0.3s, border-color 0.3s;
-            cursor: pointer;
-            box-sizing: border-box;
-        }
-
-        .platform-card:hover {
-            border-color: var(--primary-yellow);
-            transform: translateY(-5px);
-        }
-
-        .platform-icon {
-            font-size: 2rem;
-            color: var(--primary-yellow);
-            margin-bottom: 10px;
-        }
-
-        .platform-card h3 {
-            color: var(--primary-yellow);
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .platform-supported {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            width: 80%;
-        }
-
-
-
-        .platform-supported li {
-            color: var(--text-white);
-            padding: 6px 0;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
-            width: 100%;
-
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .platform-supported li i {
-            font-size: 1.1 rem;
-            color: var(--primary-yellow);
-            width: 22px;
-            text-align: center;
-        }
-
-        .platform-supported li:hover {
-            color: var(--text-white);
-            transform: translateX(5px);
-        }
-
-        .socialMedia-Plateform {
-            background: #252525;
-            padding: 4rem 0;
-            text-align: center;
-            color: #fff;
-            overflow: hidden;
-            /* hides overflow */
-        }
-
-        .socialMedia-Plateform h2 {
-            font-size: 2rem;
-            color: var(--primary-yellow, #ffc700);
-            margin-bottom: 2rem;
-        }
-
-        .SM-list {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .SM-link-wrapper {
-            display: flex;
-            gap: 1.5rem;
-            width: max-content;
-            animation: scrollPlatforms 10s linear infinite;
-        }
-
-        .SM-link-wrapper:hover {
-            animation-play-state: paused;
-            /* stop animation on hover */
-        }
-
-        .SM-card {
-            background: var(--dark-surface);
-            ;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 1.5rem;
-            width: 280px;
-            height: 300px;
-            text-align: left;
-            flex-shrink: 0;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .SM-card:hover {
-            border-color: var(--primary-yellow, #ffc700);
-            transform: translateY(-5px);
-        }
-
-        .socialMedia-Plateform .platform-icon {
-            font-size: 2rem;
-            color: var(--primary-yellow, #ffc700);
-            margin-bottom: 10px;
-        }
-
-        .SM-card h3 {
-            color: var(--primary-yellow, #ffc700);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .SM-supported {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .SM-supported li {
-            color: #ddd;
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .SM-supported li:last-child {
-            border-bottom: none;
-        }
-
-        .SM-supported li i {
-            font-size: 1rem;
-            color: var(--primary-yellow, #ffc700);
-            width: 22px;
-            text-align: center;
-        }
-
-        .SM-supported li:hover {
-            color: #fff;
-            transform: translateX(5px);
-        }
-
-        /* 🌟 Animation for horizontal scroll */
-        @keyframes scrollPlatforms {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-
-        /* 🌙 Footer Styling */
-        .site-footer {
-            background: var(--dark-surface);
-            color: var(--text-light);
-            padding: 3rem 0 1.5rem;
-            border-top: 1px solid var(--primary-yellow);
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
-            margin-top: 4rem;
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .footer-col h3,
-        .footer-col h4 {
-            color: var(--primary-yellow);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .footer-col p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .footer-col ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 0.6rem;
-        }
-
-        .footer-col ul a {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
-
-        .footer-col ul a:hover {
-            color: var(--primary-yellow);
-            transform: translateX(4px);
-        }
-
-        /* 🔗 Social Icons */
-        .social-links {
-            display: flex;
-            gap: 0.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border: 1px solid var(--primary-yellow);
-            border-radius: 50%;
-            color: var(--primary-yellow);
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: var(--primary-yellow);
-            color: var(--dark-bg);
-            transform: translateY(-3px);
-        }
-
-        /* 📜 Bottom Bar */
-        .footer-bottom {
-            text-align: center;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 2rem;
-        }
-
-        .footer-bottom p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        /* 📱 Responsive */
-        @media (max-width: 768px) {
-            .footer-container {
-                text-align: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="homepage.css" />
 </head>
 
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="leftDesign">
-            <a href="#" class="logo">
-                <img src="Screenshot (80).png" alt="Smipin Logo" />
-            </a>
-        </div>
+  <header>
+    
 
-        <div class="container">
-            <nav>
-                <div class="nav-content-right">
-                    <div class="search-box">
-                        <input type="text" class="search-input" placeholder="Search..." />
-                        <button class="search-btn"><i class="fas fa-search"></i></button>
-                    </div>
-
-                    <ul class="nav-links">
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">AboutUs</a></li>
-                        <li><a href="mailto:info@example.com"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="mailto:info@example.com"><i class="fas fa-envelope"></i></a></li>
-                        <li><a href="mailto:info@example.com"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="mailto:info@example.com"><i class="fab fa-whatsapp"></i></a></li>
-                        <li><a href="mailto:info@example.com"><i class="fab fa-youtube"></i></a></li>
-                         <li><a href="mailto:info@example.com"><i class="fab fa-x-twitter"></i></a></li>
-                    </ul>
-
-                    <div class="select-wrapper">
-                        <select>
-                            <option value="">EN</option>
-                            <option value="">FN</option>
-                        </select>
-                    </div>
-
-                    <div class="select-wrapper">
-                        <select>
-                            <option value="">Services</option>
-                            <option value="">Social Media Account Recovery</option>
-                            <option value="">Account Verification</option>
-                            <option value="">Username Claim</option>
-                            <option value="">Copyright Removal</option>
-                            <option value="">Paid Promotions</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <button class="loginBtn">Login</button>
-                    </div>
-                </div>
-
-            </nav>
-        </div>
-    </header>
-
-
-
-
-    <!-- HERO -->
-    <section class="hero">
-        <div class="container">
-            <h1>Recover Your Social Media Accounts Instantly</h1>
-            <p>
-                Lost access to your Instagram, TikTok, or Facebook? Our free chatbot
-                helps you recover your account easily and securely.
-            </p>
-            <button class="cta-btn">Try it now!</button>
-        </div>
-    </section>
-
-    <!-- PLATFORM SUPPORT -->
-    <section class="platform-support">
-        <h2>Top Services</h2>
-        <div class="platform-list-container">
-            <button class="scroll-btn prev">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-
-            <div class="platform-list" id="platformList">
-                <!-- Example Card -->
-                <a href="form.html" class="card-link-wrapper">
-                    <div class="platform-card">
-                        <div class="platform-icon"><i class="fas fa-lock-open"></i></div>
-                        <h3>Social Media Account Recovery</h3>
-                        <ul class="platform-supported">
-                            <li><i class="fab fa-instagram"></i> Instagram</li>
-                            <li><i class="fab fa-tiktok"></i> TikTok</li>
-                            <li><i class="fab fa-facebook-f"></i> Facebook</li>
-                            <li><i class="fab fa-youtube"></i>YouTube</li>
-                            <li><i class="fab fa-tiktok"></i>TikTok</li>
-                            <li><i class="fab fa-snapchat-ghost"></i>Snapchat</li>
-                            <li><i class="fab fa-x-twitter"></i>Twitter</li>
-                        </ul>
-                    </div>
-                </a>
-
-                <a href="form.html" class="card-link-wrapper">
-                    <div class="platform-card">
-                        <div class="platform-icon"><i class="fas fa-tag"></i></div>
-                        <h3>Social Media Account Username Claim</h3>
-                        <ul class="platform-supported">
-                            <li><i class="fab fa-instagram"></i> Instagram</li>
-                            <li><i class="fab fa-tiktok"></i> TikTok</li>
-                            <li><i class="fab fa-facebook-f"></i> Facebook</li>
-                            <li><i class="fab fa-youtube"></i>YouTube</li>
-                            <li><i class="fab fa-tiktok"></i>TikTok</li>
-                            <li><i class="fab fa-snapchat-ghost"></i>Snapchat</li>
-                            <li><i class="fab fa-x-twitter"></i>Twitter</li>
-                        </ul>
-                    </div>
-                </a>
-
-                <a href="form.html" class="card-link-wrapper">
-                    <div class="platform-card">
-                        <div class="platform-icon"><i class="fas fa-tag"></i></div>
-                        <h3>Social Media Account Verification</h3>
-                        <ul class="platform-supported">
-                            <li><i class="fab fa-instagram"></i> Instagram</li>
-                            <li><i class="fab fa-tiktok"></i> TikTok</li>
-                            <li><i class="fab fa-facebook-f"></i> Facebook</li>
-                            <li><i class="fab fa-youtube"></i>YouTube</li>
-                            <li><i class="fab fa-tiktok"></i>TikTok</li>
-                            <li><i class="fab fa-snapchat-ghost"></i>Snapchat</li>
-                            <li><i class="fab fa-x-twitter"></i>Twitter</li>
-                        </ul>
-                    </div>
-                </a>
-
-                <a href="form.html" class="card-link-wrapper">
-                    <div class="platform-card">
-                        <div class="platform-icon"><i class="fas fa-copyright"></i></div>
-                        <h3>Copyright / DMCA</h3>
-                        <ul class="platform-supported">
-                            <li><i class="fab fa-instagram"></i> Instagram</li>
-                            <li><i class="fab fa-tiktok"></i> TikTok</li>
-                            <li><i class="fab fa-facebook-f"></i> Facebook</li>
-                            <li><i class="fab fa-youtube"></i>YouTube</li>
-                            <li><i class="fab fa-tiktok"></i>TikTok</li>
-                            <li><i class="fab fa-snapchat-ghost"></i>Snapchat</li>
-                            <li><i class="fab fa-x-twitter"></i>Twitter</li>
-                        </ul>
-                    </div>
-                </a>
-
-                <a href="form.html" class="card-link-wrapper">
-                    <div class="platform-card">
-                        <div class="platform-icon"><i class="fas fa-bullhorn"></i></div>
-                        <h3>Brand Promotion</h3>
-                        <ul class="platform-supported">
-                            <li><i class="fas fa-newspaper"></i>News Article</li>
-                            <li><i class="fab fa-whatsapp"></i>WhatsApp Marketing</li>
-                            <li> <i class="fab fa-instagram"></i>IG Collaboration</li>
-                            <li><i class="fab fa-google"></i> Google Reviews</li>
-                            <li><i class="fas fa-star"></i> Trustpilot Reviews</li>
-                            <li> <i class="fas fa-plane-departure"></i> TripAdvisor Reviews </li>
-                        </ul>
-                    </div>
+    <div class="container">
+        <nav>
+          <div class="leftDesign">
+                <a href="#" class="logo">
+                    <img src="Screenshot (80).png" alt="Smipin Logo" />
                 </a>
             </div>
+             
 
-            <button class="scroll-btn next">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+            <ul class="nav-links main-links" id="nav-group-1">
+                <li><a href="#">Blog</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li class="dropdown-trigger">
+                    <a href="#">Services <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                           <li><a href="#account-recovery-card" class="scroll-to-card">Social Media Account Recovery</a></li>
+                            <li><a href="#verification-form-card" class="scroll-to-card">Account Verification</a></li>
+                            <li><a href="#username-claim-form-card" class="scroll-to-card">Username Claim</a></li>
+                            <li><a href="#removal-form-card" class="scroll-to-card">Copyright & Content Removal</a></li>
+                            <li><a href="whatappMarketing.html">WhatsApp Marketing</a></li>
+                            <li><a href="IGCollaboration.html">Instagram Collaboration</a></li>
+                            <li><a href="vendor-registration.html">Register as a Vendor</a></li>
+                            <li class="separator"></li>
+                            <li><a href="googleReviews.html" >Review Removal (Google/Trustpilot)</a></li>
+                        </ul>
+                </li>
+            </ul>
+
+            <div class="nav-utility" id="nav-group-2">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Search..." />
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="select-wrapper language-select">
+                    <select>
+                        <option value="">EN</option>
+                        <option value="">FN</option>
+                    </select>
+                </div>
+
+                <ul class="nav-links social-icons">
+                        <li><a href="mailto:info@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+                        <li><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="#"><i class="fab fa-x-twitter"></i></a></li>
+                    </ul>
+            </div>
+
+            
+
+            <div class="nav-cta" id="nav-group-3">
+                <button class="loginBtn">Register as a Vendor</button>
+            </div>
+
+             <div class="nav-cta" id="nav-group-3">
+                <button class="loginBtn">Login</button>
+            </div>
+            
+        </nav>
+    </div>
+</header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>Recover Your Social Media Accounts Instantly</h1>
+      <p>
+        Lost access to your Instagram, TikTok, or Facebook? Our free chatbot
+        helps you recover your account easily and securely.
+      </p>
+      <button class="cta-btn">Try it now!</button>
+    </div>
+  </section>
+
+  <div class="ticker">
+    <marquee behavior="scroll" direction="left">
+      ⚠️ Disclaimer: Smipin is an independent platform and is not affiliated with Instagram, TikTok, or any social media
+      company.
+    </marquee>
+  </div>
+
+
+  <!-- PLATFORM SUPPORT -->
+  <section class="platform-support" id="services">
+    <h2>Top Services</h2>
+    <div class="platform-list-container">
+      <button class="scroll-btn prev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <div class="platform-list" id="platformList">
+        <!-- Example Card -->
+        <div class="card-link-wrapper" id="account-recovery-card">
+          <div class="platform-card">
+            <div class="platform-icon"><i class="fas fa-lock-open"></i></div>
+            <h3>Social Media Account Recovery</h3>
+            <ul class="platform-supported">
+              <li>
+                <a href="IGRecovery.html"><i class="fab fa-instagram"></i>Instagram</a>
+              </li>
+              <li>
+                <a href="tiktokRecovery.html"><i class="fab fa-tiktok"></i>TikTok</a>
+              </li>
+              <li>
+                <a href="facebook.html"><i class="fab fa-facebook-f"></i>Facebook</a>
+              </li>
+              <li>
+                <a href="youtubeRecovery.html"> <i class="fab fa-youtube"></i>YouTube</a>
+              </li>
+              <li>
+                <a href="snapchat.html"> <i class="fab fa-snapchat-ghost"></i>Snapchat</a>
+              </li>
+              <li>
+                <a href="twitterRecovery.html"><i class="fab fa-x-twitter"></i>Twitter</a>
+              </li>
+              <li>
+                <a href="whatsappRecovery.html"><i class="fab fa-whatsapp"></i>Whatapp</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </section>
+
+        <div class="card-link-wrapper"  id="username-claim-form-card">
+          <div class="platform-card">
+            <div class="platform-icon"><i class="fas fa-tag"></i></div>
+            <h3><a href="usernameClaim.html">Social Media Account Username Claim</a></h3>
+            <ul class="platform-supported">
+              <li><a href="usernameClaim.html?platform=instagram"><i class="fab fa-instagram"></i> Instagram</a></li>
+              <li> <a href="usernameClaim.html?platform=tiktok"><i class="fab fa-tiktok"></i>TikTok</a></li>
+              <li><a href="usernameClaim.html?platform=facebook"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+              <li><a href="usernameClaim.html?platform=youtube"><i class="fab fa-youtube"></i>YouTube</a></li>
+              <li><a href="usernameClaim.html?platform=snapchat"><i class="fab fa-snapchat-ghost"></i>Snapchat</a></li>
+              <li><a href="usernameClaim.html?platform=twitter"><i class="fab fa-x-twitter"></i>Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-link-wrapper" id="verification-form-card">
+          <div class="platform-card">
+            <div class="platform-icon"><i class="fas fa-tag"></i></div>
+            <h3> <a href="accountVerifcation.html">Social Media Account Verification</a></h3>
+            <ul class="platform-supported">
+              <li><a href="accountVerifcation.html?platform=instagram"><i class="fab fa-instagram"></i> Instagram</a>
+              </li>
+              <li><a href="accountVerifcation.html?platform=tiktok"><i class="fab fa-tiktok"></i> TikTok</a></li>
+              <li><a href="accountVerifcation.html?platform=facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+              </li>
+              <li><a href="accountVerifcation.html?platform=youtube"><i class="fab fa-youtube"></i>YouTube</a></li>
+              <li><a href="accountVerifcation.html?platform=snapchat"><i class="fab fa-snapchat-ghost"></i>Snapchat</a>
+              </li>
+              <li><a href="accountVerifcation.html?platform=twitter"><i class="fab fa-x-twitter"></i>Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-link-wrapper" id="removal-form-card">
+          <div class="platform-card">
+            <div class="platform-icon"><i class="fas fa-copyright"></i></div>
+            <h3> <a href="copyrightRemoval.html">Copyright / DMCA</a></h3>
+            <ul class="platform-supported">
+              <li><a href="copyrightRemoval.html?platform=instagram"><i class="fab fa-instagram"></i> Instagram</a></li>
+              <li><a href="copyrightRemoval.html?platform=tiktok"><i class="fab fa-tiktok"></i> TikTok</a></li>
+              <li><a href="copyrightRemoval.html?platform=facebook"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+              <li><a href="copyrightRemoval.html?platform=youtube"><i class="fab fa-youtube"></i>YouTube</a></li>
+              <li><a href="copyrightRemoval.html?platform=snapchat"><i class="fab fa-snapchat-ghost"></i>Snapchat</a>
+              </li>
+              <li><a href="copyrightRemoval.html?platform=twitter"><i class="fab fa-x-twitter"></i>Twitter</a></li>
+            </ul>
+          </div>
+        </div>
 
 
-    <section class="socialMedia-Plateform">
+
+        <div class="card-link-wrapper" id="marketing-form-card">
+          <div class="platform-card">
+            <div class="platform-icon"><i class="fas fa-bullhorn"></i></div>
+            <h3>Brand Promotion</h3>
+            <ul class="platform-supported">
+              <li><i class="fas fa-newspaper"></i>News Article</li>
+              <li><i class="fab fa-whatsapp"></i> <a href="whatappMarketing.html">WhatsApp Marketing</a></li>
+              <li><i class="fab fa-instagram"></i><a href="IGCollaboration.html">IG Collaboration</a></li>
+              <li><a href="googleReviews.html"><i class="fab fa-google"></i> Google Reviews</a></li>
+              <li><a href="TripAdvisor.html"><i class="fas fa-star"></i> Trustpilot Reviews</a></li>
+              <li>
+                <a href="trustpilot.html"><i class="fas fa-plane-departure"></i> TripAdvisor Reviews</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <button class="scroll-btn next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </section>
+
+
+  <section class="hero1">
+    <div class="container">
+      <h1>Become Our Verified Service Partner</h1>
+      <p>
+        Are you a digital expert, agency, or freelancer offering services like
+        account recovery, verification assistance, copyright removal, or promotions?
+        Partner with <strong>Smipin</strong> to serve clients globally and grow your business
+      </p>
+      <button class="cta-btn" onclick="window.location.href='vendor-registration.html'">
+        Register as a Vendor
+      </button>
+    </div>
+  </section>
+
+   <section class="socialMedia-Plateform">
+    <div class="container">
+        <h2>Our Core Digital Support Services</h2>
+        <div class="SM-list">
+            <div class="SM-link-wrapper">
+                
+                <div class="SM-card">
+                    <div class="platform-icon"><i class="fas fa-unlock-alt"></i></div>
+                    <h3>Account Recovery</h3>
+                    <ul class="SM-supported">
+                        <li><i class="fas fa-check-circle"></i> Hacked & Disabled Accounts</li>
+                        <li><i class="fas fa-check-circle"></i> Instagram, Facebook, TikTok, WhatsApp, X</li>
+                        <li><i class="fas fa-check-circle"></i> Lost Access & Forgotten Credentials</li>
+                        <li><i class="fas fa-arrow-right"></i> <a href="/recovery-form.html">Start Recovery</a></li>
+                    </ul>
+                </div>
+
+                <div class="SM-card">
+                    <div class="platform-icon"><i class="fas fa-badge-check"></i></div>
+                    <h3>Account Verification</h3>
+                    <ul class="SM-supported">
+                        <li><i class="fas fa-check-circle"></i> Blue Tick (Meta, X, TikTok)</li>
+                        <li><i class="fas fa-check-circle"></i> Green Tick (WhatsApp Business)</li>
+                        <li><i class="fas fa-check-circle"></i> Notability and Media Strategy</li>
+                        <li><i class="fas fa-arrow-right"></i> <a href="/verification-form.html">Apply for Verification</a></li>
+                    </ul>
+                </div>
+
+                <div class="SM-card">
+                    <div class="platform-icon"><i class="fas fa-at"></i></div>
+                    <h3>Username & Asset Claim</h3>
+                    <ul class="SM-supported">
+                        <li><i class="fas fa-check-circle"></i> Acquiring Inactive Usernames</li>
+                        <li><i class="fas fa-check-circle"></i> Brand & Trademark Protection</li>
+                        <li><i class="fas fa-check-circle"></i> Name Acquisition on all Platforms</li>
+                        <li><i class="fas fa-arrow-right"></i> <a href="/username-claim-form.html">Claim a Username</a></li>
+                    </ul>
+                </div>
+
+                <div class="SM-card">
+                    <div class="platform-icon"><i class="fas fa-shield-slash"></i></div>
+                    <h3>Copyright & Content Removal</h3>
+                    <ul class="SM-supported">
+                        <li><i class="fas fa-check-circle"></i> Impersonation Account Removal</li>
+                        <li><i class="fas fa-check-circle"></i> DMCA & Copyright Takedowns</li>
+                        <li><i class="fas fa-check-circle"></i> Defamation & Hate Speech Removal</li>
+                        <li><i class="fas fa-arrow-right"></i> <a href="/removal-form.html">Request Removal</a></li>
+                    </ul>
+                </div>
+
+                <div class="SM-card">
+                    <div class="platform-icon"><i class="fas fa-star-half-alt"></i></div>
+                    <h3>Reputation Management</h3>
+                    <ul class="SM-supported">
+                        <li><i class="fas fa-check-circle"></i> Google Review Removals</li>
+                        <li><i class="fas fa-check-circle"></i> Trustpilot & TripAdvisor Review Removal</li>
+                        <li><i class="fas fa-check-circle"></i> Suppression of Negative Content</li>
+                        <li><i class="fas fa-arrow-right"></i> <a href="/review-removal-form.html">Fix Your Rating</a></li>
+                    </ul>
+                </div>
+
+                <div class="SM-card">
+                    <div class="platform-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3>Marketing & Promotions</h3>
+                    <ul class="SM-supported">
+                        <li><i class="fas fa-check-circle"></i> Instagram Paid Collaborations</li>
+                        <li><i class="fas fa-check-circle"></i> WhatsApp Bulk Marketing</li>
+                        <li><i class="fas fa-check-circle"></i> Targeted Follower & Growth Campaigns</li>
+                        <li><i class="fas fa-arrow-right"></i> <a href="/marketing-form.html">Start a Campaign</a></li>
+                    </ul>
+                </div>
+
+                <div class="SM-card">
+                    <div class="platform-icon"><i class="fas fa-gavel"></i></div>
+                    <h3>Legal & Consulting</h3>
+                    <ul class="SM-supported">
+                        <li><i class="fas fa-check-circle"></i> Digital Rights & Law Consultation</li>
+                        <li><i class="fas fa-check-circle"></i> Platform-Specific Legal Strategy</li>
+                        <li><i class="fas fa-check-circle"></i> Global Digital Presence Planning</li>
+                        <li><i class="fas fa-arrow-right"></i> <a href="/contact.html">Book Consultation</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="socialMedia-Plateform">
         <div class="container">
             <h2>Supported Social Media Platforms</h2>
             <div class="SM-list">
@@ -833,79 +404,75 @@
     </section>
 
 
-    <footer class="site-footer">
-        <div class="container footer-container">
-            <div class="footer-col">
-                <h3>Smipin</h3>
-                <p>Your trusted partner for social media account recovery, verification, and digital support.</p>
-            </div>
 
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                    
-                </ul>
-            </div>
 
-            <div class="footer-col">
-                <h4>Data Policy</h4>
-                <ul>
-                    <li><a href="#">Terms and payments terms </a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Data Policy</a></li>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Terms and payments terms </a></li>
-                    <li><a href="#">Refunds policy</a></li>
-                </ul>
-            </div>
+ 
 
-            <div class="footer-col">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#">Account Recovery</a></li>
-                    <li><a href="#">Username Claim</a></li>
-                    <li><a href="#">Verification</a></li>
-                    <li><a href="#">Copyright Removal</a></li>
-                    <li><a href="#">Whatapp marketing</a></li>
-                    <li><a href="#">Instagram Collaboration</a></li>
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-col">
+        <h3>Smipin</h3>
+        <p>
+          Your trusted partner for social media account recovery,
+          verification, and digital support.
+        </p>
+      </div>
 
-                </ul>
-            </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Testimonials</a></li>
+        </ul>
+      </div>
 
-            <div class="footer-col">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-                <p><i class="fas fa-envelope"></i> support@smipin.com</p>
-            </div>
+      <div class="footer-col">
+        <h4>Data Policy</h4>
+        <ul>
+          <li><a href="#">Terms and payments terms </a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Data Policy</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Terms and payments terms </a></li>
+          <li><a href="#">Refunds policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Account Recovery</a></li>
+          <li><a href="#">Username Claim</a></li>
+          <li><a href="#">Verification</a></li>
+          <li><a href="#">Copyright Removal</a></li>
+          <li><a href="#">Whatapp marketing</a></li>
+          <li><a href="#">Instagram Collaboration</a></li>
+          <li><a href="#">Register as a Vendor</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
+        <p><i class="fas fa-envelope"></i> support@smipin.com</p>
+      </div>
+    </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2025 Smipin. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-
-    <!-- JS for Scrolling -->
-    <script>
-        const list = document.getElementById("platformList");
-        document.querySelector(".next").addEventListener("click", () => {
-            list.scrollBy({ left: 337, behavior: "smooth" });
-        });
-        document.querySelector(".prev").addEventListener("click", () => {
-            list.scrollBy({ left: -337, behavior: "smooth" });
-        });
-    </script>
+    <div class="footer-bottom">
+      <p>Disclaimer: Smipin is an independent platform and is not affiliated with Instagram, TikTok, or any social media company.</p>
+    </div>
+  </footer>
+  
 </body>
+<script src="homepage.js"></script>
 
 </html>
