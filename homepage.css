@@ -1,9 +1,9 @@
-/* 🎨 Theme Colors */
+ /* 🎨 Theme Colors */
 :root {
   --primary-yellow: #ffc700;
   --secondary-yellow: #ffd94f;
-  --dark-bg: #121212;
-  --dark-surface: #1f1f1f;
+  --dark-bg:  #2d3748;
+  --dark-surface:  #2d3748;
   --text-white: #ffffff;
   --text-light: #bbb;
 }
@@ -12,8 +12,8 @@
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  background: var(--dark-bg);
-  color: var(--text-white);
+  background: #f5f5ee;
+  color: block;
 }
 
 a {
@@ -24,7 +24,7 @@ a {
 /* --- 1. GENERAL HEADER & NAVIGATION LAYOUT --- */
 
 header {
-  background-color: var(--dark-bg, #1a1a1a);
+  background-color:#f5f5ee;
   /* Significantly increased vertical padding for height */
   padding: 20px 0;
   width: 100%;
@@ -36,19 +36,19 @@ header .container nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #000
 }
 
 .leftDesign .logo img {
-    height: 45px;
+    height: 50px;
     /* Add horizontal padding to separate logo from main links */
-    padding-right: 4px; 
     margin-left:40px;
-    border:1px solid #ffc700;
+    border:1px solid #000000ff;
     border-radius:50%;
 }
   
 .leftDesign .logo img:hover{
-    border:1px solid white;
+    border:1px solid block;
 }
 
 /* Combined group for the Logo and Main Links */
@@ -69,7 +69,7 @@ header .container nav {
 }
 
 .main-links li a {
-  color: var(--text-color, #f0f0f0);
+  color:  #000000ff;
   text-decoration: none;
   /* Ensure no extra padding is here, let the header padding control height */
   padding: 0;
@@ -79,7 +79,7 @@ header .container nav {
 }
 
 .main-links li a:hover {
-  color: var(--primary-yellow, #ffc107);
+  color: var( #302d24ff);
 }
 
 /* --- 2. SERVICES DROPDOWN MENU (MEGAMENU) --- */
@@ -159,12 +159,12 @@ header .container nav {
   background: none;
   border: none;
   padding: 0 12px;
-  color: var(--text-color, #f0f0f0);
+  color: var(#f0f0f0);
   outline: none;
   width: 200px; /* Wider search input */
 }
 .search-btn {
-  background-color: var(--primary-yellow, #ffc107);
+  background-color: var(#3d3645);
   border: none;
   color: #1a1a1a;
   padding: 10px 15px;
@@ -174,8 +174,8 @@ header .container nav {
 
 /* Language Select Styling */
 .language-select select {
-  background-color: var(--dark-bg, #1a1a1a);
-  color: var(--text-color, #f0f0f0);
+  background-color: var(#000000ff);
+  color: var(black);
   border: 1px solid var(--border-gray, #444);
   border-radius: 6px;
   padding: 10px;
@@ -194,21 +194,20 @@ header .container nav {
 }
 
 .social-icons li a {
-  color: var(--text-color, #f0f0f0);
   font-size: 22px; /* Largest icon size */
   padding: 5px;
   transition: color 0.3s;
 }
 
 .social-icons li a:hover {
-  color: var(--primary-yellow, #ffc107);
-  border:1px solid #ffffffff;
+  color: #2d3748;
+  border:1px solid #000000ff;
   border-radius:70%;
 }
 
 /* Login Button */
 .loginBtn {
-  background-color: var(--primary-yellow, #ffc107);
+  background-color:  #e9e9ed;
   color: #1a1a1a;
   border: none;
   /* Maximum padding for largest click target and presence */
@@ -221,7 +220,7 @@ header .container nav {
 }
 
 .loginBtn:hover {
-  background-color: #e0ac00;
+  background-color: #8f7d71ff;
 }
 
 /* --- 4. MOBILE RESPONSIVENESS (Hamburger Menu) --- */
@@ -326,23 +325,23 @@ header .container nav {
 .hero1 {
   text-align: center;
   padding: 5rem 1rem;
-  background: linear-gradient(135deg, var(--dark-bg), #252525);
+  background:#2b323f;
   border: 2px dashed rgba(255, 199, 0, 0.4);
   border-radius: 5px;
 }
 .hero1:hover {
   border: 2px solid #ffc700;
-  transform: translateY(-5px);
+  transform: translateY(0.5px);
 }
 
 .hero h1 {
-  color: var(--primary-yellow);
+  color:white;
   font-size: 2.8rem;
   margin-bottom: 1rem;
 }
 
 .hero1 h1 {
-  color: var(--primary-yellow);
+  color:  white;
   font-size: 2.8rem;
   margin-bottom: 1rem;
 }
@@ -350,8 +349,12 @@ header .container nav {
 .hero p {
   max-width: 650px;
   margin: 0 auto 2rem;
-  color: var(--text-light);
+  color: white;
   font-size: 1.2rem;
+}
+
+.hero1 p{
+  color:white
 }
 
 .cta-btn {
@@ -373,8 +376,8 @@ header .container nav {
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Open+Sans:wght@400;600&display=swap");
 
 .ticker {
-  background: #222;
-  color: var(--primary-yellow);
+  background: #f5f5ee;
+  color:  black;
   padding: 8px 0;
   font-weight: 600;
   font-size: 0.95rem;
@@ -387,7 +390,7 @@ header .container nav {
 
 /* 💫 Platform Support Section */
 .platform-support {
-  background: #252525;
+  background: #2d3748;
   padding: 4rem 0;
   text-align: center;
 }
@@ -433,8 +436,8 @@ header .container nav {
 }
 
 .platform-card {
-  background: var(--dark-surface);
-  border: 1px solid #333;
+  background-color:  #f5f5ee;
+  border: 2px solid #000000ff;
   border-radius: 12px;
   padding: 1.5rem;
   width: 325px;
@@ -455,12 +458,12 @@ header .container nav {
 
 .platform-icon {
   font-size: 2rem;
-  color: var(--primary-yellow);
+  color:  #373636ff;
   margin-bottom: 10px;
 }
 
 .platform-card h3 {
-  color: var(--primary-yellow);
+  color:  #393838ff;
   font-size: 1.2rem;
   margin-bottom: 0.8rem;
 }
@@ -473,7 +476,7 @@ header .container nav {
 }
 
 .platform-supported li {
-  color: var(--text-white);
+  color:  black;
   padding: 6px 0;
   margin-bottom: 5px;
   display: flex;
@@ -482,24 +485,24 @@ header .container nav {
   font-size: 0.95rem;
   width: 100%;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   transition: color 0.3s, transform 0.3s;
 }
 
 .platform-supported li i {
   font-size: 1.1 rem;
-  color: var(--primary-yellow);
+  color:  black;
   width: 22px;
   text-align: center;
 }
 
 .platform-supported li:hover {
-  color: var(--text-white);
+  color:  black;
   transform: translateX(5px);
 }
 
 .socialMedia-Plateform {
-  background: #252525;
+  background:  #2d3748;
   padding: 4rem 0;
   text-align: center;
   color: #fff;
@@ -532,7 +535,7 @@ header .container nav {
 }
 
 .SM-card {
-  background: var(--dark-surface);
+  background: #f5f5ee;
   border: 1px solid #333;
   border-radius: 12px;
   padding: 1.5rem;
@@ -551,7 +554,7 @@ header .container nav {
 
 .socialMedia-Plateform .platform-icon {
   font-size: 2rem;
-  color: var(--primary-yellow, #ffc700);
+  color: #000000ff;
   margin-bottom: 10px;
 }
 
@@ -563,8 +566,8 @@ header .container nav {
 }
 
 .SM-card h3 {
-  color: var(--primary-yellow, #ffc700);
-  font-size: 1.3rem;
+  color: #3e3d3dff;
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -575,7 +578,7 @@ header .container nav {
 }
 
 .SM-supported li {
-  color: #ddd;
+  color: #3c3b3bff;
   padding: 8px 0;
   display: flex;
   align-items: center;
@@ -596,7 +599,7 @@ header .container nav {
 }
 
 .SM-supported li:hover {
-  color: #fff;
+  color: #353535ff;
   transform: translateX(5px);
 }
 
