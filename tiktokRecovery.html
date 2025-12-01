@@ -1,0 +1,381 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TikTok Account Recovery Form</title>
+    <link rel="stylesheet" href="IGRecovery.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+               <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <!-- Using a colored box as a logo placeholder since no image URL was provided -->
+                <div style="width: 130px; height: 30px; background-color: #ff5c00; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">SMIPIN LOGO</div>
+            </a>
+
+            <!-- Hamburger Button (visible on mobile) -->
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- NAV MENU (slides out on mobile) -->
+            <div class="nav-menu" id="navMenu">
+
+
+
+                <!-- LEFT MENU -->
+                <ul class="nav-links">
+
+                  <div><a href="homepage.html">Home</a></div>
+                  <div><a href="aboutus.html">About us</a></div>
+                  <div><a href="blog.html">Blog</a></div>
+                    <li class="dropdown-trigger">
+                        <a href="#">Platform <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+                         <ul class="dropdown-menu">
+                            <li><a href="IGRecovery.html">Instagram</a></li>
+                            <li><a href="facebook.html">Facebook</a></li>
+                            <li><a href="whatsappRecovery.html">WhatsApp</a></li>
+                            <li><a href="snapchat.html">SnapChat</a></li>
+                            <li><a href="youtubeRecovery.html">YouTube</a></li>
+                            <li><a href="twitterRecovery.html">Twitter</a></li>
+                            <li><a href="tiktokRecovery.html">TikTok</a></li>
+                        </ul>
+                    </li>
+
+                   <li class="dropdown-trigger">
+                        <a href="#">Services <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="social-media-account-recovery.html">Social Media Account Recovery</a></li>
+                            <li><a href="account-verification.html">Account Verification</a></li>
+                            <li><a href="username-claim.html">Username Claim</a></li>
+                            <li><a href="copyright-removal.html">Content Removal</a></li>
+                            <li><a href="services.html">Digital Marketing && Others</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- RIGHT SIDE -->
+                <div class="nav-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search..." />
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <!-- <select class="language-select">
+                        <option>EN</option>
+                        <option>FR</option>
+                        <option>ES</option>
+                    </select> -->
+
+                    <ul class="social-icons">
+                        <li><a><i class="fas fa-envelope"></i></a></li>
+                        <li><a><i class="fab fa-instagram"></i></a></li>
+                        <li><a><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a><i class="fab fa-whatsapp"></i></a></li>
+                    </ul>
+                    
+                       
+
+                    <div id="loginContainer">
+                        <button class="login-btn"><a href="login.html">Login</a></button>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <h2>TikTok Account Recovery Form</h2>
+        <p class="small" style="text-align:center;margin-bottom:25px;">Please fill all required (*) fields carefully for
+            better assistance.</p>
+
+        <form id="tiktok-recovery-form"> <h3>1️⃣ Account Details</h3>
+
+            <div class="form-group">
+                <label class="required">TikTok Username</label>
+                <input type="text" name="username" placeholder="@username" required title="Enter the exact TikTok username/handle.">
+            </div>
+
+            <div class="form-group">
+                <label class="required">Name on Profile</label>
+                <input type="text" name="profileName" placeholder="Enter the display name on your TikTok profile" required>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Registered Email</label>
+                <input type="email" name="registeredEmail" placeholder="example@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Registered Phone Number</label>
+                <div style="display: flex; gap: 10px;">
+                    <select name="countryCode" style="width: 30%;">
+                        <option value="+91">+91</option>
+                        <option value="+1">+1</option>
+                        <option value="+44">+44</option>
+                        <option value="+61">+61</option>
+                    </select>
+                    <input type="text" name="phoneNumber" placeholder="Enter linked number" pattern="\d*" required style="width: 70%;">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Country of Account Registration</label>
+                <select name="country" required>
+                    <option value="">Select Country</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="Australia">Australia</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Type of Account</label>
+                <select name="accountType" required>
+                    <option value="">Select Type</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Creator">Creator</option>
+                    <option value="Business">Business</option>
+                    <option value="Brand">Brand</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Number of Followers</label>
+                <input type="number" name="followers" placeholder="Enter number of followers">
+            </div>
+
+            <div class="form-group">
+                <label>Date of Account Creation (approx)</label>
+                <input type="date" name="creationDate">
+            </div>
+
+            <div class="form-group">
+                <label class="required">Date of Account Ban / Suspension</label>
+                <input type="date" name="banDate" required>
+            </div>
+
+            <div class="form-group">
+                <label>Reason for Ban (if known)</label>
+                <textarea name="banReason" placeholder="Explain briefly if known..."></textarea>
+            </div>
+
+            <hr />
+
+            <h3>2️⃣ Access & Proof</h3>
+
+            <div class="form-group">
+                <label class="required">Is Account Verified?</label>
+                <div class="inline-group">
+                    <input type="radio" id="verified_yes" name="verified" value="yes" required>
+                    <label for="verified_yes">Yes</label>
+                    <input type="radio" id="verified_no" name="verified" value="no">
+                    <label for="verified_no">No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Can You See Ban Reason While Logging In?</label>
+                <div class="inline-group">
+                    <input type="radio" id="reason_yes" name="seeReason" value="yes">
+                    <label for="reason_yes">Yes</label>
+                    <input type="radio" id="reason_no" name="seeReason" value="no">
+                    <label for="reason_no">No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Upload Screenshot while trying to log in</label>
+                <div class="file-upload-section">
+                    <input type="file" name="loginScreenshot" accept=".pdf,.jpg,.jpeg" required> </div>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Any Email Received from TikTok?</label>
+                <div class="inline-group">
+                    <input type="radio" id="email_yes" name="emailReceived" value="yes" required>
+                    <label for="email_yes">Yes</label>
+                    <input type="radio" id="email_no" name="emailReceived" value="no">
+                    <label for="email_no">No</label>
+                </div>
+
+                <div id="tiktokEmailProof" class="conditional-section" style="display: none;">
+                    <label>Upload Email Screenshot / PDF</label>
+                    <div class="file-upload-section">
+                        <input type="file" name="emailProof" accept=".pdf,.jpg,.jpeg"> </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Was 2FA Enabled?</label>
+                <div class="inline-group">
+                    <input type="radio" id="twofa_yes" name="twofa" value="yes">
+                    <label for="twofa_yes">Yes</label>
+                    <input type="radio" id="twofa_no" name="twofa" value="no">
+                    <label for="twofa_no">No</label>
+                </div>
+
+                <div id="tiktok2fa" class="conditional-section" style="display: none;">
+                    <label>2FA Method</label>
+                    <div class="inline-group">
+                        <input type="checkbox" id="2fa_sms" name="twofaMethod" value="SMS"> <label for="2fa_sms">SMS</label>
+                        <input type="checkbox" id="2fa_app" name="twofaMethod" value="Authenticator App"> <label for="2fa_app">Authenticator App</label>
+                        <input type="checkbox" id="2fa_backup" name="twofaMethod" value="Backup Codes"> <label for="2fa_backup">Backup Codes</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Upload ID Proof (optional, PDF or image)</label>
+                <div class="file-upload-section">
+                    <input type="file" name="idProof" accept=".pdf,.jpg,.jpeg"> </div>
+            </div>
+
+            <hr />
+
+            <h3>3️⃣ Additional Details</h3>
+
+            <div class="form-group">
+                <label class="required">Public or Private Account</label>
+                <div class="inline-group">
+                    <input type="radio" id="acc_public" name="accVisibility" value="public" required> <label for="acc_public">Public</label>
+                    <input type="radio" id="acc_private" name="accVisibility" value="private">
+                    <label for="acc_private">Private</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Did you apply for recovery earlier?</label>
+                <div class="inline-group">
+                    <input type="radio" id="applied_yes" name="appliedBefore" value="yes" required>
+                    <label for="applied_yes">Yes</label>
+                    <input type="radio" id="applied_no" name="appliedBefore" value="no">
+                    <label for="applied_no">No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Maximum Budget in USD</label>
+                <input type="number" name="maxBudget" placeholder="e.g. 200">
+            </div>
+
+            <div class="form-group">
+                <label class="required">How did you hear about us?</label>
+                <div class="inline-group">
+                    <input type="checkbox" id="hear_google" name="heardFrom" value="Google"> <label for="hear_google">Google</label>
+                    <input type="checkbox" id="hear_tiktok" name="heardFrom" value="TikTok">
+                    <label for="hear_tiktok">TikTok</label>
+                    <input type="checkbox" id="hear_friend" name="heardFrom" value="Friend">
+                    <label for="hear_friend">Friend</label>
+                    <input type="checkbox" id="hear_other" name="heardFrom" value="Other">
+                    <label for="hear_other">Other</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Additional Comments</label>
+                <textarea name="comments" placeholder="Provide extra information if needed..."></textarea>
+            </div>
+
+            <div class="form-group" style="background-color: #e9f7ef;">
+                <div class="inline-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms" class="required">I agree to the <a href="#" target="_blank">Terms and Conditions</a></label>
+                </div>
+
+                <h4 style="margin-top: 25px; color: white;">Security Check (Type the Code)</h4>
+
+                <div id="captcha-display" style="
+                    display: flex; 
+                    align-items: center; 
+                    gap: 15px; 
+                    margin-bottom: 15px;
+                    padding: 10px;
+                    background: #121212;
+                    border-radius: 6px;
+                    color: var(--primary-yellow);
+                    font-size: 20px;
+                    font-weight: 700;
+                ">
+                    <span id="captchaCodeDisplay">Loading...</span>
+                    <button type="button" id="reloadCaptchaBtn" style="
+                        background: none; 
+                        border: none; 
+                        color: var(--primary-yellow); 
+                        cursor: pointer;
+                    " title="Reload Captcha"><i class="fas fa-redo"></i></button>
+                </div>
+
+                <input type="text" id="captcha_input" name="userCaptchaAnswer" placeholder="Enter the code shown above" required>
+                <input type="hidden" id="captchaToken" name="captchaId" value="">
+            </div>
+
+            <button class="submit-btn" type="submit">Submit Recovery Request</button>
+        </form>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Smipin</h3>
+                <p>Your trusted partner for social media account recovery, verification, and digital support.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Data Policy</h4>
+                <ul>
+                    <li><a href="#">Terms and payments terms </a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Data Policy</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Terms and payments terms </a></li>
+                    <li><a href="#">Refunds policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Account Recovery</a></li>
+                    <li><a href="#">Username Claim</a></li>
+                    <li><a href="#">Verification</a></li>
+                    <li><a href="#">Copyright Removal</a></li>
+                    <li><a href="#">Whatapp marketing</a></li>
+                    <li><a href="#">Instagram Collaboration</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p><i class="fas fa-envelope"></i> support@smipin.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Smipin. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="tiktokRecovery.js"></script>
+    <script src="social-media-recovery.js"></script>
+</body>
+</html>

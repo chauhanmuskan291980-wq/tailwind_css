@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platform Name Username Claim Form</title>
+    <title>WhatsApp Marketing Request Form</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
+    
     <link rel="stylesheet" href="IGRecovery.css" />
 </head>
 
@@ -39,13 +39,12 @@
                     <li class="dropdown-trigger">
                         <a href="#">Platform <i class="fas fa-caret-down ml-1 text-sm"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=instagram'">Instagram</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=facebook'">Facebook</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=whatapp'">WhatsApp</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=snapchat'">SnapChat</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=youtube'">YouTube</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=twitter'">Twitter</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=tiktok'">TikTok</a></li>
+                            <li><a href="IGCollaboration.html">Start Collaboration</a></li>
+                            <li><a href="whatappMarketing.html">whatsapp Marketing</a></li>
+                            <li><a href="trustpilot.html">Get Trustpilot Reviews</a></li>
+                            <li><a href="TripAdvisor.html">Get TripAdvisor Reviews</a></li>
+                            <li><a href="vendor-registration.html">vendor registration</a></li>
+                            <li><a href="googleReviews.html">Get Google Reviews</a></li>
                         </ul>
                     </li>
 
@@ -92,107 +91,120 @@
             </div>
         </nav>
     </header>
+      
 
-    <main class="form-container">
-        <h2>Username Claim Request</h2>
-        <p class="small" style="text-align:center;margin-bottom:25px;">Please provide accurate information for a
-            successful username acquisition.</p>
+<main class="form-container">
+    <h2>WhatsApp Marketing Campaign Request</h2>
+    <p class="small" style="text-align:center;margin-bottom:25px;">Please fill out the details for your targeted WhatsApp campaign.</p>
 
-        <form>
-            <h3>1️⃣ Target Username Details</h3>
+    <form id="whatsappForm">
+      <h3>1️⃣ Campaign & Business Details</h3>
 
-            <div class="form-group" id="mainContant">
-                <label class="required">Target Platform Name</label>
-                <input type="text" id="platformInput" name="platformInput"
-                    placeholder="e.g., Instagram, X (Twitter), TikTok" required>
-            </div>
+      <div class="form-group">
+        <label class="required">Business/Company Name</label>
+        <input type="text" name="business_name" placeholder="Your business name" required>
+      </div>
 
-            <div class="form-group">
-                <label class="required">Username Desired (@handle)</label>
-                <input type="text" name="desiredUsername" placeholder="e.g., @smipin_official" required>
-            </div>
+      <div class="form-group">
+        <label class="required">Campaign Goal</label>
+        <select name="campaign_goal" required>
+          <option value="">Select Goal</option>
+          <option>Lead Generation</option>
+          <option>Product Launch / Promotion</option>
+          <option>Customer Retention / Re-engagement</option>
+          <option>Customer Support Automation</option>
+          <option>Bulk Notification / Announcement</option>
+        </select>
+      </div>
 
-            <div class="form-group">
-                <label class="required">Current Status of Target Username</label>
-                <select name="usernameStatus" required>
-                    <option value="">Select Status</option>
-                    <option>Inactive Account (No posts/activity)</option>
-                    <option>Suspended/Banned Account</option>
-                    <option>Active but Unrelated Account</option>
-                    <option>Squatting/Placeholder Account</option>
-                    <option>Brand/Trademark Infringement</option>
-                </select>
-            </div>
+      <div class="form-group">
+        <label class="required">Your Registered WhatsApp Number</label>
+        <div style="display: flex; gap: 10px;">
+          <select name="country_code" style="width: 30%;">
+            <option>+91</option>
+            <option>+1</option>
+            <option>+44</option>
+            <option>+61</option>
+          </select>
+          <input type="tel" name="phone_number" placeholder="Enter phone number" pattern="\d*" required style="width: 70%;">
+        </div>
+      </div>
 
-            <div class="form-group">
-                <label class="required">Your Existing Profile URL on this Platform</label>
-                <input type="url" name="existingProfile"
-                    placeholder="If you have an existing profile (e.g., @smipin_support)" required>
-            </div>
+      <div class="form-group">
+        <label class="required">Is Your WhatsApp Account Verified?</label>
+        <div class="inline-group">
+          <input type="radio" id="wa_verified_yes" name="wa_verified" value="yes" required>
+          <label for="wa_verified_yes">Yes (Green Tick)</label>
+          <input type="radio" id="wa_verified_no" name="wa_verified" value="no">
+          <label for="wa_verified_no">No</label>
+          <input type="radio" id="wa_verified_pending" name="wa_verified" value="pending">
+          <label for="wa_verified_pending">Applied / Pending</label>
+        </div>
+      </div>
 
-            <hr />
+      <hr/>
 
-            <h3>2️⃣ Legal & Contact Information</h3>
+      <h3>2️⃣ Target & Content</h3>
 
-            <div class="form-group">
-                <label class="required">Your Legal/Brand Name</label>
-                <input type="text" name="brandName" placeholder="Name or Company Name that owns the trademark" required>
-            </div>
+      <div class="form-group">
+        <label class="required">Target Audience Size (Approx.)</label>
+        <input type="number" name="audience_size" placeholder="e.g. 5000" required>
+      </div>
 
-            <div class="form-group">
-                <label class="required">Upload Proof of Legal Claim/Trademark (PDF/JPEG)</label>
-                <div class="file-upload-section">
-                    <input type="file" name="proofFile" accept=".pdf,.jpeg,.jpg" required>
-                    <small class="hint">Documents required for brand/trademark claims.</small>
-                </div>
-            </div>
+      <div class="form-group">
+        <label class="required">Do you have an existing contact list?</label>
+        <div class="inline-group">
+          <input type="radio" id="list_yes" name="contact_list" value="yes" required>
+          <label for="list_yes">Yes (Ready to share)</label>
+          <input type="radio" id="list_no" name="contact_list" value="no">
+          <label for="list_no">No (Need assistance generating leads)</label>
+        </div>
+      </div>
 
-            <div class="form-group">
-                <label class="required">Contact Email</label>
-                <input type="email" name="contactEmail" placeholder="Email for communication" required>
-            </div>
+      <div class="form-group">
+        <label class="required">Desired Campaign Start Date</label>
+        <input type="date" name="start_date" required>
+      </div>
 
-            <div class="form-group">
-                <label>Maximum Budget (USD)</label>
-                <input type="number" name="maxBudget" placeholder="e.g. 500">
-            </div>
+      <div class="form-group">
+        <label class="required">Message or Content Idea</label>
+        <textarea name="message" rows="4" placeholder="Briefly describe the message..." required></textarea>
+      </div>
 
-            <hr />
+      <hr/>
 
-            <h3>3️⃣ Additional Details</h3>
+      <h3>3️⃣ Common Fields</h3>
+      <div class="form-group">
+        <label>Maximum Budget (USD)</label>
+        <input type="number" name="budget" placeholder="e.g. 800">
+      </div>
 
-            <div class="form-group">
-                <label class="required">Message / Case Details</label>
-                <textarea name="message"
-                    placeholder="Explain why you need this exact username and the nature of your claim (trademark, legal, inactivity, etc.)."
-                    required></textarea>
-            </div>
+      <div class="form-group">
+        <label>Additional Comments</label>
+        <textarea name="comments" placeholder="Any extra info..."></textarea>
+      </div>
 
-            <div class="form-group">
-                <label class="required">Have you applied for recovery/claim before?</label>
-                <div class="inline-group">
-                    <input type="radio" id="applied_yes" name="appliedBefore" value="yes" required>
-                    <label for="applied_yes">Yes</label>
-                    <input type="radio" id="applied_no" name="appliedBefore" value="no">
-                    <label for="applied_no">No</label>
-                </div>
-            </div>
+      <div class="form-group">
+        <label class="required">Have you run WhatsApp marketing before?</label>
+        <div class="inline-group">
+          <input type="radio" id="applied_yes" name="applied_before" value="yes" required>
+          <label for="applied_yes">Yes</label>
+          <input type="radio" id="applied_no" name="applied_before" value="no">
+          <label for="applied_no">No</label>
+        </div>
+      </div>
 
-            <div class="form-group">
-                <label class="required">How did you hear about us?</label>
-                <div class="inline-group">
-                    <input type="checkbox" id="ref_google" name="ref" value="google">
-                    <label for="ref_google">Google</label>
-                    <input type="checkbox" id="ref_instagram" name="ref" value="instagram">
-                    <label for="ref_instagram">Instagram</label>
-                    <input type="checkbox" id="ref_friend" name="ref" value="friend">
-                    <label for="ref_friend">Friend</label>
-                    <input type="checkbox" id="ref_other" name="ref" value="other">
-                    <label for="ref_other">Other</label>
-                </div>
-            </div>
+      <div class="form-group">
+        <label class="required">How did you hear about us?</label>
+        <div class="inline-group">
+          <input type="checkbox" id="ref_google" name="ref" value="google"><label for="ref_google">Google</label>
+          <input type="checkbox" id="ref_instagram" name="ref" value="instagram"><label for="ref_instagram">Instagram</label>
+          <input type="checkbox" id="ref_friend" name="ref" value="friend"><label for="ref_friend">Friend</label>
+          <input type="checkbox" id="ref_other" name="ref" value="other"><label for="ref_other">Other</label>
+        </div>
+      </div>
 
-             <div class="form-group" style="background-color: #e9f7ef;">
+    <div class="form-group" style="background-color: #e9f7ef;">
                     <div class="inline-group">
                         <input type="checkbox" id="terms" name="terms" required>
                         <label for="terms" class="required">I agree to the <a href="#" target="_blank">Terms and
@@ -228,14 +240,13 @@
 
                     <input type="hidden" id="captchaToken" name="captchaId" value="">
 
-                </div>
+                </div>   
 
-            <button class="submit-btn" type="submit">Submit Username Claim Request</button>
-        </form>
+      <button class="submit-btn" type="submit">Submit Marketing Request</button>
+    </form>
+  </main>
 
-    </main>
-
-
+    
 
     <footer class="site-footer">
         <div class="container footer-container">
@@ -292,8 +303,8 @@
             <p>&copy; 2025 Smipin. All Rights Reserved.</p>
         </div>
     </footer>
-
+   
 </body>
-<script src="usernameClaim.js"></script>
 <script src="social-media-recovery.js"></script>
+<script src="whatappMarketing.js"></script>
 </html>

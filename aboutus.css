@@ -1,0 +1,256 @@
+ /* --- GLOBAL STYLES & VARIABLES (Assuming these are defined elsewhere, but good to ensure text readability) --- */
+:root {
+    /* Define variables if not done in a global CSS file */
+    --dark-bg: #1a1a1a;
+    --primary-yellow: #ffc107;
+    --text-color: #f0f0f0;
+    --border-gray: #444;
+}
+
+body {
+    /* Corrected: F0FF is white text, F0F0F0 is safer white/light gray. */
+    /* color: var(--text-color, #f0f0f0);  */
+    /* background-color: var(--dark-bg, #1a1a1a); */
+    line-height: 1.6; /* Standard readable line height */
+}
+
+/* --- ESSENTIAL: GLOBAL CONTAINER STYLES --- */
+/* This rule is crucial for screen-size consistency and proper centering */
+.hero-about .container {
+    width: 90%; /* Content takes up 90% of screen width */
+    max-width: 1200px; /* Limits width on very large screens */
+    margin: 0 auto; /* Centers the container horizontally */
+    padding: 0 15px; /* Small horizontal padding to prevent content from touching edges */
+}
+
+/* Global Section Padding */
+.section-padding {
+    padding: 100px 0; /* Increased top/bottom margin for separation */
+}
+
+/* Remove minor container margin mistake */
+.section-padding .container {
+    margin: 0 auto; /* Ensure container is centered and uses global rules */
+}
+
+/* Consistent heading style across the page */
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 50px; /* Consistent margin below all H2 titles */
+    text-align: center;
+}
+
+
+/* --- 1. HERO SECTION STYLES --- */
+.hero-about {
+    background-color: #242424; 
+    padding: 120px 0; /* Maximum top/bottom padding for separation */
+    text-align: center;
+}
+.hero-about h1 {
+    font-size: 4rem; /* Slightly larger heading */
+    color: var(--primary-yellow, #ffc107);
+    margin-bottom: 25px; /* Increased margin */
+    font-weight: 800;
+}
+.hero-about p {
+    font-size: 1.4rem;
+    color: #ccc;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* --- 2. MISSION & VISION SECTION STYLES (Flex Layout FIX) --- */
+.mission-section {
+    background-color: var(--dark-bg, #1a1a1a); /* Applied background color directly to section for full width */
+}
+.mission-section .container > div { 
+    /* TARGETING THE INNER DIV TO APPLY FLEXBOX */
+    display: flex;
+    gap: 80px; /* Increased gap for more separation on desktop */
+    align-items: center;
+    text-align: left;
+    margin-left:15px;
+}
+
+.mission-section .text-content {
+    /* This new class targets the text block */
+    flex: 1; 
+}
+.mission-section h2 {
+    text-align: left; /* Mission heading aligned left with text */
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    color: var(--primary-yellow); /* Color applied here */
+}
+.mission-section p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 25px; /* Increased margin between paragraphs */
+}
+
+/* Placeholder for Image/Graphic */
+.mission-image-placeholder {
+    height: 300px; /* Increased height */
+    flex: 1; /* Allows it to take up equal space */
+    background-color: #333;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-yellow);
+    font-size: 1.5rem;
+    margin-right:10px
+    /* Removed the inline style from HTML for color and background */
+}
+
+
+/* --- 3. CORE VALUES GRID STYLES --- */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 40px; /* Increased gap between cards */
+    margin-top: 60px;
+}
+
+.value-card {
+    background-color: #242424;
+    padding: 40px 30px; 
+    border-radius: 8px;
+    border: 1px solid var(--border-gray, #444);
+    transition: all 0.3s ease;
+    height: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-left:8px;
+    margin-right:8px;
+}
+
+.value-card:hover {
+    transform: translateY(-10px); /* More noticeable lift effect */
+    border-color: var(--primary-yellow, #ffc107);
+    box-shadow: 0 8px 20px rgba(255, 193, 7, 0.2);
+}
+
+.value-card i {
+    font-size: 4rem; /* Larger icons */
+    color: var(--primary-yellow, #ffc107);
+    margin-bottom: 25px; /* Increased vertical space */
+}
+.value-card h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+.value-card p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+
+/* --- 4. TEAM SECTION STYLES --- */
+.team-section {
+    background-color: var(--dark-bg, #1a1a1a); /* Ensure this section has the correct background */
+}
+.team-section h2 {
+    color: var(--primary-yellow);
+    margin-bottom: 60px;
+}
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; /* Increased gap between team members */
+    margin-top: 50px;
+    text-align: center;
+}
+
+.team-member {
+    background-color: #242424;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--border-gray, #444);
+    margin-left:10px;
+    margin-right:10px
+}
+
+.team-member:hover{
+    border:1px solid  #ffc107
+}
+
+
+.team-member img {
+    width: 160px;
+    height: 160px;
+    /* border-radius: 50%; */
+    margin-bottom: 20px; /* Increased vertical space */
+    border: 1px solid var(--primary-yellow);
+}
+.team-member h4 {
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 1.6rem;
+}
+.team-member p.small {
+    color: #aaa;
+    font-style: italic;
+    font-size: 1.05rem;
+}
+
+/* --- 5. CTA SECTION STYLES --- */
+.cta-section {
+    background-color: #242424; 
+    padding: 80px 0; /* Increased padding */
+    text-align: center;
+}
+.cta-section h2 {
+    font-size: 2.8rem;
+    color: #fff;
+    margin-bottom: 30px;
+}
+.cta-section .loginBtn {
+    /* Use the existing loginBtn style but with a larger size */
+    padding: 15px 35px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none; 
+    display: inline-block;
+    margin-top: 20px;
+}
+
+
+/* --- MOBILE RESPONSIVENESS (Refined) --- */
+@media (max-width: 992px) {
+    /* Medium screens: Adjust grid layout to 2 columns */
+    .values-grid, .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+    .hero-about h1 {
+        font-size: 3rem;
+    }
+    .hero-about p {
+        font-size: 1.1rem;
+    }
+    
+    /* Mission section stacking FIX */
+    .mission-section .container > div {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .mission-section h2 {
+        text-align: center;
+    }
+
+    .mission-image-placeholder {
+        height: 200px;
+        width: 90%;
+        margin-bottom: 20px;
+        margin-right:10px
+    }
+}

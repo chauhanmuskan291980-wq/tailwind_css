@@ -1,0 +1,209 @@
+ /* auth.css */
+
+/* 🎨 Theme Colors (Re-defined for safety, assuming this is an external file) */
+:root {
+  --primary-yellow: #ffffff;
+  --secondary-yellow: #a3a19a;
+  --dark-bg: #000000ff;
+  --dark-surface: #1f1f1f;
+  --dark-surface-light: #2c2c2c; 
+  --text-white: #ffffff;
+  --text-light: #bbb;
+  --required-red: #ff4747;
+  --border-gray: #444;
+}
+
+/* --- Base & Utility Styles (Minimal set to ensure theme consistency) --- */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--primary-yellow);
+  color: var(--text-white);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* --- Authentication Layout --- */
+
+.auth-page {
+    /* Ensures the login/signup box is centered vertically in the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Use calc for full height minus header/footer space */
+    min-height: calc(100vh - 100px); 
+    padding: 3rem 0;
+}
+
+/* --- Form Container (Inherited from your existing styles) --- */
+
+.form-container {
+  background: var(--dark-surface);
+  margin: 0; /* Override auto margin from homepage.css for centering */
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 95%; /* Adjust width for mobile */
+  max-width: 550px; /* Max width for login/signup forms */
+  box-shadow: 0 0 30px rgba(167, 167, 167, 0.2);
+}
+
+.form-container h2 {
+  color: var(--primary-yellow);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+/* --- Form Groups & Inputs (Directly using your existing form styles) --- */
+
+.form-group {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid var(--border-gray);
+    border-radius: 10px;
+    background: #181818; 
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group:focus-within {
+    border-color: var(--primary-yellow);
+    box-shadow: 0 0 10px rgba(171, 171, 170, 0.3);
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: var(--text-white);
+}
+
+.required::after {
+  content: " *";
+  color: var(--required-red);
+  margin-left: 3px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border-gray);
+    background: var(--dark-surface-light);
+    color: var(--text-white);
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+input:focus {
+    border-color: var(--primary-yellow);
+    outline: none;
+    background: #252525;
+}
+
+.hint {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+/* --- Submit Button (Reusing your strong CTA button) --- */
+
+.submit-btn {
+    margin-top: 1rem;
+    width: 100%;
+    background: var(--primary-yellow);
+    border: none;
+    color: var(--dark-bg);
+    padding: 1rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+    background: var(--secondary-yellow);
+    box-shadow: 0 0 15px rgba(3, 3, 3, 0.7);
+}
+
+/* --- Auth Specific Links (Sign Up, Forgot Password, Log In Here) --- */
+
+.yellow-link {
+    color: var(--primary-yellow);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.yellow-link:hover {
+    color: var(--secondary-yellow);
+    text-decoration: underline;
+}
+
+/* Link area at the bottom of the form */
+.auth-footer-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-gray);
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* Checkbox/Terms link specific styling */
+.form-group input[type="checkbox"] + label a {
+    color: var(--primary-yellow);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.phone-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.phone-input select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #fff;
+  min-width: 110px;
+  cursor: pointer;
+}
+
+.phone-input input {
+  flex: 1;
+}
+
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 1.5rem;
+    }
+    .form-container h2 {
+        font-size: 1.5rem;
+    }
+    .auth-page {
+        min-height: calc(100vh - 80px); /* Reduce min-height for smaller screens */
+    }
+}

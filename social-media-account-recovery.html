@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Media Account Recovery - Smipin</title>
+
+  <!-- Same Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Use the SAME CSS as homepage -->
+  <link rel="stylesheet" href="homepage.css" />
+</head>
+
+<body>
+
+       <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <!-- Using a colored box as a logo placeholder since no image URL was provided -->
+                <div style="width: 130px; height: 30px; background-color: #ff5c00; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">SMIPIN LOGO</div>
+            </a>
+
+            <!-- Hamburger Button (visible on mobile) -->
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- NAV MENU (slides out on mobile) -->
+            <div class="nav-menu" id="navMenu">
+
+
+
+                <!-- LEFT MENU -->
+                <ul class="nav-links">
+
+                  <div><a href="homepage.html">Home</a></div>
+                  <div><a href="aboutus.html">About us</a></div>
+                  <div><a href="blog.html">Blog</a></div>
+                    <li class="dropdown-trigger">
+                        <a href="#">Platform <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="IGRecovery.html">Instagram</a></li>
+                            <li><a href="facebook.html">Facebook</a></li>
+                            <li><a href="whatsappRecovery.html">WhatsApp</a></li>
+                            <li><a href="snapchat.html">SnapChat</a></li>
+                            <li><a href="youtubeRecovery.html">YouTube</a></li>
+                            <li><a href="twitterRecovery.html">Twitter</a></li>
+                            <li><a href="tiktokRecovery.html">TikTok</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-trigger">
+                        <a href="#">Services <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="social-media-account-recovery.html">Social Media Account Recovery</a></li>
+                            <li><a href="account-verification.html">Account Verification</a></li>
+                            <li><a href="username-claim.html">Username Claim</a></li>
+                            <li><a href="copyright-removal.html">Content Removal</a></li>
+                            <li><a href="services.html">Digital Marketing && Others</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- RIGHT SIDE -->
+                <div class="nav-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search..." />
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <!-- <select class="language-select">
+                        <option>EN</option>
+                        <option>FR</option>
+                        <option>ES</option>
+                    </select> -->
+
+                    <ul class="social-icons">
+                        <li><a><i class="fas fa-envelope"></i></a></li>
+                        <li><a><i class="fab fa-instagram"></i></a></li>
+                        <li><a><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a><i class="fab fa-whatsapp"></i></a></li>
+                    </ul>
+                    
+                       
+
+                    <div id="loginContainer">
+                        <button class="login-btn"><a href="login.html">Login</a></button>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+  <section class="hero">
+    <div class="container">
+      <h1>Remove Stolen or Misused Content Quickly</h1>
+      <p>
+        Need to remove impersonation accounts, stolen posts, copyright violations, or fake profiles?
+        We handle DMCA, legal takedowns, impersonation claims and urgent content removal.
+      </p>
+      <button class="cta-btn">Start Removal Request</button>
+    </div>
+  </section>
+
+
+  <!-- DISCLAIMER -->
+  <div class="ticker">
+    <marquee behavior="scroll" direction="left">
+      ⚠️ Disclaimer: Smipin is an independent platform and is not affiliated with Instagram, TikTok, Facebook, or any
+      other company.
+    </marquee>
+  </div>
+
+  <!-- SUPPORTED PLATFORMS -->
+  <section class="socialMedia-Plateform" id="platforms">
+    <div class="container">
+      <h2>Supported Platforms for Account Recovery</h2>
+
+      <div class="SM-list">
+
+        <!-- Instagram -->
+        <div class="SM-link-wrapper">
+          <div class="SM-card">
+            <div class="platform-icon"><i class="fab fa-instagram"></i></div>
+            <h3>Instagram Recovery</h3>
+            <p style="color: black">We help you recover hacked, disabled, impersonated or lost Instagram accounts
+              securely.</p>
+            <button class="cta-btn" onclick="window.location.href='IGRecovery.html'">Recover Instagram</button>
+          </div>
+        </div>
+
+        <!-- Facebook -->
+        <div class="SM-link-wrapper">
+          <div class="SM-card">
+            <div class="platform-icon"><i class="fab fa-facebook-f"></i></div>
+            <h3>Facebook Recovery</h3>
+            <p style="color: black">Recover hacked, disabled or locked Facebook accounts with expert assistance.</p>
+            <button class="cta-btn" onclick="window.location.href='facebook.html'">Recover Facebook</button>
+          </div>
+        </div>
+
+        <!-- TikTok -->
+        <div class="SM-link-wrapper">
+          <div class="SM-card">
+            <div class="platform-icon"><i class="fab fa-tiktok"></i></div>
+            <h3>TikTok Recovery</h3>
+            <p style="color: black">Lost access to TikTok? We help recover hacked or banned accounts.</p>
+            <button class="cta-btn" onclick="window.location.href='tiktokRecovery.html'">Recover TikTok</button>
+          </div>
+        </div>
+
+        <!-- YouTube -->
+        <div class="SM-link-wrapper">
+          <div class="SM-card">
+            <div class="platform-icon"><i class="fab fa-youtube"></i></div>
+            <h3>YouTube Recovery</h3>
+            <p style="color: black">Recover disabled, hacked, or content-removed YouTube channels.</p>
+            <button class="cta-btn" onclick="window.location.href='youtubeRecovery.html'">Recover YouTube</button>
+          </div>
+        </div>
+
+        <!-- Snapchat -->
+        <div class="SM-link-wrapper">
+          <div class="SM-card">
+            <div class="platform-icon"><i class="fab fa-snapchat-ghost"></i></div>
+            <h3>Snapchat Recovery</h3>
+            <p style="color: black">Get back lost or compromised Snapchat accounts.</p>
+            <button class="cta-btn" onclick="window.location.href='snapchat.html'">Recover Snapchat</button>
+          </div>
+        </div>
+
+        <!-- WhatsApp -->
+        <div class="SM-link-wrapper">
+          <div class="SM-card">
+            <div class="platform-icon"><i class="fab fa-whatsapp"></i></div>
+            <h3>WhatsApp Recovery</h3>
+            <p style="color: black">Recover banned, hacked or unauthorized WhatsApp accounts.</p>
+            <button class="cta-btn" onclick="window.location.href='whatsappRecovery.html'">Recover WhatsApp</button>
+          </div>
+        </div>
+
+        <!-- Twitter/X -->
+        <div class="SM-link-wrapper">
+          <div class="SM-card">
+            <div class="platform-icon"><i class="fab fa-x-twitter"></i></div>
+            <h3>Twitter (X) Recovery</h3>
+            <p style="color: black">We help you retrieve suspended, hacked or restricted X accounts.</p>
+            <button class="cta-btn" onclick="window.location.href='twitterRecovery.html'">Recover Twitter</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-col">
+        <h3>Smipin</h3>
+        <p>
+          Your trusted partner for social media account recovery,
+          verification, and digital support.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Testimonials</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Data Policy</h4>
+        <ul>
+          <li><a href="#">Terms and payments terms </a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Data Policy</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Terms and payments terms </a></li>
+          <li><a href="#">Refunds policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Account Recovery</a></li>
+          <li><a href="#">Username Claim</a></li>
+          <li><a href="#">Verification</a></li>
+          <li><a href="#">Copyright Removal</a></li>
+          <li><a href="#">Whatapp marketing</a></li>
+          <li><a href="#">Instagram Collaboration</a></li>
+          <li><a href="#">Register as a Vendor</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p><i class="fas fa-envelope"></i> support@smipin.com</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Disclaimer: Smipin is an independent platform and is not affiliated with Instagram, TikTok, or any social media
+        company.</p>
+    </div>
+  </footer>
+
+ 
+</body>
+ <script src="social-media-recovery.js"></script>
+</html>

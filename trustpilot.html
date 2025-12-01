@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platform Name Username Claim Form</title>
+    <title>Trustpilot Review Removal Request Form</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
@@ -13,7 +13,7 @@
 
 <body>
 
-             <header>
+           <header>
         <nav class="navbar">
             <a href="#" class="logo">
                 <!-- Using a colored box as a logo placeholder since no image URL was provided -->
@@ -39,13 +39,12 @@
                     <li class="dropdown-trigger">
                         <a href="#">Platform <i class="fas fa-caret-down ml-1 text-sm"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=instagram'">Instagram</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=facebook'">Facebook</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=whatapp'">WhatsApp</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=snapchat'">SnapChat</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=youtube'">YouTube</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=twitter'">Twitter</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=tiktok'">TikTok</a></li>
+                            <li><a href="IGCollaboration.html">Start Collaboration</a></li>
+                            <li><a href="whatappMarketing.html">whatsapp Marketing</a></li>
+                            <li><a href="trustpilot.html">Get Trustpilot Reviews</a></li>
+                            <li><a href="TripAdvisor.html">Get TripAdvisor Reviews</a></li>
+                            <li><a href="vendor-registration.html">vendor registration</a></li>
+                            <li><a href="googleReviews.html">Get Google Reviews</a></li>
                         </ul>
                     </li>
 
@@ -92,88 +91,86 @@
             </div>
         </nav>
     </header>
+    <main class="form-container" enctype="multipart/form-data">
+        <h2>Trustpilot Review Removal Request</h2>
+        <p class="small" style="text-align:center;margin-bottom:25px;">Provide detailed information and proof to
+            successfully challenge a review on Trustpilot.</p>
+        <form id="trustpilot-form" >
+            <h3>1️⃣ Review & Business Identification</h3>
 
-    <main class="form-container">
-        <h2>Username Claim Request</h2>
-        <p class="small" style="text-align:center;margin-bottom:25px;">Please provide accurate information for a
-            successful username acquisition.</p>
-
-        <form>
-            <h3>1️⃣ Target Username Details</h3>
-
-            <div class="form-group" id="mainContant">
-                <label class="required">Target Platform Name</label>
-                <input type="text" id="platformInput" name="platformInput"
-                    placeholder="e.g., Instagram, X (Twitter), TikTok" required>
+            <div class="form-group">
+                <label class="required">Your Trustpilot Business Profile URL</label>
+                <input type="url" name="businessProfile" placeholder="Link to your Trustpilot profile" required />
             </div>
 
             <div class="form-group">
-                <label class="required">Username Desired (@handle)</label>
-                <input type="text" name="desiredUsername" placeholder="e.g., @smipin_official" required>
+                <label class="required">Full Link to the Offensive Review</label>
+                <input type="url" name="reviewLink" placeholder="Copy the direct link to the specific review here"
+                    required />
             </div>
 
             <div class="form-group">
-                <label class="required">Current Status of Target Username</label>
-                <select name="usernameStatus" required>
-                    <option value="">Select Status</option>
-                    <option>Inactive Account (No posts/activity)</option>
-                    <option>Suspended/Banned Account</option>
-                    <option>Active but Unrelated Account</option>
-                    <option>Squatting/Placeholder Account</option>
-                    <option>Brand/Trademark Infringement</option>
+                <label class="required">Name of the Reviewer / Profile Name</label>
+                <input type="text" name="reviewerName" placeholder="Reviewer's name/handle" required />
+            </div>
+
+            <div class="form-group">
+                <label>Trustpilot Invitation ID (if available)</label>
+                <input type="text" name="invitationId" placeholder="Optional: ID used for the invitation request" />
+            </div>
+
+            <hr />
+
+            <h3>2️⃣ Policy Violation & Proof</h3>
+
+            <div class="form-group">
+                <label class="required">Primary Reason for Removal (Violation)</label>
+                <select name="violationReason" required>
+                    <option value="">Select Trustpilot Violation</option>
+                    <option>Non-Customer Review (Fake)</option>
+                    <option>Harmful/Illegal Content</option>
+                    <option>Conflict of Interest (Competitor, Employee, etc.)</option>
+                    <option>Personal Attack / Hate Speech</option>
+                    <option>Promotional Content</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label class="required">Your Existing Profile URL on this Platform</label>
-                <input type="url" name="existingProfile"
-                    placeholder="If you have an existing profile (e.g., @smipin_support)" required>
-            </div>
-
-            <hr />
-
-            <h3>2️⃣ Legal & Contact Information</h3>
-
-            <div class="form-group">
-                <label class="required">Your Legal/Brand Name</label>
-                <input type="text" name="brandName" placeholder="Name or Company Name that owns the trademark" required>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Upload Proof of Legal Claim/Trademark (PDF/JPEG)</label>
-                <div class="file-upload-section">
-                    <input type="file" name="proofFile" accept=".pdf,.jpeg,.jpg" required>
-                    <small class="hint">Documents required for brand/trademark claims.</small>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Contact Email</label>
-                <input type="email" name="contactEmail" placeholder="Email for communication" required>
-            </div>
-
-            <div class="form-group">
-                <label>Maximum Budget (USD)</label>
-                <input type="number" name="maxBudget" placeholder="e.g. 500">
-            </div>
-
-            <hr />
-
-            <h3>3️⃣ Additional Details</h3>
-
-            <div class="form-group">
-                <label class="required">Message / Case Details</label>
-                <textarea name="message"
-                    placeholder="Explain why you need this exact username and the nature of your claim (trademark, legal, inactivity, etc.)."
+                <label class="required">Detailed Explanation of Violation</label>
+                <textarea name="violationDetails" rows="4"
+                    placeholder="Explain clearly why this review violates Trustpilot's User Guidelines and provide specifics."
                     required></textarea>
             </div>
 
             <div class="form-group">
-                <label class="required">Have you applied for recovery/claim before?</label>
+                <label class="required">Upload Proof the Review is False (PDF/JPEG)</label>
+                <div class="file-upload-section">
+                    <input type="file"  id="uploadFileInput" name="file" accept=".pdf,.jpeg,.jpg" required />
+                    <small class="hint">E.g., Proof of non-purchase, evidence of conflict of interest, or legal
+                        documentation.</small>
+                </div>
+            </div>
+
+            <hr />
+
+            <h3>3️⃣ Common Fields</h3>
+
+            <div class="form-group">
+                <label class="required">Your Contact Email</label>
+                <input type="email" name="contactEmail" placeholder="example@business.com" required />
+            </div>
+
+            <div class="form-group">
+                <label>Maximum Budget (USD)</label>
+                <input type="number" name="budget" placeholder="e.g. 700" />
+            </div>
+
+            <div class="form-group">
+                <label>Have you applied for removal with Trustpilot before?</label>
                 <div class="inline-group">
-                    <input type="radio" id="applied_yes" name="appliedBefore" value="yes" required>
+                    <input type="radio" id="applied_yes" name="appliedBefore" value="yes" />
                     <label for="applied_yes">Yes</label>
-                    <input type="radio" id="applied_no" name="appliedBefore" value="no">
+                    <input type="radio" id="applied_no" name="appliedBefore" value="no" />
                     <label for="applied_no">No</label>
                 </div>
             </div>
@@ -181,13 +178,13 @@
             <div class="form-group">
                 <label class="required">How did you hear about us?</label>
                 <div class="inline-group">
-                    <input type="checkbox" id="ref_google" name="ref" value="google">
+                    <input type="checkbox" id="ref_google" name="heardAboutUs" value="google" />
                     <label for="ref_google">Google</label>
-                    <input type="checkbox" id="ref_instagram" name="ref" value="instagram">
+                    <input type="checkbox" id="ref_instagram" name="heardAboutUs" value="instagram" />
                     <label for="ref_instagram">Instagram</label>
-                    <input type="checkbox" id="ref_friend" name="ref" value="friend">
+                    <input type="checkbox" id="ref_friend" name="heardAboutUs" value="friend" />
                     <label for="ref_friend">Friend</label>
-                    <input type="checkbox" id="ref_other" name="ref" value="other">
+                    <input type="checkbox" id="ref_other" name="heardAboutUs" value="other" />
                     <label for="ref_other">Other</label>
                 </div>
             </div>
@@ -230,7 +227,7 @@
 
                 </div>
 
-            <button class="submit-btn" type="submit">Submit Username Claim Request</button>
+            <button class="submit-btn" type="submit">Submit Removal Request</button>
         </form>
 
     </main>
@@ -289,11 +286,13 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025 Smipin. All Rights Reserved.</p>
+            <p>© 2025 Smipin. All Rights Reserved.</p>
         </div>
     </footer>
+    
 
 </body>
-<script src="usernameClaim.js"></script>
+<script src="trustpilot.js"></script>
 <script src="social-media-recovery.js"></script>
+
 </html>

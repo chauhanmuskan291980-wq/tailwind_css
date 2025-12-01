@@ -1,0 +1,475 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fully Responsive Navbar</title>
+    <!-- Load Tailwind CSS for modern styling and responsiveness outside the nav -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for Icons (Hamburger, Search, Social Media) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Base Styles and Font Setup */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: #f4f7f9;
+        }
+
+        /* Basic Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: #1e293b; /* Dark Slate */
+            color: #fff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            /* Placeholder for a real logo image */
+            width: 130px;
+            height: auto;
+            display: block;
+            background-color: #334155;
+            border-radius: 4px;
+        }
+
+        /* Nav Menu Container */
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        /* Nav Links */
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li a {
+            color: #f1f5f9;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 0;
+            transition: color 0.2s ease-in-out;
+            border-radius: 4px;
+        }
+
+        .nav-links li a:hover {
+            color: #ff5c00;
+        }
+
+        /* Dropdown Menu (Desktop) */
+        .dropdown-trigger {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #334155; /* Slightly lighter background for dropdown */
+            padding: 10px 0;
+            list-style: none;
+            border-radius: 8px;
+            min-width: 180px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 8px 15px;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #475569;
+            color: #fff;
+        }
+
+        /* Show dropdown on hover (desktop) */
+        .dropdown-trigger:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Nav Right Section */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Search Box */
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid #475569;
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: #334155;
+        }
+
+        .search-box input {
+            padding: 8px 12px;
+            border: none;
+            background: transparent;
+            color: #fff;
+            outline: none;
+            width: 150px;
+        }
+
+        .search-box button {
+            background: #475569;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            color: #f1f5f9;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background: #ff5c00;
+        }
+
+        /* Language Select */
+        .language-select {
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #475569;
+            background: #334155;
+            color: #f1f5f9;
+            cursor: pointer;
+            appearance: none; /* Remove default styling */
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 10px;
+        }
+
+        .social-icons li a {
+            color: #94a3b8;
+            font-size: 18px;
+            transition: color 0.2s;
+        }
+
+        .social-icons li a:hover {
+            color: #ff5c00;
+        }
+
+        /* Action buttons */
+        .cta-btn,
+        .login-btn {
+            background: #ff5c00; /* Primary action color */
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .cta-btn:hover,
+        .login-btn:hover {
+            background: #e04b00;
+        }
+
+        .cta-btn a,
+        .login-btn a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none; /* Hidden by default on desktop */
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 26px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* MOBILE RESPONSIVE NAV */
+        @media (max-width: 1024px) {
+            /* Adjust padding for smaller screens but keep desktop structure */
+            .navbar {
+                padding: 10px 20px;
+            }
+            .nav-menu {
+                gap: 15px;
+            }
+            .nav-links {
+                gap: 15px;
+            }
+            .nav-right {
+                gap: 10px;
+            }
+            .search-box input {
+                width: 120px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block; /* Show hamburger */
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Start off-screen */
+                width: 75%; /* Takes up 75% of the screen width */
+                max-width: 300px;
+                height: 100vh;
+                background: #111827; /* Very dark background for contrast */
+                padding: 20px 0;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                overflow-y: auto;
+                transition: right 0.3s ease-in-out;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                right: 0; /* Slide in */
+            }
+
+            .nav-links,
+            .nav-right {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 20px;
+                margin-top: 15px;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .nav-links li {
+                width: 100%;
+                border-bottom: 1px solid #334155;
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links li a {
+                padding: 12px 0;
+                display: block;
+                width: 100%;
+            }
+
+            /* Dropdown Accordion Behavior */
+            .dropdown-trigger > a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+            }
+
+            .dropdown-menu {
+                display: none;
+                position: static; /* Remove absolute positioning */
+                background: none;
+                padding: 0;
+                margin-top: 5px;
+                margin-bottom: 10px;
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+            .dropdown-menu li a {
+                padding: 6px 0 6px 15px; /* Indent mobile dropdown items */
+                font-size: 14px;
+                color: #94a3b8;
+            }
+
+            /* Accordion open on mobile */
+            .dropdown-trigger.active .dropdown-menu {
+                display: block;
+            }
+
+            /* Adjust right side elements for vertical stacking */
+            .search-box {
+                width: 100%;
+            }
+
+            .nav-right > button,
+            #loginContainer {
+                width: 100%;
+            }
+
+            .cta-btn,
+            .login-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .social-icons {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <!-- Using a colored box as a logo placeholder since no image URL was provided -->
+                <div style="width: 130px; height: 30px; background-color: #ff5c00; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">SMIPIN LOGO</div>
+            </a>
+
+            <!-- Hamburger Button (visible on mobile) -->
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- NAV MENU (slides out on mobile) -->
+            <div class="nav-menu" id="navMenu">
+
+                <!-- LEFT MENU -->
+                <ul class="nav-links">
+                    <li class="dropdown-trigger">
+                        <a href="#">Platform <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#account-instagram-card">Instagram</a></li>
+                            <li><a href="#account-facebook-card">Facebook</a></li>
+                            <li><a href="#account-Whatapp-form-card">WhatsApp</a></li>
+                            <li><a href="#account-SnapChat-card">SnapChat</a></li>
+                            <li><a href="#account-youtube-card">YouTube</a></li>
+                            <li><a href="#account-twitter-card">Twitter</a></li>
+                            <li><a href="#account-tiktok-card">TikTok</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-trigger">
+                        <a href="#">Services <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="social-media-account-recovery.html">Social Media Account Recovery</a></li>
+                            <li><a href="account-verification.html">Account Verification</a></li>
+                            <li><a href="username-claim.html">Username Claim</a></li>
+                            <li><a href="copyright-removal.html">Content Removal</a></li>
+                            <li><a href="whatappMarketing.html">WhatsApp Marketing</a></li>
+                            <li><a href="IGCollaboration.html">Instagram Collaboration</a></li>
+                            <li><a href="vendor-registration.html">Register as a Vendor</a></li>
+                            <li><a href="googleReviews.html">Review Removal</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- RIGHT SIDE -->
+                <div class="nav-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search..." />
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <select class="language-select">
+                        <option>EN</option>
+                        <option>FR</option>
+                        <option>ES</option>
+                    </select>
+
+                    <ul class="social-icons">
+                        <li><a><i class="fas fa-envelope"></i></a></li>
+                        <li><a><i class="fab fa-instagram"></i></a></li>
+                        <li><a><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a><i class="fab fa-whatsapp"></i></a></li>
+                    </ul>
+
+                    <button class="cta-btn"><a href="vendor-registration.html">Register as Vendor</a></button>
+
+                    <div id="loginContainer">
+                        <button class="login-btn"><a href="login.html">Login</a></button>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="p-8">
+        <h1 class="text-3xl font-bold mb-4">Content Area</h1>
+        <p>Scroll down to test fixed/full-height mobile menu. The navigation bar is fully responsive and adapts based on the screen size.</p>
+        <div class="h-96 w-full bg-gray-200 mt-8 rounded-lg p-4 flex items-center justify-center text-gray-500">
+            [Main Page Content Goes Here]
+        </div>
+        <div class="h-96 w-full bg-gray-200 mt-8 rounded-lg p-4 flex items-center justify-center text-gray-500">
+            More content to demonstrate scrolling
+        </div>
+    </main>
+
+    <script>
+        // JavaScript for mobile menu toggle and dropdown accordion
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("navMenu");
+
+        // 1. Toggle the mobile menu when the hamburger is clicked
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+            // Toggle the icon (optional but nice)
+            const icon = hamburger.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times'); // 'X' icon for close
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // 2. Mobile dropdown accordion logic
+        document.querySelectorAll(".dropdown-trigger > a").forEach(link => {
+            // Check if the link has a dropdown menu associated with it
+            const parentLi = link.closest('.dropdown-trigger');
+            const dropdown = parentLi.querySelector('.dropdown-menu');
+
+            if (dropdown) {
+                link.addEventListener("click", (e) => {
+                    // Only activate accordion behavior on mobile screens (<= 768px)
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault(); // Prevent navigating to '#'
+                        parentLi.classList.toggle("active");
+                    }
+                    // On desktop, default hover/click behavior allows navigation
+                });
+            }
+        });
+
+        // Optional: Close menu when a link is clicked on mobile
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                if (window.innerWidth <= 768 && navMenu.classList.contains("active")) {
+                    // Check if it's not a dropdown trigger link itself (to avoid closing menu when opening accordion)
+                    if (!link.closest('.dropdown-trigger') || link.closest('.dropdown-menu')) {
+                         // Only close if it's an end link (within a dropdown or a standalone link)
+                        navMenu.classList.remove("active");
+                        hamburger.querySelector('i').classList.remove('fa-times');
+                        hamburger.querySelector('i').classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+
+    </script>
+
+</body>
+</html>

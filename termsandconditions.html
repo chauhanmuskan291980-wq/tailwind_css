@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="IGCollaboration.html">
+    <title>Terms, Conditions & Policies</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #007bff;
+            --bg-color: #f8f9fa;
+            --text-color: #444;
+            --sidebar-width: 250px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- Layout Container --- */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        /* --- Sidebar Navigation (Sticky) --- */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: white;
+            padding: 40px 20px;
+            border-right: 1px solid #e0e0e0;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-bottom: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            display: block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background-color: #eef2f7;
+            color: var(--accent-color);
+            border-left: 3px solid var(--accent-color);
+        }
+
+        /* --- Main Content Area --- */
+        .content {
+            flex: 1;
+            padding: 40px 60px;
+            background: white;
+        }
+
+        .policy-section {
+            margin-bottom: 60px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 40px;
+        }
+
+        .policy-section:last-child {
+            border-bottom: none;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 25px;
+            font-size: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .last-updated {
+            font-size: 14px;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        /* --- Contact Box Styling --- */
+        .contact-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .contact-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item strong {
+            min-width: 80px;
+            color: var(--primary-color);
+        }
+
+        /* --- Back to Top Button --- */
+        .back-to-top {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            color: var(--accent-color);
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+                padding: 20px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .policy-section {
+                margin-bottom: 40px;
+                padding-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+            
+
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <h2>Legal Center</h2>
+            <ul class="nav-links">
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#data">Data Policy</a></li>
+                <li><a href="#terms">Terms & Payments</a></li>
+                <li><a href="#refunds">Refunds Policy</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            <span class="last-updated">Last Updated: November 2023</span>
+
+            <!-- 1. Privacy Policy -->
+            <section id="privacy" class="policy-section">
+                <h1>Privacy Policy</h1>
+                <p>Your privacy is important to us. It is our policy to respect your privacy regarding any information we may collect from you across our website and other sites we own and operate.</p>
+                
+                <h3>Information We Collect</h3>
+                <p>We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.</p>
+
+                <h3>Log Data</h3>
+                <p>When you visit our website, our servers may automatically log the standard data provided by your web browser. This data is considered "non-identifying information", as it does not personally identify you on its own.</p>
+            </section>
+
+            <!-- 2. Data Policy -->
+            <section id="data" class="policy-section">
+                <h1>Data Policy</h1>
+                <p>This Data Policy explains how we handle your data, including storage, retention, and deletion.</p>
+                
+                <h3>Data Retention</h3>
+                <p>We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use, or modification.</p>
+                
+                <h3>Data Sharing</h3>
+                <p>We do not share any personally identifying information publicly or with third-parties, except when required to by law.</p>
+            </section>
+
+            <!-- 3. Terms & Payments -->
+            <section id="terms" class="policy-section">
+                <h1>Terms and Payment Terms</h1>
+                <p>By accessing our website, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.</p>
+
+                <h3>Payment Terms</h3>
+                <ul>
+                    <li><strong>Billing:</strong> Payments are billed in advance on a monthly or annual basis depending on your plan.</li>
+                    <li><strong>Currency:</strong> All transactions are processed in USD unless otherwise stated.</li>
+                    <li><strong>Taxes:</strong> Prices do not include applicable taxes, which will be calculated at checkout.</li>
+                    <li><strong>Failure to Pay:</strong> If automatic payment fails, we may suspend access to the service until payment is resolved.</li>
+                </ul>
+            </section>
+
+            <!-- 4. Refunds Policy -->
+            <section id="refunds" class="policy-section">
+                <h1>Refunds Policy</h1>
+                <p>We strive to ensure you are happy with our services. Please read our refund conditions below.</p>
+                
+                <h3>Eligibility</h3>
+                <p>Refunds are available within the first <strong>14 days</strong> of your initial purchase. If you are unsatisfied with the service for any reason, you may request a full refund during this period.</p>
+
+                <h3>Non-refundable Items</h3>
+                <ul>
+                    <li>One-time setup fees.</li>
+                    <li>Consulting services already rendered.</li>
+                    <li>Requests made after the 14-day window.</li>
+                </ul>
+                <p>To request a refund, please contact our support team via the contact section below.</p>
+            </section>
+
+            <!-- 5. Contact Us -->
+            <section id="contact" class="policy-section">
+                <h1>Contact Us</h1>
+                <p>If you have any questions about our Terms, Policies, or Services, please do not hesitate to contact us.</p>
+                
+                <div class="contact-box">
+                    <div class="contact-item">
+                        <strong>Email:</strong> 
+                        <a href="mailto:support@yourcompany.com">support@yourcompany.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Phone:</strong> 
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Address:</strong> 
+                        <span>123 Business Rd, Tech City, TC 90210</span>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        // Simple script to handle active state on scroll
+        // This highlights the link in the sidebar based on where the user is scrolling
+        const sections = document.querySelectorAll("section");
+        const navLi = document.querySelectorAll(".nav-links a");
+
+        window.onscroll = () => {
+            var current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLi.forEach((a) => {
+                a.classList.remove("active");
+                if (a.getAttribute("href").includes(current)) {
+                    a.classList.add("active");
+                }
+            });
+        };
+    </script>
+</body>
+<script src="social-media-recovery.js"></script>
+</html>

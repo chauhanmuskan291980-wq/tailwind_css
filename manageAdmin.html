@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+  <h1>Super Admin Dashboard</h1>
+
+  <!-- Filters -->
+  <div class="filters">
+    <input type="text" id="searchInput" placeholder="Search by name..." />
+    <select id="roleFilter">
+      <option value="">Filter by Role</option>
+      <option value="Blogger">Blogger</option>
+      <option value="Marketing">Marketing</option>
+      <option value="Sales">Sales</option>
+      <option value="Admin">Admin</option>
+    </select>
+  </div>
+
+  <!-- User Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Role</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="userTableBody">
+      <!-- Dynamic Data -->
+    </tbody>
+  </table>
+</div>
+
+<!-- Edit Modal -->
+<div id="editModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Edit User</h2>
+    <form id="editForm">
+      <input type="hidden" id="editUserId" />
+      <label>Name</label>
+      <input type="text" id="editName" required />
+      <label>Email</label>
+      <input type="email" id="editEmail" required />
+      <label>Phone</label>
+      <input type="text" id="editPhone" required />
+      <label>Role</label>
+      <select id="editRole" required>
+        <option value="Blogger">Blogger</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Sales">Sales</option>
+        <option value="Admin">Admin</option>
+      </select>
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

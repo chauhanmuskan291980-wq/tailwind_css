@@ -1,0 +1,138 @@
+/* Global Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f6f9;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  background: #ffffff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e5e5e5;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Search & Refresh */
+.search-filter {
+  display: flex;
+  gap: 10px;
+}
+
+#searchBar {
+  padding: 10px 15px;
+  width: 250px;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  outline: none;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+#searchBar:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+#refreshBtn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#refreshBtn:hover {
+  background: #0056b3;
+}
+
+/* Table */
+.main-content {
+  margin: 20px;
+}
+
+#trashTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+#trashTable thead {
+  background: #007bff;
+  color: white;
+}
+
+#trashTable th,
+#trashTable td {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 15px;
+}
+
+#trashTable tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: 0.3s;
+}
+
+#trashTable tbody tr:hover {
+  background: #f8f9ff;
+}
+
+/* Buttons inside table */
+button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+button:nth-child(1) {
+  background: #28a745;
+  color: white;
+}
+
+button:nth-child(1):hover {
+  background: #1e7e34;
+}
+
+button:nth-child(2) {
+  background: #dc3545;
+  color: white;
+  margin-left: 6px;
+}
+
+button:nth-child(2):hover {
+  background: #b21f2d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #searchBar {
+    width: 150px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}

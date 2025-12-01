@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Smipin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="homepage.css" />
+  <link rel="stylesheet" href="auth.css" />
+</head>
+
+<body>
+  <header></header>
+
+  <div class="container auth-page">
+    <div class="form-container">
+      <h2><i class="fas fa-user-plus"></i> Create Your Account</h2>
+      <p class="hint" style="text-align: center; margin-bottom: 2rem;">
+        Join Smipin to manage your account services easily.
+      </p>
+
+      <!-- Signup Form -->
+      <form id="signupForm">
+        <div class="form-group">
+          <label for="reg_name" class="required">Full Name</label>
+          <input type="text" id="reg_name" name="reg_name" required placeholder="Enter your full name">
+        </div>
+
+        <div class="form-group">
+          <label for="reg_email" class="required">Email Address</label>
+          <input type="email" id="reg_email" name="reg_email" required placeholder="your.email@example.com">
+        </div>
+        <div class="form-group">
+          <label class="required">Mobile Number</label>
+
+          <div class="phone-input">
+            <select id="country_code" required>
+              <option value="91" selected>🇮🇳 +91 (India)</option>
+              <option value="1">🇺🇸 +1 (USA)</option>
+              <option value="44">🇬🇧 +44 (UK)</option>
+              <option value="971">🇦🇪 +971 (UAE)</option>
+              <option value="61">🇦🇺 +61 (Australia)</option>
+              <option value="81">🇯🇵 +81 (Japan)</option>
+              <option value="49">🇩🇪 +49 (Germany)</option>
+              <option value="33">🇫🇷 +33 (France)</option>
+            </select>
+
+            <input type="text" id="reg_number" name="reg_number" required placeholder="Enter mobile number">
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="reg_password" class="required">Password</label>
+          <input type="password" id="reg_password" name="reg_password" required placeholder="Minimum 8 characters">
+          <p class="hint">Use a strong password with letters, numbers, and symbols.</p>
+        </div>
+
+        <div class="form-group">
+          <input type="checkbox" id="terms_agree_reg" name="terms_agree" required>
+          <label for="terms_agree_reg" class="required"
+            style="margin-top: 0.5rem; display: inline-flex; align-items: center;">
+            I agree to the
+            <a href="#" style="color: var(--primary-yellow); text-decoration: underline; margin-left: 5px;">Terms and
+              Conditions</a>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Register <i class="fas fa-sign-in-alt"></i>
+        </button>
+      </form>
+
+      <!-- OTP Verification Form (hidden initially) -->
+      <form id="otpForm" style="display:none; margin-top:20px;">
+        <h3>Verify OTP</h3>
+        <p>We’ve sent a verification code to your email.</p>
+        <input type="text" id="otp" placeholder="Enter OTP" required>
+        <button type="submit" class="submit-btn">Verify OTP</button>
+        <p id="verifyMessage" style="margin-top:10px;"></p>
+      </form>
+
+      <div class="auth-footer-link">
+        Already have an account?
+        <a href="login.html" class="yellow-link">Log In Here</a>
+      </div>
+    </div>
+  </div>
+
+  <footer></footer>
+
+  <script src="signup.js"></script>
+</body>
+
+</html>

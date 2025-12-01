@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Trash</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin1.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1>Deleted Records - Trash</h1>
+    <div class="search-filter">
+      <input 
+        type="text" 
+        id="searchBar" 
+        placeholder="Search by name, email, phone, id, issue..." 
+        oninput="applyFilters()" 
+      />
+      <button id="refreshBtn">Refresh</button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <table id="trashTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>User</th>
+          <th>Email</th>
+          <th>PhoneNo</th>
+          <th>Created At</th>
+          <th>Deleted At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="trash-table-body">
+        <!-- Rows added dynamically -->
+      </tbody>
+    </table>
+  </main>
+
+  <script src="trash.js"></script>
+</body>
+</html>

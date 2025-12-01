@@ -1,0 +1,85 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Account Recovery</title>
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1>Account Recovery Admin Panel</h1>
+    <div class="search-filter">
+     <input 
+        type="text" 
+        id="searchBar" 
+        placeholder="Search by name, email, phone, id, issue..." 
+        oninput="applyFilters()" 
+    />
+      <select id="statusFilter" onchange="applyFilters()" style="padding: 6px;">
+        <option value="all">All</option>
+        <option value="Unseen">Unseen</option>
+        <option value="Pending">Pending</option>
+        <option value="Resolved">Resolved</option>
+    </select>
+    
+      <button id="refreshBtn">Refresh</button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <table id="ticketTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>User</th>
+          <th>Email</th>
+          <th>PhoneNo</th>
+          <th>Issue</th>
+          <th>Buget</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="ticket-table-body">
+        <!-- Rows added dynamically -->
+      </tbody>
+    </table>
+  </main>
+
+ 
+  <!-- ================= Modal Popup ================= -->
+<div id="detailsModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <h2>Ticket Details</h2>
+    <div id="ticket-details" class="details-container"></div>
+  </div>
+</div>
+
+<div id="assignModal" class="modal">
+  <div class="modal-content">
+    <span id="closeAssignModal" class="close">&times;</span>
+    <h2>Assign Ticket</h2>
+
+    <label>Select Admin:</label>
+    <select id="adminSelect"></select>
+
+    <button id="assignBtn">Assign Now</button>
+  </div>
+</div>
+
+
+  <script src="admin.js"></script>
+</body>
+</html>
+
+
+ 
+
+ 

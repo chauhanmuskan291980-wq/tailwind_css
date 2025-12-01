@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full-Stack Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="homepage.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* --- Header Styles --- */
+    /* 🎨 Theme Colors (Light & Simple Theme) */
+    :root {
+      --primary-color: #4f46e5;
+      /* Professional Indigo/Blue Accent */
+      --secondary-color: #a5b4fc;
+      /* Light Indigo for accents/hover BG */
+      --light-bg: #ffffff;
+      /* Clean White Background */
+      --light-surface: #f7f7f7;
+      /* Soft Gray Surface (Cards, Hero) */
+      --text-dark: #1f2937;
+      /* Dark Gray Primary Text */
+      --text-medium: #4b5563;
+      /* Medium Gray Secondary Text */
+      --border-light: #e5e7eb;
+      /* Light Gray Border */
+    }
+
+    /* 🌍 Base Styles */
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: var(--light-surface);
+      /* Soft background */
+      color: var(--text-dark);
+      /* Dark primary text */
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--text-dark);
+      transition: color 0.3s;
+    }
+
+    /* Reusable Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* --- 1. HEADER & NAVIGATION LAYOUT --- */
+
+
+    /* Content area */
+    .content-area {
+      min-height: calc(100vh - 80px);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #a5b4fc;
+      border-radius: 4px;
+    }
+
+    #posts-container {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      /* mobile */
+      gap: 1.5rem;
+      align-items: stretch;
+      /* ensures all cards in a row stretch to the same height */
+    }
+
+    @media (min-width: 640px) {
+      #posts-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      #posts-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .post-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      /* pushes the Read More link to the bottom */
+      height: 100%;
+      /* ensures stretching in grid */
+    }
+
+
+    .post-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-card img.post-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .post-card-content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+
+    /* Title & text */
+    .post-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #4f46e5;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-card p {
+      color: #4b5563;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    /* Author info */
+    .author-info {
+      display: flex;
+      align-items: center;
+      margin-top: auto;
+      margin-bottom: 0.5rem;
+    }
+
+    .author-info img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 0.5rem;
+    }
+
+    .author-info span {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    /* Read more link */
+    .read-more {
+      color: #4f46e5;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .read-more:hover {
+      color: #4338ca;
+    }
+
+    /* Force equal height cards */
+    #posts-container>.post-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      /* align-items: stretch; */
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+
+
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">
+        <!-- Using a colored box as a logo placeholder since no image URL was provided -->
+        <div
+          style="width: 130px; height: 30px; background-color: #ff5c00; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">
+          SMIPIN LOGO</div>
+      </a>
+
+      <!-- Hamburger Button (visible on mobile) -->
+      <button class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- NAV MENU (slides out on mobile) -->
+      <div class="nav-menu" id="navMenu">
+
+
+
+        <!-- LEFT MENU -->
+        <ul class="nav-links">
+
+          <div><a href="homepage.html">Home</a></div>
+          <div><a href="aboutus.html">About us</a></div>
+          <div><a href="blog.html">Blog</a></div>
+          <li class="dropdown-trigger">
+            <a href="#">Platform <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="IGCollaboration.html">Start Collaboration</a></li>
+              <li><a href="whatappMarketing.html">whatsapp Marketing</a></li>
+              <li><a href="trustpilot.html">Get Trustpilot Reviews</a></li>
+              <li><a href="TripAdvisor.html">Get TripAdvisor Reviews</a></li>
+              <li><a href="vendor-registration.html">vendor registration</a></li>
+              <li><a href="googleReviews.html">Get Google Reviews</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown-trigger">
+            <a href="#">Services <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="social-media-account-recovery.html">Social Media Account Recovery</a></li>
+              <li><a href="account-verification.html">Account Verification</a></li>
+              <li><a href="username-claim.html">Username Claim</a></li>
+              <li><a href="copyright-removal.html">Content Removal</a></li>
+              <li><a href="whatappMarketing.html">Digital Marketing && Other</a></li>
+
+            </ul>
+          </li>
+        </ul>
+
+        <!-- RIGHT SIDE -->
+        <div class="nav-right">
+          <div class="search-box">
+            <input type="text" placeholder="Search..." />
+            <button><i class="fas fa-search"></i></button>
+          </div>
+
+          <!-- <select class="language-select">
+                        <option>EN</option>
+                        <option>FR</option>
+                        <option>ES</option>
+                    </select> -->
+
+          <ul class="social-icons">
+            <li><a><i class="fas fa-envelope"></i></a></li>
+            <li><a><i class="fab fa-instagram"></i></a></li>
+            <li><a><i class="fab fa-facebook-f"></i></a></li>
+            <li><a><i class="fab fa-whatsapp"></i></a></li>
+          </ul>
+
+
+
+          <div id="loginContainer">
+            <button class="login-btn"><a href="login.html">Login</a></button>
+          </div>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="flex flex-wrap gap-3 my-6 justify-center">
+
+    <button class="filter-btn bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg" data-category="all">
+      All
+    </button>
+
+    <button class="filter-btn bg-gray-100 px-4 py-2 rounded-lg" data-category="social-media-recovery">
+      Social Media Recovery
+    </button>
+
+    <button class="filter-btn bg-gray-100 px-4 py-2 rounded-lg" data-category="copyright-removal">
+      Copyright Removal
+    </button>
+
+    <button class="filter-btn bg-gray-100 px-4 py-2 rounded-lg" data-category="username-claim">
+      Username Claim
+    </button>
+
+    <button class="filter-btn bg-gray-100 px-4 py-2 rounded-lg" data-category="verification">
+      Verification
+    </button>
+
+    <button class="filter-btn bg-gray-100 px-4 py-2 rounded-lg" data-category="whatsapp-marketing">
+      WhatsApp Marketing
+    </button>
+
+  </div>
+
+
+
+  <main class="max-w-4xl mx-auto p-4">
+
+    <section id="blog-view">
+      <h2 class="text-3xl font-bold mb-6 text-indigo-800 border-b pb-2">Latest Posts</h2>
+      <div id="posts-container">
+        <p class="text-center text-gray-500 py-10">Loading posts...</p>
+      </div>
+    </section>
+
+    <section id="single-post-view" class="hidden">
+      <div id="single-post-container" class="bg-white p-6 rounded-xl shadow-lg"></div>
+      <button onclick="showBlog()" class="mt-6 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg">
+        ← Back to Blog
+      </button>
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-col">
+        <h3>Smipin</h3>
+        <p>
+          Your trusted partner for social media account recovery,
+          verification, and digital support.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Testimonials</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Data Policy</h4>
+        <ul>
+          <li><a href="#">Terms and payments terms </a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Data Policy</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Terms and payments terms </a></li>
+          <li><a href="#">Refunds policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Account Recovery</a></li>
+          <li><a href="#">Username Claim</a></li>
+          <li><a href="#">Verification</a></li>
+          <li><a href="#">Copyright Removal</a></li>
+          <li><a href="#">Whatapp marketing</a></li>
+          <li><a href="#">Instagram Collaboration</a></li>
+          <li><a href="#">Register as a Vendor</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p><i class="fas fa-envelope"></i> support@smipin.com</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Disclaimer: Smipin is an independent platform and is not affiliated with Instagram, TikTok, or any social media
+        company.</p>
+    </div>
+  </footer>
+
+
+  <script>
+    const API_BASE_URL = "http://localhost:5000/api/posts";
+
+    const postsContainer = document.getElementById("posts-container");
+    const blogView = document.getElementById("blog-view");
+    const singlePostView = document.getElementById("single-post-view");
+    const singlePostContainer = document.getElementById("single-post-container");
+
+    // Fetch all posts
+    async function fetchPosts() {
+      postsContainer.innerHTML = "<p class='text-center py-10'>Loading...</p>";
+      try {
+        const res = await fetch(API_BASE_URL);
+        const posts = await res.json();
+
+        postsContainer.innerHTML = posts.map(post => `
+  <div class="post-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-indigo-500">
+    
+    ${post.imageUrl
+            ? `<img src="${post.imageUrl}" alt="${post.title}" class="w-full h-640 object-cover rounded-md mb-4">`
+            : ''}
+    
+    <h3 class="text-2xl font-semibold text-indigo-700">${post.title}</h3>
+    <p class="text-sm text-gray-500 mb-2">Published: ${new Date(post.createdAt).toLocaleDateString()}</p>
+    <p class="text-gray-600">${post.content.substring(0, 150)}...</p>
+    <a href="#post/${post.slug}" class="text-indigo-500 font-medium">Read More →</a>
+  </div>
+`).join("");
+
+      } catch (error) {
+        postsContainer.innerHTML = `<p class="text-red-600">Error loading posts.</p>`;
+      }
+    }
+
+    // Fetch single post
+    async function fetchSinglePost(slug) {
+      blogView.classList.add("hidden");
+      singlePostView.classList.remove("hidden");
+      singlePostContainer.innerHTML = "<p class='text-center py-10'>Loading...</p>";
+
+      try {
+        const res = await fetch(`${API_BASE_URL}/${slug}`);
+        const post = await res.json();
+
+        singlePostContainer.innerHTML = `
+  ${post.imageUrl
+            ? `<img src="${post.imageUrl}" class="w-full h-640 object-cover rounded-lg mb-6">`
+            : ''}
+    
+  <h1 class="text-3xl font-bold text-indigo-700">${post.title}</h1>
+  <p class="text-gray-500 mb-3">Published: ${new Date(post.createdAt).toLocaleDateString()}</p>
+  <div class="text-gray-700 whitespace-pre-line">${post.content}</div>
+`;
+      } catch {
+        singlePostContainer.innerHTML = `<p class="text-red-600">Post not found.</p>`;
+      }
+    }
+
+    // Hash routing
+    function handleHashRoute() {
+      const hash = window.location.hash;
+      if (hash.startsWith("#post/")) {
+        const slug = hash.split("/")[1];
+        fetchSinglePost(slug);
+      }
+    }
+
+    function showBlog() {
+      singlePostView.classList.add("hidden");
+      blogView.classList.remove("hidden");
+      window.location.hash = "";
+    }
+
+    window.addEventListener("hashchange", handleHashRoute);
+    window.addEventListener("DOMContentLoaded", () => {
+      fetchPosts();
+      handleHashRoute();
+    });
+
+
+    // FILTER BUTTON LOGIC
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const category = btn.dataset.category;
+
+        if (category === "all") {
+          return fetchPosts();
+        }
+
+        postsContainer.innerHTML = "<p class='text-center py-10'>Loading...</p>";
+
+        const res = await fetch(`${API_BASE_URL}/category/${category}`);
+        const posts = await res.json();
+
+        postsContainer.innerHTML = posts.length
+          ? posts.map(post => `
+        <div class="post-card bg-white p-6 rounded-xl shadow-lg">
+          ${post.imageUrl
+            ? `<img src="${post.imageUrl}" class="w-full h-640 object-cover rounded-lg mb-6">`
+            : ''}
+          <h3>${post.title}</h3>
+          <p>${post.content.substring(0, 150)}...</p>
+          <a href="#post/${post.slug}" class="text-indigo-500">Read More →</a>
+        </div>
+      `).join("")
+          : `<p class='text-center text-gray-500 py-10'>No posts found.</p>`;
+      });
+    });
+
+
+  </script>
+
+</body>
+<!-- <script src="social-media-recovery.js"></script> -->
+
+</html>

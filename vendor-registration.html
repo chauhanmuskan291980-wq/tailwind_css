@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register as a Vendor - Smipin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="IGRecovery.css" />
+    <link rel="stylesheet" href="homepage.css">
+</head>
+
+<body>
+
+            <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <!-- Using a colored box as a logo placeholder since no image URL was provided -->
+                <div style="width: 130px; height: 30px; background-color: #ff5c00; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">SMIPIN LOGO</div>
+            </a>
+
+            <!-- Hamburger Button (visible on mobile) -->
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- NAV MENU (slides out on mobile) -->
+            <div class="nav-menu" id="navMenu">
+
+
+
+                <!-- LEFT MENU -->
+                <ul class="nav-links">
+
+                  <div><a href="homepage.html">Home</a></div>
+                  <div><a href="aboutus.html">About us</a></div>
+                  <div><a href="blog.html">Blog</a></div>
+                    <li class="dropdown-trigger">
+                        <a href="#">Platform <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="IGCollaboration.html">Start Collaboration</a></li>
+                            <li><a href="whatappMarketing.html">whatsapp Marketing</a></li>
+                            <li><a href="trustpilot.html">Get Trustpilot Reviews</a></li>
+                            <li><a href="TripAdvisor.html">Get TripAdvisor Reviews</a></li>
+                            <li><a href="vendor-registration.html">vendor registration</a></li>
+                            <li><a href="googleReviews.html">Get Google Reviews</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-trigger">
+                        <a href="#">Services <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="social-media-account-recovery.html">Social Media Account Recovery</a></li>
+                            <li><a href="account-verification.html">Account Verification</a></li>
+                            <li><a href="username-claim.html">Username Claim</a></li>
+                            <li><a href="copyright-removal.html">Content Removal</a></li>
+                            <li><a href="services.html">Digital Marketing && Others</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- RIGHT SIDE -->
+                <div class="nav-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search..." />
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <!-- <select class="language-select">
+                        <option>EN</option>
+                        <option>FR</option>
+                        <option>ES</option>
+                    </select> -->
+
+                    <ul class="social-icons">
+                        <li><a><i class="fas fa-envelope"></i></a></li>
+                        <li><a><i class="fab fa-instagram"></i></a></li>
+                        <li><a><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a><i class="fab fa-whatsapp"></i></a></li>
+                    </ul>
+                    
+                       
+
+                    <div id="loginContainer">
+                        <button class="login-btn"><a href="login.html">Login</a></button>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container1">
+        <div class="form-container">
+            <h2><i class="fas fa-handshake"></i> Vendor Registration</h2>
+            <p class="hint" style="text-align: center; margin-bottom: 2rem; font-size: 1rem;">
+                Partner with us! Fill out the form below to become a verified Smipin Service Partner.
+            </p>
+
+            <form action="/submit-vendor-registration" method="POST" enctype="multipart/form-data">
+
+                <h3>Personal & Contact Information</h3>
+                <div class="form-group">
+                    <label for="vendor_name" class="required">Full Name / Company Name</label>
+                    <input type="text" id="vendor_name" name="vendor_name" required
+                        placeholder="John Doe or Digital Solutions Agency">
+                    <p class="hint">Must match legal or business registration documents.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="vendor_email" class="required">Primary Email Address</label>
+                    <input type="email" id="vendor_email" name="vendor_email" required
+                        placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="vendor_whatsapp" class="required">WhatsApp Number (with country code)</label>
+                    <input type="text" id="vendor_whatsapp" name="vendor_whatsapp" required
+                        placeholder="+1 555 123 4567">
+                </div>
+
+                <h3>Service Expertise <span
+                        style="font-size: 0.9em; font-weight: 400; color: var(--text-light);">(Select all that
+                        apply)</span></h3>
+                <div class="form-group">
+                    <label class="required">What services do you offer?</label>
+                    <div class="inline-group">
+                        <input type="checkbox" id="service_recovery" name="services[]" value="Account Recovery">
+                        <label for="service_recovery"><i class="fas fa-lock-open"></i> Account Recovery</label>
+
+                        <input type="checkbox" id="service_verification" name="services[]" value="Account Verification">
+                        <label for="service_verification"><i class="fas fa-badge-check"></i> Account
+                            Verification</label>
+
+                        <input type="checkbox" id="service_username" name="services[]" value="Username Claim">
+                        <label for="service_username"><i class="fas fa-at"></i> Username Claim</label>
+
+                        <input type="checkbox" id="service_copyright" name="services[]" value="Copyright Removal">
+                        <label for="service_copyright"><i class="fas fa-shield-slash"></i> Copyright/DMCA
+                            Removal</label>
+
+                        <input type="checkbox" id="service_reputation" name="services[]" value="Reputation Management">
+                        <label for="service_reputation"><i class="fas fa-star-half-alt"></i> Reputation
+                            Management</label>
+
+                        <input type="checkbox" id="service_marketing" name="services[]" value="Marketing/Promotion">
+                        <label for="service_marketing"><i class="fas fa-bullhorn"></i> Marketing & Promotions</label>
+
+                        <input type="checkbox" id="service_legal" name="services[]" value="Legal Consulting">
+                        <label for="service_legal"><i class="fas fa-gavel"></i> Legal Consulting</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience_years" class="required">Years of Relevant Experience</label>
+                    <select id="experience_years" name="experience_years" required>
+                        <option value="">Select Experience Level</option>
+                        <option value="<1">Less than 1 Year</option>
+                        <option value="1-3">1 - 3 Years</option>
+                        <option value="3-5">3 - 5 Years</option>
+                        <option value="5+">5+ Years</option>
+                    </select>
+                </div>
+
+                <h3>Platform Focus</h3>
+                <div class="form-group">
+                    <label class="required">Are you specialized in a specific platform?</label>
+                    <div class="inline-group">
+                        <input type="radio" id="platform_meta" name="platform_focus" value="Meta (IG/FB)" required>
+                        <label for="platform_meta"><i class="fab fa-instagram"></i> Meta (IG/FB)</label>
+
+                        <input type="radio" id="platform_tiktok" name="platform_focus" value="TikTok">
+                        <label for="platform_tiktok"><i class="fab fa-tiktok"></i> TikTok</label>
+
+                        <input type="radio" id="platform_x" name="platform_focus" value="X / Twitter">
+                        <label for="platform_x"><i class="fab fa-x-twitter"></i> X / Twitter</label>
+
+                        <input type="radio" id="platform_other" name="platform_focus" value="Other/All">
+                        <label for="platform_other"><i class="fas fa-globe"></i> Other / All Platforms</label>
+                    </div>
+                </div>
+
+                <h3>Verification Documents</h3>
+                <div class="form-group">
+                    <div class="file-upload-section">
+                        <label for="portfolio_link">Portfolio/Case Study Link (Optional)</label>
+                        <input type="text" id="portfolio_link" name="portfolio_link"
+                            placeholder="Link to your past successful work">
+                    </div>
+
+                    <div class="file-upload-section" style="margin-top: 20px;">
+                        <label for="legal_doc" class="required">Business Registration / ID Document (PDF/JPG)</label>
+                        <input type="file" id="legal_doc" name="legal_doc" accept=".pdf,.jpg,.jpeg,.png" required>
+                        <p class="hint">This is required for verification. Max file size 5MB.</p>
+                    </div>
+                </div>
+
+                <h3>Agreement</h3>
+                <div class="form-group" style="background-color: #e9f7ef;">
+                    <div class="inline-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms" class="required">I agree to the <a href="#" target="_blank">Terms and
+                                Conditions</a></label>
+                    </div>
+
+
+                    <h4 style="margin-top: 25px; color: white;">Security Check (Type the Code)</h4>
+
+                    <div id="captcha-display" style="
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #121212;
+    border-radius: 6px;
+    color: var(--primary-yellow);
+    font-size: 20px;
+    font-weight: 700;
+">
+                        <span id="captchaCodeDisplay">Loading...</span>
+                        <button type="button" id="reloadCaptchaBtn" style="
+        background: none; 
+        border: none; 
+        color: var(--primary-yellow); 
+        cursor: pointer;
+    " title="Reload Captcha"><i class="fas fa-redo"></i></button>
+                    </div>
+
+                    <input type="text" id="captcha_input" name="userCaptchaAnswer"
+                        placeholder="Enter the code shown above" required>
+
+                    <input type="hidden" id="captchaToken" name="captchaId" value="">
+
+                </div>
+
+
+                <button type="submit" class="submit-btn">
+                    Submit Application <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Smipin</h3>
+                <p>Your trusted partner for social media account recovery, verification, and digital support.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Data Policy</h4>
+                <ul>
+                    <li><a href="#">Terms and payments terms </a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Data Policy</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Terms and payments terms </a></li>
+                    <li><a href="#">Refunds policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Account Recovery</a></li>
+                    <li><a href="#">Username Claim</a></li>
+                    <li><a href="#">Verification</a></li>
+                    <li><a href="#">Copyright Removal</a></li>
+                    <li><a href="#">Whatapp marketing</a></li>
+                    <li><a href="#">Instagram Collaboration</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p><i class="fas fa-envelope"></i> support@smipin.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Smipin. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+const token = localStorage.getItem("token");
+if (!token) {
+    alert("Please log in before filling the form.");
+    window.location.href = "login.html";  
+}
+        const API_BASE_URL = "http://localhost:5000"; // Centralized URL
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // ... (Keep your existing header/footer loader code here if needed) ...
+
+            // --- MAIN FORM SUBMISSION LOGIC ---
+            const form = document.querySelector('form');
+
+            if (form) {
+                form.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    const submitBtn = form.querySelector(".submit-btn");
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = 'Uploading Document... <i class="fas fa-spinner fa-spin"></i>';
+
+                    try {
+                        const token = localStorage.getItem("token");
+                        // Optional: Check if token exists if authentication is required
+                        // if (!token) throw new Error("Please log in to register.");
+
+                        // --- STEP 1: UPLOAD FILE TO S3 ---
+                        const fileInput = document.getElementById('legal_doc');
+                        const file = fileInput.files[0];
+                        let legalDocUrl = null;
+
+                        if (file) {
+                            // Upload using the helper function
+                            legalDocUrl = await uploadFileToS3(file, token);
+                        } else {
+                            throw new Error("Legal Business Registration document is required.");
+                        }
+
+                        submitBtn.innerHTML = 'Submitting Application... <i class="fas fa-spinner fa-spin"></i>';
+
+                        // --- STEP 2: PREPARE JSON DATA ---
+
+                        // A. Collect Checkboxes (Services)
+                        // Note: We select by name="services[]"
+                        const serviceCheckboxes = document.querySelectorAll('input[name="services[]"]:checked');
+                        const selectedServices = Array.from(serviceCheckboxes).map(cb => cb.value);
+
+                        // B. Collect Radio Button (Platform Focus)
+                        const platformRadio = document.querySelector('input[name="platform_focus"]:checked');
+                        const platformValue = platformRadio ? platformRadio.value : "";
+
+                        // C. Construct the JSON Payload
+                        const payload = {
+                            vendorName: document.getElementById('vendor_name').value,
+                            vendorEmail: document.getElementById('vendor_email').value,
+                            vendorWhatsapp: document.getElementById('vendor_whatsapp').value,
+
+                            services: selectedServices, // Array of strings
+                            experienceYears: document.getElementById('experience_years').value,
+                            platformFocus: platformValue,
+
+                            portfolioLink: document.getElementById('portfolio_link').value,
+
+                            // The S3 URL we got from Step 1
+                            legalDocUrl: legalDocUrl,
+
+                            terms: document.getElementById('terms').checked,
+                            userCaptchAnswer: document.getElementById("captcha_input").value,
+                            captchaId: document.getElementById("captchaToken").value
+                        };
+
+                        // --- STEP 3: SEND TO BACKEND ---
+                        const response = await fetch(`${API_BASE_URL}/api/submit-vendor-registration`, {
+                            method: 'POST',
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": `Bearer ${token}`
+                            },
+                            body: JSON.stringify(payload)
+                        });
+
+                        const result = await response.json();
+
+                        if (!response.ok) {
+                            throw new Error(result.message || result.error || "Registration failed");
+                        }
+
+                        alert("✅ " + (result.message || "Vendor registration submitted successfully!"));
+                        form.reset();
+                        if (typeof loadCaptcha === 'function') loadCaptcha();
+
+                    } catch (err) {
+                        console.error('Submission Error:', err);
+                        loadCaptcha();
+                        alert('❌ Error: ' + err.message);
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                    }
+                });
+            }
+        });
+
+        // --- S3 UPLOAD HELPER FUNCTION ---
+        async function uploadFileToS3(file, token) {
+            const generateUrlEndpoint = `${API_BASE_URL}/api/generate-upload-url?filename=${encodeURIComponent(file.name)}&filetype=${encodeURIComponent(file.type)}`;
+
+            const signedUrlResponse = await fetch(generateUrlEndpoint, {
+                headers: { "Authorization": `Bearer ${token}` }
+            });
+
+            if (!signedUrlResponse.ok) {
+                const txt = await signedUrlResponse.text();
+                throw new Error(`Server Refused Upload: ${txt}`);
+            }
+
+            const { signedUrl, fileUrl } = await signedUrlResponse.json();
+
+            const uploadResponse = await fetch(signedUrl, {
+                method: 'PUT',
+                headers: { 'Content-Type': file.type },
+                body: file
+            });
+
+            if (!uploadResponse.ok) throw new Error("Failed to upload file to AWS S3.");
+
+            return fileUrl;
+        }
+
+
+        // --- CAPTCHA LOGIC ---
+        const captchaCodeDisplay = document.getElementById('captchaCodeDisplay');
+        const captchaTokenInput = document.getElementById('captchaToken');
+        const reloadButton = document.getElementById('reloadCaptchaBtn');
+
+        async function loadCaptcha() {
+            if (!captchaCodeDisplay) return;
+            captchaCodeDisplay.textContent = 'Loading...';
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/captcha`);
+                const data = await response.json();
+
+                if (data.success) {
+                    captchaCodeDisplay.textContent = data.captchaCode;
+                    if (captchaTokenInput) captchaTokenInput.value = data.captchaId;
+                    document.getElementById('captcha_input').value = '';
+                } else {
+                    captchaCodeDisplay.textContent = 'Error';
+                }
+            } catch (error) {
+                console.error('Error loading CAPTCHA:', error);
+                captchaCodeDisplay.textContent = 'Net Error';
+            }
+        }
+
+        if (reloadButton) reloadButton.addEventListener('click', loadCaptcha);
+        loadCaptcha();
+
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+    </script>
+
+
+</body>
+<script src="social-media-recovery.js"></script>
+
+</html>

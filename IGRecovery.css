@@ -1,19 +1,24 @@
-/* 🎨 Theme Colors */
+ /* 🎨 Theme Colors (CONSISTENT WITH HOMEPAGE) */
 :root {
-  --primary-yellow: #ffffffff;
-  --secondary-yellow: #ffd94f;
-  --dark-bg:  #2d3748;
-  --dark-surface:  #2d3748;
+  --primary-yellow: #ffffffff; /* White/Bright Yellow Accent */
+  --secondary-yellow: #ffd94f; /* Light Yellow/Amber Accent */
+  --dark-bg: #2d3748; /* Primary Dark Blue-Gray Background */
+  --dark-surface: #2d3748; /* Primary Dark Surface (Same as BG for this theme) */
   --text-white: #ffffff;
   --text-light: #bbb;
+  /* Defining a local red and border color based on typical use, as they are used in the page content */
+  --required-red: #ff4747;
+  --border-gray: #444;
 }
 
-/* 🌍 Base Styles */
+/* Base Styles */
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  background: #f5f5ee;
-  color: block;
+  /* Changed to match homepage's dark-bg: #2d3748 */
+  background: var(--text-white);
+  color: var(--text-white);
+  line-height: 1.6;
 }
 
 a {
@@ -21,7 +26,9 @@ a {
   color: inherit;
 }
 
-/* --- 1. GENERAL HEADER & NAVIGATION LAYOUT --- */
+/* --- 1. GENERAL HEADER & NAVIGATION LAYOUT --- (COPIED FROM HOMEPAGE FOR CONSISTENCY) */
+
+ /* --- 1. GENERAL HEADER & NAVIGATION LAYOUT --- */
          .navbar {
             display: flex;
             justify-content: space-between;
@@ -333,11 +340,7 @@ a {
             }
         }
 
-        /* Existing CSS for .user-menu and .user-dropdown is good, but let's ensure it handles the username display and mobile sizing well. */
-
-/* --- User Menu (Logged-in State) --- */
-
-.user-menu {
+     .user-menu {
   position: relative;
   display: flex;
   align-items: center;
@@ -459,341 +462,286 @@ a {
 
 }
 
+/* --- 📋 Form Styling (Adjusted for homepage colors) --- */
+.form-container {
+  /* Using dark-bg for surface to match homepage's dark theme surfaces */
+  background: var(--dark-bg);
+  margin: 3rem auto;
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  /* Used primary-yellow for a stronger glow */
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
 
-/* 🌟 Hero Section */
-.hero {
+.form-container h2 {
+  color: var(--primary-yellow);
   text-align: center;
-  padding: 5rem 1rem;
-  background: linear-gradient(135deg, var(--dark-bg), #252525);
-}
-
-.hero1 {
-  text-align: center;
-  padding: 5rem 1rem;
-  background:#2b323f;
-  border: 2px dashed rgba(255, 255, 255, 0.4);
-  border-radius: 5px;
-}
-.hero1:hover {
-  border: 2px solid #000000ff;
-  transform: translateY(0.5px);
-}
-
-.hero h1 {
-  color:white;
-  font-size: 2.8rem;
   margin-bottom: 1rem;
-}
-
-.hero1 h1 {
-  color:  white;
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  max-width: 650px;
-  margin: 0 auto 2rem;
-  color: white;
-  font-size: 1.2rem;
-}
-
-.hero1 p{
-  color:white
-}
-
-.cta-btn {
-  background: white;
-  color: black;
-  border: none;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-.cta-btn:hover {
-  transform: translateY(-3px);
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Open+Sans:wght@400;600&display=swap");
-
-.ticker {
-  background: #f5f5ee;
-  color:  black;
-  padding: 8px 0;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border-top: 1px solid #333;
-  border-bottom: 1px solid #333;
-  font-family: "Orbitron", "Open Sans", sans-serif;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-/* 💫 Platform Support Section */
-.platform-support {
-  background: #2d3748;
-  padding: 4rem 0;
-  text-align: center;
-}
-
-.platform-support h2 {
   font-size: 2rem;
-  margin-bottom: 2rem;
+}
+
+h3 {
+  margin-top: 2rem;
+  color: var(--secondary-yellow);
+  font-size: 1.3rem;
+  /* Used secondary-yellow for the border */
+  border-bottom: 2px solid rgba(255, 217, 79, 0.3);
+  padding-bottom: 5px;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--text-white);
+  transition: color 0.3s;
+}
+
+/* Mandatory Field Indicator */
+.required::after {
+  content: " *";
+  color: var(--required-red);
+  margin-left: 3px;
+}
+
+/* Form Group Enhancements */
+.form-group {
+  margin-bottom: 25px;
+  padding: 15px;
+  border: 1px solid var(--border-gray);
+  border-radius: 10px;
+  background: #242e3b; /* Darker background for group contrast (slightly darker dark-bg) */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group:focus-within {
+  border-color: var(--primary-yellow);
+  /* Added a more visible glow for focus */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Input/Select/Textarea Base Style */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="number"],
+.form-container input[type="date"],
+.form-container select,
+.form-container textarea {
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-gray);
+  /* Slightly different dark color for input background */
+  background: #364152;
+  color: var(--text-white);
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary-yellow);
+  outline: none;
+  background: #2d3748; /* Darker on focus */
+}
+
+/* Hint Text */
+.hint {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 5px;
+}
+
+/* File Upload Section */
+.file-upload-section {
+  margin-top: 15px;
+  padding: 15px;
+  /* Yellow dashed border */
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  background-color: #242e3b;
+}
+
+/* 📝 Initial state: Conditional sections are hidden by default */
+#verification_type_options,
+#fb_url_option,
+#ban_date_options,
+#2fa_methods {
+  display: none;
+}
+
+.file-upload-section input[type="file"] {
+  border: none;
+  padding: 0;
+  margin-top: 8px;
+  color: var(--text-light);
+  background: transparent;
+}
+.file-upload-section label {
+  font-weight: 400;
+  margin-top: 0;
+}
+
+/* 🟡 WOW Factor: Custom Radio Buttons and Checkboxes 🟡 */
+/* Styles for custom radio/checkboxes are solid, using the theme variables */
+
+/* Hide default inputs */
+input[type="radio"],
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Inline Group Layout */
+.inline-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 30px;
+  margin-top: 10px;
+}
+
+.inline-group label {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  font-weight: 400;
+  color: var(--text-light);
+  transition: color 0.3s;
+}
+
+.inline-group label:hover {
   color: var(--text-white);
 }
 
-.platform-list-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  position: relative;
+/* Custom Checkbox/Radio Shape (The outer box/circle) */
+.inline-group label::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border: 2px solid var(--border-gray);
+  background: #181f29; /* Very dark background */
+  transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
-.scroll-btn {
-  background: var(--primary-yellow);
-  color: var(--dark-bg);
-  border: none;
-  width: 45px;
-  height: 45px;
+/* Checkbox specific styling (Square) */
+input[type="checkbox"] + label::before {
+  border-radius: 4px;
+}
+
+/* Radio Button specific styling (Circle) */
+input[type="radio"] + label::before {
   border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.3rem;
-  transition: background 0.3s;
-  flex-shrink: 0;
 }
 
-.scroll-btn:hover {
-   transform: translateY(-2px);
-}
-
-.platform-list {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  padding: 1rem 0;
-  width: 1040px;
-}
-
-.platform-card {
-  background-color:  #f5f5ee;
-  border: 2px solid #000000ff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  width: 325px;
-  height: 420px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  transition: transform 0.3s, border-color 0.3s;
-  cursor: pointer;
-  box-sizing: border-box;
-}
-
-.platform-card:hover {
+/* State: Checked (Yellow background and glow) */
+input[type="checkbox"]:checked + label::before,
+input[type="radio"]:checked + label::before {
   border-color: var(--primary-yellow);
-  transform: translateY(-5px);
+  background: var(--primary-yellow);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 
-.platform-icon {
-  font-size: 2rem;
-  color:  #373636ff;
-  margin-bottom: 10px;
+/* Custom Checkmark/Dot (Inner element - Hidden by default) */
+.inline-group label::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  transition: transform 0.3s ease;
 }
 
-.platform-card h3 {
-  color:  #393838ff;
-  font-size: 1.2rem;
-  margin-bottom: 0.8rem;
+/* ✅ Checkbox Checkmark (The dark tick mark) */
+input[type="checkbox"]:checked + label::after {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: var(--dark-bg); /* Dark color for high contrast against primary-yellow */
+  font-size: 12px;
+  left: 5px;
+  transform: translateY(-50%) scale(1);
 }
 
-.platform-supported {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 80%;
+/* 🔘 Radio Button Dot (Inner circle) */
+input[type="radio"] + label::after {
+  width: 10px;
+  height: 10px;
+  left: 7px;
+  border-radius: 50%;
+  background: var(--dark-bg); /* Dark dot on yellow background */
 }
 
-.platform-supported li {
-  color:  black;
-  padding: 6px 0;
-  margin-bottom: 5px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.95rem;
+input[type="radio"]:checked + label::after {
+  content: "";
+  transform: translateY(-50%) scale(1);
+}
+
+/* Conditional Sections (Using left border for emphasis) */
+#verification_type_options,
+#fb_url_option,
+#ban_date_options,
+#2fa_methods {
+  border-left: 3px solid var(--primary-yellow);
+  background-color: #242e3b;
+  padding: 15px;
+  border-radius: 0 0 6px 6px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+/* Submit Button */
+.submit-btn {
+  margin-top: 2rem;
   width: 100%;
-
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  transition: color 0.3s, transform 0.3s;
+  background: var(--primary-yellow);
+  border: none;
+  color: var(--dark-bg);
+  padding: 1rem;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, opacity 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.platform-supported li i {
-  font-size: 1.1 rem;
-  color:  black;
-  width: 22px;
-  text-align: center;
+.submit-btn:hover:not(:disabled) {
+  background:   #f6f6f6ff;
+  /* Consistent glow on hover */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
 }
 
-.platform-supported li:hover {
-  color:  black;
-  transform: translateX(5px);
+.submit-btn:disabled {
+  background: var(--border-gray);
+  color: #777;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
-.socialMedia-Plateform {
-  background:  #2d3748;
-  padding: 4rem 0;
-  text-align: center;
-  color: #fff;
-  overflow: hidden;
-  /* hides overflow */
+/* Terms and Conditions/Captcha section */
+.form-group[style*="#e9f7ef"] {
+  background-color: #242e3b !important;
+  border: 1px solid var(--primary-yellow);
 }
 
-.socialMedia-Plateform h2 {
-  font-size: 2rem;
-  color: var(--primary-yellow, #ffc700);
-  margin-bottom: 2rem;
+.form-group[style*="#e9f7ef"] a {
+  color: var(--primary-yellow);
+  text-decoration: underline;
 }
 
-.SM-list {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  gap: 1.5rem;
-  width: max-content;
-  animation: scrollPlatforms 10s linear infinite;
-
-}
-
- 
-
-   .SM-list:hover {
-  animation-play-state: paused;
-
-}   
-
-
- .SM-link-wrapper.highlight-card .SM-card {
-    /* Use the animation for the visual effect */
-    animation: highlight-pulse 2s ease-out; 
-}
-
-/* Optional: Add a subtle border or box-shadow for browsers not supporting the animation */
-.SM-link-wrapper.highlight-card {
-    border-radius: 12px;
-    border:5px solid #0055ff11
-    box-shadow: 0 0 15px rgba(0, 21, 255, 0.8); /* Using your primary-yellow color */
-}
-
-/* Add this new rule to your homepage.css */
-.SM-list.animation-paused {
-    /* This overrides the default animation state set on .SM-list */
-    animation-play-state: paused !important;
-}
-
-/* Define the animation keyframes (use a color closer to your yellow/primary color) */
-@keyframes highlight-pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(255, 199, 0, 0.7);
-        transform: scale(1);
-    }
-    50% {
-        /* Max glow with your theme color */
-        box-shadow: 0 0 15px 10px rgba(255, 199, 0, 0.5); 
-        transform: scale(1.02);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(255, 199, 0, 0); 
-        transform: scale(1);
-    }
-}
-
-.SM-card {
-  background: #f5f5ee;
-  border: 1px solid #333;
-  border-radius: 12px;
-  padding: 1.5rem;
-  width: 280px;
-  height: 300px;
-  text-align: left;
-  flex-shrink: 0;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-  transition: transform 0.3s, border-color 0.3s;
-}
-
-.SM-card:hover {
-  border-color: var(--primary-yellow, #ffc700);
-  transform: translateY(-5px);
-}
-
-.socialMedia-Plateform .platform-icon {
-  font-size: 2rem;
-  color: #000000ff;
-  margin-bottom: 10px;
-}
-
-/* Add a subtle animation/border to highlight the focused card */
-.highlight-card .platform-card {
-    border: 3px solid var(--primary-color, #007bff); /* Use your site's primary color */
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
-    transition: all 0.3s ease-in-out;
-}
-
-.SM-card h3 {
-  color: #3e3d3dff;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-.SM-supported {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.SM-supported li {
-  color: #3c3b3bff;
-  padding: 8px 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  transition: color 0.3s, transform 0.3s;
-}
-
-.SM-supported li:last-child {
-  border-bottom: none;
-}
-
-.SM-supported li i {
-  font-size: 1rem;
-  width: 22px;
-  text-align: center;
-}
-
-.SM-supported li:hover {
-  color: #353535ff;
-  transform: translateX(5px);
-}
-
-/* 🌟 Animation for horizontal scroll */
-@keyframes scrollPlatforms {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* 🌙 Footer Styling */
+/* 🌙 Footer Styling (COPIED FROM HOMEPAGE FOR CONSISTENCY) */
 .site-footer {
   background: var(--dark-surface);
   color: var(--text-light);
@@ -815,13 +763,13 @@ a {
   color: var(--primary-yellow);
   margin-bottom: 1rem;
   font-weight: 700;
-  margin-left:5px;
+  margin-left: 5px;
 }
 
 .footer-col p {
   font-size: 0.95rem;
   line-height: 1.6;
-  margin-left:5px;
+  margin-left: 5px;
 }
 
 .footer-col ul {
@@ -840,7 +788,7 @@ a {
 }
 
 .footer-col ul a:hover {
-  color: var(--primary-yellow);
+  color:  #f6f6f6ff;
   transform: translateX(4px);
 }
 
@@ -865,7 +813,7 @@ a {
 }
 
 .social-links a:hover {
-  background: var(--primary-yellow);
+  background: #fdfefeff;
   color: var(--dark-bg);
   transform: translateY(-3px);
 }
@@ -883,9 +831,7 @@ a {
   color: var(--text-light);
 }
 
-
-
-/* 📱 Responsive */
+/* 📱 Responsive (Kept separate as this code was not in the original input, assuming it's required) */
 @media (max-width: 768px) {
   .footer-container {
     text-align: center;
@@ -893,5 +839,96 @@ a {
 
   .social-links {
     justify-content: center;
+  }
+}
+
+/* --- 4. MOBILE RESPONSIVENESS (Hamburger Menu) --- */
+
+/* The media query section is adjusted to accommodate the larger header height (top: 70px) */
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--primary-yellow);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+}
+
+@media (max-width: 1200px) {
+  .nav-content-right {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 75px;
+    right: 0;
+    width: 100%;
+    background-color: var(--dark-bg);
+    padding: 20px;
+    border-top: 1px solid var(--border-gray);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .nav-content-right.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* Mobile Spacing and Alignment adjustments */
+  .main-links,
+  .nav-utility,
+  .social-icons {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-gray);
+  }
+
+  .social-icons {
+    flex-direction: row;
+    border: none;
+    padding-bottom: 0;
+    margin-top: 10px;
+  }
+
+  .main-links {
+    gap: 0;
+  }
+  .main-links li a {
+    padding: 12px 0;
+  }
+
+  .search-box,
+  .search-input {
+    width: 100%;
+  }
+
+  .language-select {
+    margin-bottom: 10px;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: block;
+    min-width: 100%;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+  }
+  .dropdown-menu li a {
+    padding-left: 35px;
+    background-color: #242e3b; /* Darker mobile menu item background */
+  }
+
+  .loginBtn {
+    margin-top: 25px;
+    width: 100%;
   }
 }

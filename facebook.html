@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Account Recovery Form</title>
+    <link rel="stylesheet" href="IGRecovery.css">
+    <link rel="stylesheet" href="homepage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <!-- Using a colored box as a logo placeholder since no image URL was provided -->
+                <div
+                    style="width: 130px; height: 30px; background-color: #ff5c00; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">
+                    SMIPIN LOGO</div>
+            </a>
+
+            <!-- Hamburger Button (visible on mobile) -->
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- NAV MENU (slides out on mobile) -->
+            <div class="nav-menu" id="navMenu">
+
+
+
+                <!-- LEFT MENU -->
+                <ul class="nav-links">
+
+                    <div><a href="homepage.html">Home</a></div>
+                    <div><a href="aboutus.html">About us</a></div>
+                    <div><a href="blog.html">Blog</a></div>
+                    <li class="dropdown-trigger">
+                        <a href="#">Platform <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="IGRecovery.html">Instagram</a></li>
+                            <li><a href="facebook.html">Facebook</a></li>
+                            <li><a href="whatsappRecovery.html">WhatsApp</a></li>
+                            <li><a href="snapchat.html">SnapChat</a></li>
+                            <li><a href="youtubeRecovery.html">YouTube</a></li>
+                            <li><a href="twitterRecovery.html">Twitter</a></li>
+                            <li><a href="tiktokRecovery.html">TikTok</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-trigger">
+                        <a href="#">Services <i class="fas fa-caret-down ml-1 text-sm"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="social-media-account-recovery.html">Social Media Account Recovery</a></li>
+                            <li><a href="account-verification.html">Account Verification</a></li>
+                            <li><a href="username-claim.html">Username Claim</a></li>
+                            <li><a href="copyright-removal.html">Content Removal</a></li>
+                            <li><a href="services.html">Digital Marketing && Others</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- RIGHT SIDE -->
+                <div class="nav-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search..." />
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <!-- <select class="language-select">
+                        <option>EN</option>
+                        <option>FR</option>
+                        <option>ES</option>
+                    </select> -->
+
+                    <ul class="social-icons">
+                        <li><a><i class="fas fa-envelope"></i></a></li>
+                        <li><a><i class="fab fa-instagram"></i></a></li>
+                        <li><a><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a><i class="fab fa-whatsapp"></i></a></li>
+                    </ul>
+
+
+
+                    <div id="loginContainer">
+                        <button class="login-btn"><a href="login.html">Login</a></button>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+    <main class="form-container">
+        <h2>Facebook Account Recovery Form</h2>
+        <p class="small" style="text-align:center;margin-bottom:25px;">Please fill out all mandatory (*) fields
+            carefully.</p>
+
+        <form id="fbRecoveryForm">
+            <h3>1️⃣ Account Details</h3>
+
+            <div class="form-group">
+                <label class="required">Page or Individual Account</label>
+                <div class="inline-group">
+                    <input type="radio" id="type_individual" name="type" value="individual" required>
+                    <label for="type_individual">Individual</label>
+                    <input type="radio" id="type_page" name="type" value="page">
+                    <label for="type_page">Page</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Name of the Facebook Page (if applicable)</label>
+                <input type="text" name="pageName" placeholder="Page Name">
+            </div>
+
+            <div class="form-group">
+                <label class="required">Name on Profile (First & Last Name)</label>
+                <input type="text" name="realName" required placeholder="Your Full Name">
+            </div>
+
+            <div class="form-group">
+                <label class="required">Username or Profile URL</label>
+                <input type="url" name="profileUrl" required placeholder="https://facebook.com/yourprofile">
+            </div>
+
+            <div class="form-group">
+                <label class="required">Email Linked with Account</label>
+                <input type="email" name="linkedEmail" required placeholder="example@gmail.com">
+            </div>
+
+            <div class="form-group">
+                <label class="required">Number Linked with Account</label>
+                <div style="display: flex; gap: 10px;">
+                    <select style="width: 30%;" id="countryCode">
+                        <option value="+91">+91</option>
+                        <option value="+1">+1</option>
+                        <option value="+44">+44</option>
+                        <option value="+61">+61</option>
+                    </select>
+                    <input type="text" name="linkedNumber" placeholder="Enter number" pattern="\d*" required
+                        style="width: 70%;">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Public or Private Profile</label>
+                <div class="inline-group">
+                    <input type="radio" id="visibility_public" name="visibility" value="public" required>
+                    <label for="visibility_public">Public</label>
+                    <input type="radio" id="visibility_private" name="visibility" value="private">
+                    <label for="visibility_private">Private</label>
+                </div>
+            </div>
+
+            <hr />
+
+            <h3>2️⃣ Ban & Access Details</h3>
+
+            <div class="form-group">
+                <label>Date of Ban (if known)</label>
+                <input type="text" name="banDate" placeholder="DD/MM/YY or Approximate Date">
+            </div>
+
+            <div class="form-group">
+                <label class="required">Upload Screenshot while Login</label>
+                <div class="file-upload-section">
+                    <input id="login_screenshot" type="file" name="login_screenshot" accept=".pdf,.jpg,.jpeg" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Upload Valid ID (PDF/JPEG)</label>
+                <div class="file-upload-section">
+                    <input id="valid_id_upload" type="file" name="valid_id_upload" accept=".pdf,.jpg,.jpeg" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Upload Email from META (if received)</label>
+                <div class="file-upload-section">
+                    <input id="email_upload" type="file" name="email_upload" accept=".pdf,.jpg,.jpeg">
+                </div>
+            </div>
+
+            <hr />
+
+            <h3>3️⃣ Additional Information</h3>
+
+            <div class="form-group">
+                <label>Maximum Budget (USD)</label>
+                <input type="number" name="maxBudgetUSD" placeholder="e.g. 100">
+            </div>
+
+            <div class="form-group">
+                <label>Have you applied for recovery before?</label>
+                <div class="inline-group">
+                    <input type="radio" id="applied_yes" name="applied" value="yes">
+                    <label for="applied_yes">Yes</label>
+                    <input type="radio" id="applied_no" name="applied" value="no">
+                    <label for="applied_no">No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Message or Additional Details</label>
+                <textarea name="comments"
+                    placeholder="Add any extra information or timeline of the issue..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>How did you hear about us?</label>
+                <div class="inline-group">
+                    <input type="checkbox" id="ref_ig" name="heardInstagram" value="true">
+                    <label for="ref_ig">Instagram</label>
+                    <input type="checkbox" id="ref_friend" name="heardFriend" value="true">
+                    <label for="ref_friend">Friend</label>
+                    <input type="checkbox" id="ref_web" name="heardWebsite" value="true">
+                    <label for="ref_web">Website</label>
+                    <input type="checkbox" id="ref_other" name="heardOther" value="true">
+                    <label for="ref_other">Other</label>
+                </div>
+            </div>
+
+            <div class="form-group" style="background-color: #e9f7ef;">
+                <div class="inline-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms" class="required">I agree to the <a href="#" target="_blank">Terms and
+                            Conditions</a></label>
+                </div>
+
+
+                <h4 style="margin-top: 25px; color: white;">Security Check (Type the Code)</h4>
+
+                <div id="captcha-display" style="
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #121212;
+    border-radius: 6px;
+    color: var(--primary-yellow);
+    font-size: 20px;
+    font-weight: 700;
+">
+                    <span id="captchaCodeDisplay">Loading...</span>
+                    <button type="button" id="reloadCaptchaBtn" style="
+        background: none; 
+        border: none; 
+        color: var(--primary-yellow); 
+        cursor: pointer;
+    " title="Reload Captcha"><i class="fas fa-redo"></i></button>
+                </div>
+
+                <input type="text" id="captcha_input" name="userCaptchAnswer" placeholder="Enter the code shown above"
+                    required>
+
+                <input type="hidden" id="captchaToken" name="captchaId" value="">
+
+            </div>
+
+            <button id="submitButton" class="submit-btn" type="submit">
+                Submit Recovery Request
+            </button>
+        </form>
+    </main>
+
+
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Smipin</h3>
+                <p>Your trusted partner for social media account recovery, verification, and digital support.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Data Policy</h4>
+                <ul>
+                    <li><a href="#">Terms and payments terms </a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Data Policy</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Terms and payments terms </a></li>
+                    <li><a href="#">Refunds policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Account Recovery</a></li>
+                    <li><a href="#">Username Claim</a></li>
+                    <li><a href="#">Verification</a></li>
+                    <li><a href="#">Copyright Removal</a></li>
+                    <li><a href="#">Whatapp marketing</a></li>
+                    <li><a href="#">Instagram Collaboration</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p><i class="fas fa-envelope"></i> support@smipin.com</p>
+            </div>
+
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Smipin. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script src="facebook.js"></script>
+<script src="social-media-recovery.js"></script>
+
+</html>

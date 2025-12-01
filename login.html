@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log In - Smipin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="homepage.css" />
+  <link rel="stylesheet" href="auth.css" />
+</head>
+
+<body>
+  <header></header>
+
+  <div class="container auth-page">
+    <div class="form-container" style="max-width: 500px;">
+      <h2><i class="fas fa-lock"></i> Account Login</h2>
+      <p class="hint" style="text-align: center; margin-bottom: 2rem;">
+        Access your Smipin client dashboard.
+      </p>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="login_email" class="required">Email Address</label>
+          <input type="email" id="login_email" name="login_email" required placeholder="your.email@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="login_password" class="required">Password</label>
+          <input type="password" id="login_password" name="login_password" required placeholder="Enter your password">
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Log In <i class="fas fa-arrow-right"></i>
+        </button>
+      </form>
+
+
+      <div class="auth-footer-link">
+        Don't have an account? <a href="signup.html" class="yellow-link">Sign Up</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault(); // Stop form from reloading the page
+
+      // 1. Get user input
+      const email = document.getElementById("login_email").value;
+      const password = document.getElementById("login_password").value;
+
+      // Optional: Disable button/show loading spinner here
+
+      try {
+        const response = await fetch("http://localhost:5000/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.token) {
+          // ✅ LOGIN SUCCESS HANDLING HERE
+
+          // 1. Save JWT token and user data locally
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("name", data.user.name);
+          console.log(data);
+          alert("Login successful!");
+
+          // 2. Implement the Return URL Logic
+          const urlParams = new URLSearchParams(window.location.search);
+          const returnUrl = urlParams.get("returnUrl");
+
+          if (returnUrl) {
+            // Redirect user to the page they originally tried to visit
+            window.location.href = returnUrl;
+          } else {
+            // Fallback: Redirect to the default homepage/dashboard
+            window.location.href = "homepage.html";
+          }
+
+        } else {
+          // ❌ LOGIN FAILED
+          alert(data.message || "Login failed. Please check your credentials.");
+        }
+
+      } catch (error) {
+        console.error("Login error:", error);
+        alert("Something went wrong while logging in.");
+      } finally {
+        // Optional: Re-enable button/hide loading spinner here
+      }
+    });
+  </script>
+
+</body>
+
+</html>

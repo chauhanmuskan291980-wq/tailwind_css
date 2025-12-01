@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platform Name Username Claim Form</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp Account Recovery Form</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="IGRecovery.css" /> 
 
-    <link rel="stylesheet" href="IGRecovery.css" />
 </head>
 
 <body>
 
-             <header>
+           <header>
         <nav class="navbar">
             <a href="#" class="logo">
                 <!-- Using a colored box as a logo placeholder since no image URL was provided -->
@@ -39,13 +39,13 @@
                     <li class="dropdown-trigger">
                         <a href="#">Platform <i class="fas fa-caret-down ml-1 text-sm"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=instagram'">Instagram</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=facebook'">Facebook</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=whatapp'">WhatsApp</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=snapchat'">SnapChat</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=youtube'">YouTube</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=twitter'">Twitter</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=tiktok'">TikTok</a></li>
+                            <li><a href="IGRecovery.html">Instagram</a></li>
+                            <li><a href="facebook.html">Facebook</a></li>
+                            <li><a href="whatsappRecovery.html">WhatsApp</a></li>
+                            <li><a href="snapchat.html">SnapChat</a></li>
+                            <li><a href="youtubeRecovery.html">YouTube</a></li>
+                            <li><a href="twitterRecovery.html">Twitter</a></li>
+                            <li><a href="tiktokRecovery.html">TikTok</a></li>
                         </ul>
                     </li>
 
@@ -56,8 +56,10 @@
                             <li><a href="account-verification.html">Account Verification</a></li>
                             <li><a href="username-claim.html">Username Claim</a></li>
                             <li><a href="copyright-removal.html">Content Removal</a></li>
-                            <li><a href="services.html">Digital Marketing && Others</a></li>
-
+                            <li><a href="whatappMarketing.html">WhatsApp Marketing</a></li>
+                            <li><a href="IGCollaboration.html">Instagram Collaboration</a></li>
+                            <li><a href="vendor-registration.html">Register as a Vendor</a></li>
+                            <li><a href="googleReviews.html">Review Removal</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -94,105 +96,134 @@
     </header>
 
     <main class="form-container">
-        <h2>Username Claim Request</h2>
-        <p class="small" style="text-align:center;margin-bottom:25px;">Please provide accurate information for a
-            successful username acquisition.</p>
+        <h2>WhatsApp Account Recovery Form</h2>
+        <p class="small" style="text-align:center;margin-bottom:25px;">Please fill all mandatory (*) fields carefully.</p>
 
-        <form>
-            <h3>1️⃣ Target Username Details</h3>
+<form >
+    <h3>1️⃣ Account Type</h3>
+    <div class="form-group">
+        <label class="required">Business or Individual Account</label>
+        <div class="inline-group">
+            <input type="radio" id="type_individual" name="accountType" value="individual" required>
+            <label for="type_individual">Individual</label>
+            <input type="radio" id="type_business" name="accountType" value="business">
+            <label for="type_business">Business</label>
+        </div>
 
-            <div class="form-group" id="mainContant">
-                <label class="required">Target Platform Name</label>
-                <input type="text" id="platformInput" name="platformInput"
-                    placeholder="e.g., Instagram, X (Twitter), TikTok" required>
+        <div id="businessFields" class="conditional-section" style="display: none;">
+            <label class="required">Business Name</label>
+            <input type="text" name="businessName" placeholder="Your registered business name">
+
+            <label class="required" style="margin-top: 15px;">Verified Account</label>
+            <div class="inline-group">
+                <input type="radio" id="verified_yes" name="verified" value="yes">
+                <label for="verified_yes">Yes</label>
+                <input type="radio" id="verified_no" name="verified" value="no">
+                <label for="verified_no">No</label>
             </div>
 
-            <div class="form-group">
-                <label class="required">Username Desired (@handle)</label>
-                <input type="text" name="desiredUsername" placeholder="e.g., @smipin_official" required>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Current Status of Target Username</label>
-                <select name="usernameStatus" required>
-                    <option value="">Select Status</option>
-                    <option>Inactive Account (No posts/activity)</option>
-                    <option>Suspended/Banned Account</option>
-                    <option>Active but Unrelated Account</option>
-                    <option>Squatting/Placeholder Account</option>
-                    <option>Brand/Trademark Infringement</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Your Existing Profile URL on this Platform</label>
-                <input type="url" name="existingProfile"
-                    placeholder="If you have an existing profile (e.g., @smipin_support)" required>
-            </div>
-
-            <hr />
-
-            <h3>2️⃣ Legal & Contact Information</h3>
-
-            <div class="form-group">
-                <label class="required">Your Legal/Brand Name</label>
-                <input type="text" name="brandName" placeholder="Name or Company Name that owns the trademark" required>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Upload Proof of Legal Claim/Trademark (PDF/JPEG)</label>
-                <div class="file-upload-section">
-                    <input type="file" name="proofFile" accept=".pdf,.jpeg,.jpg" required>
-                    <small class="hint">Documents required for brand/trademark claims.</small>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Contact Email</label>
-                <input type="email" name="contactEmail" placeholder="Email for communication" required>
-            </div>
-
-            <div class="form-group">
-                <label>Maximum Budget (USD)</label>
-                <input type="number" name="maxBudget" placeholder="e.g. 500">
-            </div>
-
-            <hr />
-
-            <h3>3️⃣ Additional Details</h3>
-
-            <div class="form-group">
-                <label class="required">Message / Case Details</label>
-                <textarea name="message"
-                    placeholder="Explain why you need this exact username and the nature of your claim (trademark, legal, inactivity, etc.)."
-                    required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Have you applied for recovery/claim before?</label>
+            <div id="metaType" class="conditional-section" style="display: none; margin-top: 10px; padding: 10px;">
+                <label>If verified, select verification type</label>
                 <div class="inline-group">
-                    <input type="radio" id="applied_yes" name="appliedBefore" value="yes" required>
-                    <label for="applied_yes">Yes</label>
-                    <input type="radio" id="applied_no" name="appliedBefore" value="no">
-                    <label for="applied_no">No</label>
+                    <input type="radio" id="meta_blue" name="metaType" value="meta">
+                    <label for="meta_blue">Meta Blue Tick</label>
+                    <input type="radio" id="green_tick" name="metaType" value="green">
+                    <label for="green_tick">Green Tick (Business)</label>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="required">How did you hear about us?</label>
-                <div class="inline-group">
-                    <input type="checkbox" id="ref_google" name="ref" value="google">
-                    <label for="ref_google">Google</label>
-                    <input type="checkbox" id="ref_instagram" name="ref" value="instagram">
-                    <label for="ref_instagram">Instagram</label>
-                    <input type="checkbox" id="ref_friend" name="ref" value="friend">
-                    <label for="ref_friend">Friend</label>
-                    <input type="checkbox" id="ref_other" name="ref" value="other">
-                    <label for="ref_other">Other</label>
-                </div>
+                <label style="margin-top: 15px;">Upload Business Document</label>
+                <input type="file" name="businessDoc" accept=".pdf,.jpg,.jpeg" />
             </div>
+        </div>
+    </div>
 
-             <div class="form-group" style="background-color: #e9f7ef;">
+    <hr/>
+
+    <h3>2️⃣ Contact Details</h3>
+    <div class="form-group">
+        <label class="required">Phone Number Linked with Account</label>
+        <div style="display: flex; gap: 10px;">
+            <select name="countryCode" style="width: 30%;">
+                <option value="+91">+91</option>
+                <option value="+1">+1</option>
+                <option value="+44">+44</option>
+                <option value="+61">+61</option>
+            </select>
+            <input type="text" name="phoneNumber" placeholder="Enter number" pattern="\d*" required style="width: 70%;">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Email Linked with WhatsApp (if any)</label>
+        <input type="email" name="email" placeholder="example@gmail.com">
+    </div>
+
+    <hr/>
+
+    <h3>3️⃣ Ban & Access Information</h3>
+    <div class="form-group">
+        <label>Date of Ban (if known)</label>
+        <input type="date" name="dateOfBan">
+    </div>
+
+    <div class="form-group">
+        <label class="required">Upload Screenshot while Logging In</label>
+        <input type="file" name="screenshot" accept=".pdf,.jpg,.jpeg" required>
+    </div>
+
+    <div class="form-group">
+        <label>Any Email received from Meta or WhatsApp?</label>
+        <div class="inline-group">
+            <input type="radio" id="email_yes" name="emailReceived" value="yes">
+            <label for="email_yes">Yes</label>
+            <input type="radio" id="email_no" name="emailReceived" value="no">
+            <label for="email_no">No</label>
+        </div>
+
+        <div id="emailProof" class="conditional-section" style="display: none;">
+            <label>Upload Screenshot or PDF of Email</label>
+            <input type="file" name="emailProof" accept=".pdf,.jpg,.jpeg">
+        </div>
+    </div>
+
+    <hr/>
+
+    <h3>4️⃣ Additional Information</h3>
+    <div class="form-group">
+        <label>Maximum Budget (USD)</label>
+        <input type="number" name="maxBudget" placeholder="e.g. 100">
+    </div>
+
+    <div class="form-group">
+        <label>Have you submitted recovery form earlier?</label>
+        <div class="inline-group">
+            <input type="radio" id="submitted_yes" name="submittedBefore" value="yes">
+            <label for="submitted_yes">Yes</label>
+            <input type="radio" id="submitted_no" name="submittedBefore" value="no">
+            <label for="submitted_no">No</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Comments or Additional Details</label>
+        <textarea name="comments" placeholder="Add any extra information..."></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>How did you hear about us?</label>
+        <div class="inline-group">
+            <input type="checkbox" id="hear_ig" name="heardFrom" value="Instagram">
+            <label for="hear_ig">Instagram</label>
+            <input type="checkbox" id="hear_friend" name="heardFrom" value="Friend">
+            <label for="hear_friend">Friend</label>
+            <input type="checkbox" id="hear_website" name="heardFrom" value="Website">
+            <label for="hear_website">Website</label>
+            <input type="checkbox" id="hear_other" name="heardFrom" value="Other">
+            <label for="hear_other">Other</label>
+        </div>
+    </div>
+
+     <div class="form-group" style="background-color: #e9f7ef;">
                     <div class="inline-group">
                         <input type="checkbox" id="terms" name="terms" required>
                         <label for="terms" class="required">I agree to the <a href="#" target="_blank">Terms and
@@ -230,19 +261,20 @@
 
                 </div>
 
-            <button class="submit-btn" type="submit">Submit Username Claim Request</button>
-        </form>
+    <button class="submit-btn" type="submit">Submit Recovery Request</button>
+</form>
 
     </main>
-
-
-
     <footer class="site-footer">
         <div class="container footer-container">
             <div class="footer-col">
                 <h3>Smipin</h3>
-                <p>Your trusted partner for social media account recovery, verification, and digital support.</p>
+                <p>
+                    Your trusted partner for social media account recovery,
+                    verification, and digital support.
+                </p>
             </div>
+
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
@@ -253,6 +285,7 @@
                     <li><a href="#">Testimonials</a></li>
                 </ul>
             </div>
+
             <div class="footer-col">
                 <h4>Data Policy</h4>
                 <ul>
@@ -264,6 +297,7 @@
                     <li><a href="#">Refunds policy</a></li>
                 </ul>
             </div>
+
             <div class="footer-col">
                 <h4>Services</h4>
                 <ul>
@@ -275,6 +309,7 @@
                     <li><a href="#">Instagram Collaboration</a></li>
                 </ul>
             </div>
+
             <div class="footer-col">
                 <h4>Follow Us</h4>
                 <div class="social-links">
@@ -292,8 +327,9 @@
             <p>&copy; 2025 Smipin. All Rights Reserved.</p>
         </div>
     </footer>
+    
 
 </body>
-<script src="usernameClaim.js"></script>
+<script src="whatappRecovery.js"></script>
 <script src="social-media-recovery.js"></script>
 </html>

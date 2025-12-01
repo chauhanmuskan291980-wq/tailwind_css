@@ -1,0 +1,302 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel - Create Admin</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 0;
+            margin: 0;
+            background: #f0f2f5;
+        }
+
+        /* --- Navigation Header Styling --- */
+        .header {
+            background: #1e293b;
+            padding: 0 25px;
+            height: 60px;
+            color: white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between; /* Pushes logo to left, nav to right */
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Style for the button of the current page */
+        .nav-btn.active {
+            background: white;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .logout-btn {
+            background: #dc3545; /* Red color for logout */
+        }
+        .logout-btn:hover {
+            background: #c82333;
+        }
+
+        /* --- Form Styling --- */
+        .form-box {
+            background: white;
+            padding: 30px;
+            width: 400px;
+            margin: 60px auto; /* Centered vertically and horizontally */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-top: 12px;
+            display: block;
+            color: #555;
+            font-size: 14px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Ensures padding doesn't break width */
+        }
+
+        input:focus, select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .action-btn {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .action-btn:hover {
+            background: #005fcc;
+        }
+
+        .success {
+            color: #28a745;
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            background: #e9f7ef;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: #dc3545;
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            background: #fce8e6;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="brand">Admin Panel</div>
+        <div class="nav-links">
+            <a href="homepage.html" class="nav-btn">Dashboard</a>
+            <a href="admin.html" class="nav-btn">Manage Users</a>
+            <a href="blogAdmin.html" class="nav-btn">Manage Blog</a>
+            <a href="#" class="nav-btn active">Create Admin</a> 
+            <a href="trash.html" class="nav-btn">Trash Dataset</a>
+            <a href="manageAdmin.html" class="nav-btn">Manage Admin's</a>
+            <button onclick="logout()" class="nav-btn logout-btn">Logout</button>
+        </div>
+    </div>
+
+    <div class="form-box">
+        <h2>Create New Admin</h2>
+
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="Ex: John Doe">
+
+        <label>Email Address</label>
+        <input type="email" id="email" placeholder="Ex: admin@company.com">
+
+        <label>Phone Number</label>
+        <input type="text" id="phone" placeholder="Ex: +1 234 567 890">
+
+        <label>Role Access</label>
+        <select id="role">
+            <option value="sales">Sales</option>
+            <option value="manager">Manager</option>
+            <option value="blogger">Blogger</option>
+            <option value="admin">Super Admin</option>
+        </select>
+
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Create a strong password">
+
+        <button class="action-btn" onclick="createAdmin()">Create Account</button>
+
+        <p id="message"></p>
+    </div>
+
+<script>
+    // 1. Create Admin Logic
+    async function createAdmin() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const role = document.getElementById("role").value;
+        const password = document.getElementById("password").value.trim();
+        const messageBox = document.getElementById("message");
+
+        // Clear previous messages
+        messageBox.innerHTML = "";
+        messageBox.className = "";
+
+        if (!name || !email || !phone || !password) {
+            messageBox.innerHTML = "⚠️ Please fill in all fields.";
+            messageBox.className = "error";
+            return;
+        }
+
+        const payload = { name, email, phone, role, password };
+
+        try {
+            // Show loading state
+            const btn = document.querySelector('.action-btn');
+            const originalText = btn.innerText;
+            btn.innerText = "Processing...";
+            btn.disabled = true;
+
+            const res = await fetch("http://localhost:5000/admin/create", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await res.json();
+
+            // Reset button
+            btn.innerText = originalText;
+            btn.disabled = false;
+
+            if (data.success) {
+                messageBox.innerHTML = "✅ Admin created successfully!";
+                messageBox.className = "success";
+                // Clear form
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("phone").value = "";
+                document.getElementById("password").value = "";
+            } else {
+                messageBox.innerHTML = "❌ " + (data.message || "Error creating admin");
+                messageBox.className = "error";
+            }
+        } catch (err) {
+            console.error("Error:", err);
+            messageBox.innerHTML = "❌ Server connection failed.";
+            messageBox.className = "error";
+            document.querySelector('.action-btn').innerText = "Create Account";
+            document.querySelector('.action-btn').disabled = false;
+        }
+    }
+
+    // 2. Logout Logic
+    function logout() {
+        const confirmAction = confirm("Are you sure you want to logout?");
+        if (confirmAction) {
+            // Remove token from local storage (if you use JWT)
+            localStorage.removeItem('token'); 
+            localStorage.removeItem('adminUser');
+            
+            // Redirect to login page
+            window.location.href = "login.html"; 
+        }
+    }
+
+    // 3. Disable Right Click (Security/Preference)
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+     
+   document.addEventListener("keydown", function(e) {
+
+    // Block Ctrl+C, V, X
+    if (e.ctrlKey && ["c", "v", "x"].includes(e.key.toLowerCase())) {
+        alert("Copy, paste and cut are disabled!");
+        e.preventDefault();
+    }
+
+    // Block Ctrl+U (view source)
+    if (e.ctrlKey && e.key.toLowerCase() === "u") {
+        e.preventDefault();
+    }
+
+    // Block Ctrl+S (save)
+    if (e.ctrlKey && e.key.toLowerCase() === "s") {
+        e.preventDefault();
+    }
+
+    // Block DevTools (Ctrl+Shift+I)
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "i") {
+        e.preventDefault();
+    }
+
+    // Block F12
+    if (e.key === "F12") {
+        e.preventDefault();
+    }
+});
+
+</script>
+
+</body>
+</html>

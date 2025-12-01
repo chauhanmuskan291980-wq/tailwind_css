@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platform Name Username Claim Form</title>
+    <title>Platform Name Account Verification Form</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
@@ -12,8 +12,7 @@
 </head>
 
 <body>
-
-             <header>
+              <header>
         <nav class="navbar">
             <a href="#" class="logo">
                 <!-- Using a colored box as a logo placeholder since no image URL was provided -->
@@ -39,13 +38,13 @@
                     <li class="dropdown-trigger">
                         <a href="#">Platform <i class="fas fa-caret-down ml-1 text-sm"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=instagram'">Instagram</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=facebook'">Facebook</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=whatapp'">WhatsApp</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=snapchat'">SnapChat</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=youtube'">YouTube</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=twitter'">Twitter</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=tiktok'">TikTok</a></li>
+                            <li><a href='accountVerifcation.html?platform=instagram'>Instagram</a></li>
+                            <li><a href="accountVerifcation.html">Facebook</a></li>
+                            <li><a href="accountVerifcation.html">WhatsApp</a></li>
+                            <li><a href="accountVerifcation.html">SnapChat</a></li>
+                            <li><a href="accountVerifcation.html">YouTube</a></li>
+                            <li><a href="accountVerifcation.html">Twitter</a></li>
+                            <li><a href="accountVerifcation.html">TikTok</a></li>
                         </ul>
                     </li>
 
@@ -57,7 +56,6 @@
                             <li><a href="username-claim.html">Username Claim</a></li>
                             <li><a href="copyright-removal.html">Content Removal</a></li>
                             <li><a href="services.html">Digital Marketing && Others</a></li>
-
                         </ul>
                     </li>
                 </ul>
@@ -94,82 +92,103 @@
     </header>
 
     <main class="form-container">
-        <h2>Username Claim Request</h2>
-        <p class="small" style="text-align:center;margin-bottom:25px;">Please provide accurate information for a
-            successful username acquisition.</p>
+        <h2>Account Verification Request</h2>
+        <p class="small" style="text-align:center;margin-bottom:25px;">Provide required information to begin the
+            verification process.</p>
 
         <form>
-            <h3>1️⃣ Target Username Details</h3>
+            <h3>1️⃣ Platform & Account Details</h3>
 
-            <div class="form-group" id="mainContant">
+            <div class="form-group">
                 <label class="required">Target Platform Name</label>
-                <input type="text" id="platformInput" name="platformInput"
-                    placeholder="e.g., Instagram, X (Twitter), TikTok" required>
+                <input type="text" id="platformInput" placeholder="e.g., Instagram, TikTok, YouTube" required>
             </div>
 
             <div class="form-group">
-                <label class="required">Username Desired (@handle)</label>
-                <input type="text" name="desiredUsername" placeholder="e.g., @smipin_official" required>
+                <label class="required">Profile URL / Username</label>
+                <input type="text" placeholder="e.g., https://[platform].com/@username" required>
             </div>
 
             <div class="form-group">
-                <label class="required">Current Status of Target Username</label>
-                <select name="usernameStatus" required>
-                    <option value="">Select Status</option>
-                    <option>Inactive Account (No posts/activity)</option>
-                    <option>Suspended/Banned Account</option>
-                    <option>Active but Unrelated Account</option>
-                    <option>Squatting/Placeholder Account</option>
-                    <option>Brand/Trademark Infringement</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Your Existing Profile URL on this Platform</label>
-                <input type="url" name="existingProfile"
-                    placeholder="If you have an existing profile (e.g., @smipin_support)" required>
-            </div>
-
-            <hr />
-
-            <h3>2️⃣ Legal & Contact Information</h3>
-
-            <div class="form-group">
-                <label class="required">Your Legal/Brand Name</label>
-                <input type="text" name="brandName" placeholder="Name or Company Name that owns the trademark" required>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Upload Proof of Legal Claim/Trademark (PDF/JPEG)</label>
-                <div class="file-upload-section">
-                    <input type="file" name="proofFile" accept=".pdf,.jpeg,.jpg" required>
-                    <small class="hint">Documents required for brand/trademark claims.</small>
+                <label class="required">Account Type</label>
+                <div class="inline-group">
+                    <input type="radio" id="acc_type_individual" name="accType" value="individual" required>
+                    <label for="acc_type_individual">Individual</label>
+                    <input type="radio" id="acc_type_business" name="accType" value="business">
+                    <label for="acc_type_business">Business / Organization</label>
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="required">Contact Email</label>
-                <input type="email" name="contactEmail" placeholder="Email for communication" required>
-            </div>
-
-            <div class="form-group">
-                <label>Maximum Budget (USD)</label>
-                <input type="number" name="maxBudget" placeholder="e.g. 500">
+                <label class="required">Profile Visibility</label>
+                <div class="inline-group">
+                    <input type="radio" id="visibility_public" name="visibility" value="public" required>
+                    <label for="visibility_public">Public Profile</label>
+                    <input type="radio" id="visibility_private" name="visibility" value="private">
+                    <label for="visibility_private">Private Profile</label>
+                </div>
             </div>
 
             <hr />
 
-            <h3>3️⃣ Additional Details</h3>
+            <h3>2️⃣ Target Verification Badge</h3>
 
             <div class="form-group">
-                <label class="required">Message / Case Details</label>
-                <textarea name="message"
-                    placeholder="Explain why you need this exact username and the nature of your claim (trademark, legal, inactivity, etc.)."
+                <label class="required">Desired Verification Badge</label>
+                <div class="inline-group checkbox-grid">
+                    <input type="radio" id="badge_blue" name="badge" value="blue" required>
+                    <label for="badge_blue">Blue Tick (FB/IG/X/TikTok)</label>
+
+                    <input type="radio" id="badge_green" name="badge" value="green">
+                    <label for="badge_green">Green Tick (WhatsApp Business)</label>
+
+                    <input type="radio" id="badge_yellow_star" name="badge" value="yellow_star">
+                    <label for="badge_yellow_star">Yellow Star (Snapchat)</label>
+
+                    <input type="radio" id="badge_grey_x" name="badge" value="grey_x">
+                    <label for="badge_grey_x">Grey/Yellow Tick (X/Twitter)</label>
+
+                    <input type="radio" id="badge_grey_yt" name="badge" value="grey_yt">
+                    <label for="badge_grey_yt">Grey Tick (YouTube)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Name on Legal ID (For Verification)</label>
+                <input type="text" placeholder="Full name as per identification document" required>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Upload Valid ID (PDF/JPEG)</label>
+                <div class="file-upload-section">
+                    <input type="file" id="idFileInput" name="idFile" accept=".pdf,.jpeg,.jpg" required>
+                    <small class="hint">Government-issued ID or Business Registration.</small>
+                </div>
+            </div>
+
+            <hr />
+
+            <h3>3️⃣ Notability & Common Fields</h3>
+
+            <div class="form-group">
+                <label class="required">Public Recognition (e.g., Press Links)</label>
+                <textarea placeholder="Provide links to notable articles, press releases, or news coverage."
                     required></textarea>
             </div>
 
             <div class="form-group">
-                <label class="required">Have you applied for recovery/claim before?</label>
+                <label>Maximum Budget (USD)</label>
+                <input type="number" placeholder="e.g. 200">
+            </div>
+
+            <div class="form-group">
+                <label>Message or Additional Details</label>
+                <textarea
+                    placeholder="Any extra information on why you should be verified or existing verification attempts..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Have you applied for verification before?</label>
                 <div class="inline-group">
                     <input type="radio" id="applied_yes" name="appliedBefore" value="yes" required>
                     <label for="applied_yes">Yes</label>
@@ -192,17 +211,17 @@
                 </div>
             </div>
 
-             <div class="form-group" style="background-color: #e9f7ef;">
-                    <div class="inline-group">
-                        <input type="checkbox" id="terms" name="terms" required>
-                        <label for="terms" class="required">I agree to the <a href="#" target="_blank">Terms and
-                                Conditions</a></label>
-                    </div>
+            <div class="form-group" style="background-color: #e9f7ef;">
+                <div class="inline-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms" class="required">I agree to the <a href="#" target="_blank">Terms and
+                            Conditions</a></label>
+                </div>
 
 
-                    <h4 style="margin-top: 25px; color: white;">Security Check (Type the Code)</h4>
+                <h4 style="margin-top: 25px; color: white;">Security Check (Type the Code)</h4>
 
-                    <div id="captcha-display" style="
+                <div id="captcha-display" style="
     display: flex; 
     align-items: center; 
     gap: 15px; 
@@ -214,25 +233,23 @@
     font-size: 20px;
     font-weight: 700;
 ">
-                        <span id="captchaCodeDisplay">Loading...</span>
-                        <button type="button" id="reloadCaptchaBtn" style="
+                    <span id="captchaCodeDisplay">Loading...</span>
+                    <button type="button" id="reloadCaptchaBtn" style="
         background: none; 
         border: none; 
         color: var(--primary-yellow); 
         cursor: pointer;
     " title="Reload Captcha"><i class="fas fa-redo"></i></button>
-                    </div>
-
-                    <input type="text" id="captcha_input" name="userCaptchaAnswer"
-                        placeholder="Enter the code shown above" required>
-
-                    <input type="hidden" id="captchaToken" name="captchaId" value="">
-
                 </div>
 
-            <button class="submit-btn" type="submit">Submit Username Claim Request</button>
-        </form>
+                <input type="text" id="captcha_input" name="userCaptchaAnswer" placeholder="Enter the code shown above"
+                    required>
 
+                <input type="hidden" id="captchaToken" name="captchaId" value="">
+            </div>
+
+            <button class="submit-btn" type="submit">Submit Verification Request</button>
+        </form>
     </main>
 
 
@@ -294,6 +311,6 @@
     </footer>
 
 </body>
-<script src="usernameClaim.js"></script>
+<script src="accountVerifcation.js"></script>
 <script src="social-media-recovery.js"></script>
 </html>

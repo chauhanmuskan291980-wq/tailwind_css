@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platform Name Username Claim Form</title>
+    <title>Twitter (X) Account Recovery Form</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
@@ -12,8 +13,7 @@
 </head>
 
 <body>
-
-             <header>
+            <header>
         <nav class="navbar">
             <a href="#" class="logo">
                 <!-- Using a colored box as a logo placeholder since no image URL was provided -->
@@ -39,17 +39,17 @@
                     <li class="dropdown-trigger">
                         <a href="#">Platform <i class="fas fa-caret-down ml-1 text-sm"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=instagram'">Instagram</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=facebook'">Facebook</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=whatapp'">WhatsApp</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=snapchat'">SnapChat</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=youtube'">YouTube</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=twitter'">Twitter</a></li>
-                            <li><a onclick="window.location.href='usernameClaim.html?platform=tiktok'">TikTok</a></li>
+                            <li><a href="IGRecovery.html">Instagram</a></li>
+                            <li><a href="facebook.html">Facebook</a></li>
+                            <li><a href="whatsappRecovery.html">WhatsApp</a></li>
+                            <li><a href="snapchat.html">SnapChat</a></li>
+                            <li><a href="youtubeRecovery.html">YouTube</a></li>
+                            <li><a href="twitterRecovery.html">Twitter</a></li>
+                            <li><a href="tiktokRecovery.html">TikTok</a></li>
                         </ul>
                     </li>
 
-                    <li class="dropdown-trigger">
+                   <li class="dropdown-trigger">
                         <a href="#">Services <i class="fas fa-caret-down ml-1 text-sm"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="social-media-account-recovery.html">Social Media Account Recovery</a></li>
@@ -93,116 +93,160 @@
         </nav>
     </header>
 
-    <main class="form-container">
-        <h2>Username Claim Request</h2>
-        <p class="small" style="text-align:center;margin-bottom:25px;">Please provide accurate information for a
-            successful username acquisition.</p>
+    
+    <div class="form-container">
+        <h2>Twitter (X) Account Recovery Form</h2>
+        <p class="small" style="text-align:center;margin-bottom:25px;">Please fill all required (*) fields carefully.
+        </p>
 
-        <form>
-            <h3>1️⃣ Target Username Details</h3>
-
-            <div class="form-group" id="mainContant">
-                <label class="required">Target Platform Name</label>
-                <input type="text" id="platformInput" name="platformInput"
-                    placeholder="e.g., Instagram, X (Twitter), TikTok" required>
-            </div>
+        <form id="twitterForm" enctype="multipart/form-data">
+            <h3>1️⃣ Basic Information</h3>
 
             <div class="form-group">
-                <label class="required">Username Desired (@handle)</label>
-                <input type="text" name="desiredUsername" placeholder="e.g., @smipin_official" required>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Current Status of Target Username</label>
-                <select name="usernameStatus" required>
-                    <option value="">Select Status</option>
-                    <option>Inactive Account (No posts/activity)</option>
-                    <option>Suspended/Banned Account</option>
-                    <option>Active but Unrelated Account</option>
-                    <option>Squatting/Placeholder Account</option>
-                    <option>Brand/Trademark Infringement</option>
+                <label class="required">Account Type</label>
+                <select name="accountType" required>
+                    <option value="">Select Type</option>
+                    <option value="personal">Personal</option>
+                    <option value="business">Business</option>
+                    <option value="brand">Brand/Organization</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label class="required">Your Existing Profile URL on this Platform</label>
-                <input type="url" name="existingProfile"
-                    placeholder="If you have an existing profile (e.g., @smipin_support)" required>
+                <label class="required">Username (@handle)</label>
+                <input type="text" name="username" placeholder="@username" required>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Display Name (on profile)</label>
+                <input type="text" name="displayName" placeholder="e.g., John Doe | Official" required>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Real Name (As per ID)</label>
+                <input type="text" name="realName" required>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Upload Valid ID (PDF/JPEG)</label>
+                <input type="file" id="validIdInput" name="valid_id_upload" accept=".pdf,.jpeg,.jpg" required>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Account Verified</label>
+                <div class="inline-group">
+                    <input type="radio" id="verified_no" name="verified" value="no" required>
+                    <label for="verified_no">No</label>
+                    <input type="radio" id="verified_blue" name="verified" value="blue">
+                    <label for="verified_blue">X Premium (Blue Tick)</label>
+                    <input type="radio" id="verified_legacy" name="verified" value="legacy">
+                    <label for="verified_legacy">Legacy Verified</label>
+                </div>
             </div>
 
             <hr />
 
-            <h3>2️⃣ Legal & Contact Information</h3>
+            <h3>2️⃣ Contact Information</h3>
 
             <div class="form-group">
-                <label class="required">Your Legal/Brand Name</label>
-                <input type="text" name="brandName" placeholder="Name or Company Name that owns the trademark" required>
-            </div>
-
-            <div class="form-group">
-                <label class="required">Upload Proof of Legal Claim/Trademark (PDF/JPEG)</label>
-                <div class="file-upload-section">
-                    <input type="file" name="proofFile" accept=".pdf,.jpeg,.jpg" required>
-                    <small class="hint">Documents required for brand/trademark claims.</small>
+                <label>Phone Number Linked with Account</label>
+                <div style="display: flex; gap: 10px;">
+                    <select name="countryCode" style="width: 30%;">
+                        <option value="+1">+1</option>
+                        <option value="+44">+44</option>
+                        <option value="+91" selected>+91</option>
+                    </select>
+                    <input type="tel" name="phoneNumber" placeholder="Enter linked number" style="width: 70%;">
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="required">Contact Email</label>
-                <input type="email" name="contactEmail" placeholder="Email for communication" required>
-            </div>
-
-            <div class="form-group">
-                <label>Maximum Budget (USD)</label>
-                <input type="number" name="maxBudget" placeholder="e.g. 500">
+                <label>Email Linked with Account</label>
+                <input type="email" name="email" placeholder="example@email.com">
             </div>
 
             <hr />
 
-            <h3>3️⃣ Additional Details</h3>
+            <h3>3️⃣ Account Details</h3>
 
             <div class="form-group">
-                <label class="required">Message / Case Details</label>
-                <textarea name="message"
-                    placeholder="Explain why you need this exact username and the nature of your claim (trademark, legal, inactivity, etc.)."
-                    required></textarea>
+                <label>Account Created On</label>
+                <input type="date" name="createdOn">
             </div>
 
             <div class="form-group">
-                <label class="required">Have you applied for recovery/claim before?</label>
+                <label>Date of Suspension or Ban</label>
+                <input type="date" name="suspendedOn">
+            </div>
+
+            <div class="form-group">
+                <label>Reason Shown for Suspension</label>
+                <textarea name="suspensionReason" rows="3" placeholder="Enter reason if known"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Number of Followers</label>
+                <input type="number" name="followersCount" min="0" placeholder="Enter followers count">
+            </div>
+
+            <div class="form-group">
+                <label class="required">Screenshot While Logging In</label>
+                <input type="file" id="loginScreenshotInput" name="login_screenshot" accept=".pdf,.jpeg,.jpg" required>
+            </div>
+
+            <hr />
+
+            <h3>4️⃣ Verification & Linked Accounts</h3>
+
+            <div class="form-group">
+                <label class="required">2-Factor Authentication</label>
                 <div class="inline-group">
-                    <input type="radio" id="applied_yes" name="appliedBefore" value="yes" required>
-                    <label for="applied_yes">Yes</label>
-                    <input type="radio" id="applied_no" name="appliedBefore" value="no">
-                    <label for="applied_no">No</label>
+                    <input type="radio" id="2fa_sms" name="twoFA" value="sms" required>
+                    <label for="2fa_sms">Yes - SMS</label>
+                    <input type="radio" id="2fa_app" name="twoFA" value="app">
+                    <label for="2fa_app">Yes - App</label>
+                    <input type="radio" id="2fa_no" name="twoFA" value="no">
+                    <label for="2fa_no">No</label>
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="required">How did you hear about us?</label>
+                <label class="required">X Premium Subscription</label>
                 <div class="inline-group">
-                    <input type="checkbox" id="ref_google" name="ref" value="google">
-                    <label for="ref_google">Google</label>
-                    <input type="checkbox" id="ref_instagram" name="ref" value="instagram">
-                    <label for="ref_instagram">Instagram</label>
-                    <input type="checkbox" id="ref_friend" name="ref" value="friend">
-                    <label for="ref_friend">Friend</label>
-                    <input type="checkbox" id="ref_other" name="ref" value="other">
-                    <label for="ref_other">Other</label>
+                    <input type="radio" id="blue_yes" name="blueSub" value="yes" required>
+                    <label for="blue_yes">Yes</label>
+                    <input type="radio" id="blue_no" name="blueSub" value="no">
+                    <label for="blue_no">No</label>
                 </div>
             </div>
 
-             <div class="form-group" style="background-color: #e9f7ef;">
-                    <div class="inline-group">
-                        <input type="checkbox" id="terms" name="terms" required>
-                        <label for="terms" class="required">I agree to the <a href="#" target="_blank">Terms and
-                                Conditions</a></label>
-                    </div>
+            <div class="form-group">
+                <label class="required">Linked Facebook / Instagram Account</label>
+                <div class="inline-group">
+                    <input type="radio" id="linked_yes" name="linkedFb" value="yes" required>
+                    <label for="linked_yes">Yes</label>
+                    <input type="radio" id="linked_no" name="linkedFb" value="no">
+                    <label for="linked_no">No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Screenshot of Suspension Email (from X)</label>
+                <input type="file" id="emailScreenshotInput" name="email_upload" accept=".pdf,.jpeg,.jpg">
+            </div>
 
 
-                    <h4 style="margin-top: 25px; color: white;">Security Check (Type the Code)</h4>
+            <div class="form-group" style="background-color: #e9f7ef;">
+                <div class="inline-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms" class="required">I agree to the <a href="#" target="_blank">Terms and
+                            Conditions</a></label>
+                </div>
 
-                    <div id="captcha-display" style="
+
+                <h4 style="margin-top: 25px; color: white;">Security Check (Type the Code)</h4>
+
+                <div id="captcha-display" style="
     display: flex; 
     align-items: center; 
     gap: 15px; 
@@ -214,28 +258,26 @@
     font-size: 20px;
     font-weight: 700;
 ">
-                        <span id="captchaCodeDisplay">Loading...</span>
-                        <button type="button" id="reloadCaptchaBtn" style="
+                    <span id="captchaCodeDisplay">Loading...</span>
+                    <button type="button" id="reloadCaptchaBtn" style="
         background: none; 
         border: none; 
         color: var(--primary-yellow); 
         cursor: pointer;
     " title="Reload Captcha"><i class="fas fa-redo"></i></button>
-                    </div>
-
-                    <input type="text" id="captcha_input" name="userCaptchaAnswer"
-                        placeholder="Enter the code shown above" required>
-
-                    <input type="hidden" id="captchaToken" name="captchaId" value="">
-
                 </div>
 
-            <button class="submit-btn" type="submit">Submit Username Claim Request</button>
+                <input type="text" id="captcha_input" name="userCaptchaAnswer" placeholder="Enter the code shown above"
+                    required>
+
+                <input type="hidden" id="captchaToken" name="captchaId" value="">
+
+            </div>
+            <button class="submit-btn" type="submit">Submit Recovery Request</button>
         </form>
 
-    </main>
-
-
+    </div>
+    </div>
 
     <footer class="site-footer">
         <div class="container footer-container">
@@ -243,6 +285,7 @@
                 <h3>Smipin</h3>
                 <p>Your trusted partner for social media account recovery, verification, and digital support.</p>
             </div>
+
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
@@ -253,6 +296,7 @@
                     <li><a href="#">Testimonials</a></li>
                 </ul>
             </div>
+
             <div class="footer-col">
                 <h4>Data Policy</h4>
                 <ul>
@@ -264,6 +308,7 @@
                     <li><a href="#">Refunds policy</a></li>
                 </ul>
             </div>
+
             <div class="footer-col">
                 <h4>Services</h4>
                 <ul>
@@ -275,6 +320,7 @@
                     <li><a href="#">Instagram Collaboration</a></li>
                 </ul>
             </div>
+
             <div class="footer-col">
                 <h4>Follow Us</h4>
                 <div class="social-links">
@@ -293,7 +339,8 @@
         </div>
     </footer>
 
+
 </body>
-<script src="usernameClaim.js"></script>
+<script src="twitterRecovery.js"></script>
 <script src="social-media-recovery.js"></script>
 </html>
