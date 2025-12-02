@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000"; // Ensure this matches your backend port
+const API_BASE_URL = "https://account-recovery-app.onrender.com/"; // Ensure this matches your backend port
 // ---------------------------------------------------------
 // 1. UI & LOGIC HANDLERS
 // ---------------------------------------------------------

@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/admin";
+const API_URL = "https://account-recovery-app.onrender.com//admin";
 let users = [];
 
 // ---------------- RENDER TABLE ----------------

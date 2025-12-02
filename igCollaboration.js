@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000"; // Check your backend port
+const API_BASE_URL = "https://account-recovery-app.onrender.com/"; // Check your backend port
 
 
 const token = localStorage.getItem("token");

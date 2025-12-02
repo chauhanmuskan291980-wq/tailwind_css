@@ -4,7 +4,7 @@ const searchBar = document.getElementById("searchBar");
 
 async function fetchTrashData() {
   try {
-    const response = await fetch("http://localhost:5000/api/trash");
+    const response = await fetch("https://account-recovery-app.onrender.com//api/trash");
     const data = await response.json();
 
     trashTableBody.innerHTML = ""; // clear table
@@ -36,7 +36,7 @@ async function fetchTrashData() {
 // Restore a soft-deleted record
 async function restoreRecord(id) {
   try {
-    const res = await fetch(`http://localhost:5000/api/restore/${id}`, { method: "PATCH" });
+    const res = await fetch(`https://account-recovery-app.onrender.com//api/restore/${id}`, { method: "PATCH" });
     const data = await res.json();
     document.querySelector(`#row-${id}`)?.remove(); // remove row
     alert(data.message);

@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000"; // Adjust if needed
+const API_BASE_URL = "https://account-recovery-app.onrender.com/"; // Adjust if needed
 // Redirect if user not logged in
 const token = localStorage.getItem("token");
 if (!token) {
@@ -146,7 +146,7 @@ async function uploadFileToS3(file, token) {
         captchaCodeDisplay.textContent = 'Loading...';
 
         try {
-            const response = await fetch(`http://localhost:5000/api/captcha`);
+            const response = await fetch(`https://account-recovery-app.onrender.com//api/captcha`);
             const data = await response.json();
 
             if (data.success) {
