@@ -216,7 +216,7 @@
             btn.innerText = "Processing...";
             btn.disabled = true;
 
-            const res = await fetch("https://account-recovery-app.onrender.com//admin/create", {
+            const res = await fetch("https://account-recovery-app.onrender.com/admin/create", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)

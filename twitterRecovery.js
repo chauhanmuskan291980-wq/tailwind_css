@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://account-recovery-app.onrender.com/";
+const API_BASE_URL = "https://account-recovery-app.onrender.com";
 
 const token = localStorage.getItem("token");
 if (!token) {

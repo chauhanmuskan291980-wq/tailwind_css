@@ -19,7 +19,7 @@ form.addEventListener('submit', async (e) => {
     const token = localStorage.getItem("token");
 
     try {
-        const response = await fetch('https://account-recovery-app.onrender.com//api/whatsapp-marketing', {
+        const response = await fetch('https://account-recovery-app.onrender.com/api/whatsapp-marketing', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -53,7 +53,7 @@ async function loadCaptcha() {
     captchaCodeDisplay.textContent = 'Loading...';
 
     try {
-        const response = await fetch(`https://account-recovery-app.onrender.com//api/captcha`);
+        const response = await fetch(`https://account-recovery-app.onrender.com/api/captcha`);
         const data = await response.json();
 
         if (data.success) {

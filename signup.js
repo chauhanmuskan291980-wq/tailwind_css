@@ -1,4 +1,4 @@
- const BASE_URL = "https://account-recovery-app.onrender.com/";
+ const BASE_URL = "https://account-recovery-app.onrender.com";
 
 // Elements
 const signupForm = document.getElementById("signupForm");

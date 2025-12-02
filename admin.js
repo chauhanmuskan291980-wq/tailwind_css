@@ -85,7 +85,7 @@ function getIssueType(issueText) {
 
 async function fetchTickets() {
     try {
-        const res = await fetch("https://account-recovery-app.onrender.com//api/tickets", {
+        const res = await fetch("https://account-recovery-app.onrender.com/api/tickets", {
             headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
         });
         
@@ -136,7 +136,7 @@ async function viewDetails(issueType, id) {
     if(issueType === 'unknown') { alert("Unknown Ticket Type"); return; }
     
     try {
-        const response = await fetch(`https://account-recovery-app.onrender.com//api/tickets/${issueType}/${id}`, {
+        const response = await fetch(`https://account-recovery-app.onrender.com/api/tickets/${issueType}/${id}`, {
             headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
         });
         const data = await response.json();
@@ -182,7 +182,7 @@ function formatLabel(key) {
 
 async function markResolved(issueType, id) {
     try {
-        const res = await fetch(`https://account-recovery-app.onrender.com//api/tickets/${issueType}/${id}/resolve`, {
+        const res = await fetch(`https://account-recovery-app.onrender.com/api/tickets/${issueType}/${id}/resolve`, {
             method: "PUT",
             headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
         });
@@ -206,7 +206,7 @@ async function deleteTicket(issueType, id) {
     if (!confirm("Are you sure you want to delete this ticket?")) return;
 
     try {
-        const res = await fetch(`https://account-recovery-app.onrender.com//api/tickets/${issueType}/${id}`, {
+        const res = await fetch(`https://account-recovery-app.onrender.com/api/tickets/${issueType}/${id}`, {
             method: "DELETE",
             headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
         });
@@ -233,7 +233,7 @@ async function openAssignModal(issueType, id) {
     window.assignId = id;
 
     try {
-        const res = await fetch("https://account-recovery-app.onrender.com//api/admins", {
+        const res = await fetch("https://account-recovery-app.onrender.com/api/admins", {
             headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
         });
         const admins = await res.json();
@@ -257,7 +257,7 @@ document.getElementById("assignBtn").addEventListener("click", async () => {
     const adminId = document.getElementById("adminSelect").value;
     
     try {
-        const res = await fetch(`https://account-recovery-app.onrender.com//api/tickets/${window.assignType}/${window.assignId}/assign`, {
+        const res = await fetch(`https://account-recovery-app.onrender.com/api/tickets/${window.assignType}/${window.assignId}/assign`, {
             method: "PUT",
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`,

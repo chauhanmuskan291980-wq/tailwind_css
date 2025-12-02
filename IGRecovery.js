@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const captchaCodeDisplay = document.getElementById('captchaCodeDisplay');
     const captchaTokenInput = document.getElementById('captchaToken');
     const reloadButton = document.getElementById('reloadCaptchaBtn');
-    const API_BASE_URL = 'https://account-recovery-app.onrender.com/';
+    const API_BASE_URL = 'https://account-recovery-app.onrender.com';
 
     // ✅ NEW: List of all file input names (must match the 'name' attribute in HTML)
     const FILE_INPUT_NAMES = [

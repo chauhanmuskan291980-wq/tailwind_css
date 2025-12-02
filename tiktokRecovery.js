@@ -1,6 +1,6 @@
 
 
-const API_BASE_URL = "https://account-recovery-app.onrender.com/"; // Ensure this matches your backend port
+const API_BASE_URL = "https://account-recovery-app.onrender.com"; // Ensure this matches your backend port
 
 // --- S3 UPLOAD HELPER FUNCTION ---
 async function uploadFileToS3(file, token) {
