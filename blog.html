@@ -389,53 +389,114 @@
     const singlePostView = document.getElementById("single-post-view");
     const singlePostContainer = document.getElementById("single-post-container");
 
-    // Fetch all posts
+    // Fetch all posts for the homepage
     async function fetchPosts() {
       postsContainer.innerHTML = "<p class='text-center py-10'>Loading...</p>";
       try {
         const res = await fetch(API_BASE_URL);
         const posts = await res.json();
-
-        postsContainer.innerHTML = posts.map(post => `
-  <div class="post-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-indigo-500">
-    
-    ${post.imageUrl
-            ? `<img src="${post.imageUrl}" alt="${post.title}" class="w-full h-80 object-cover rounded-lg mb-6">`
-            : ''}
-    
-    <h3 class="text-2xl font-semibold text-indigo-700">${post.title}</h3>
-    <p class="text-sm text-gray-500 mb-2">Published: ${new Date(post.createdAt).toLocaleDateString()}</p>
-    <p class="text-gray-600">${post.content.substring(0, 150)}...</p>
-    <a href="#post/${post.slug}" class="text-indigo-500 font-medium">Read More →</a>
-  </div>
-`).join("");
-
+        renderPostList(posts, postsContainer);
       } catch (error) {
         postsContainer.innerHTML = `<p class="text-red-600">Error loading posts.</p>`;
       }
     }
 
-    // Fetch single post
+    // Helper function to render list of posts (reused for home and filters)
+    function renderPostList(posts, container) {
+      container.innerHTML = posts.length ?
+        posts.map(post => `
+          <div class="post-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-indigo-500 flex flex-col h-full">
+            ${post.imageUrl ? `<img src="${post.imageUrl}" alt="${post.title}" class="w-full h-48 object-cover rounded-lg mb-6">` : ''}
+            <h3 class="text-2xl font-semibold text-indigo-700">${post.title}</h3>
+            <p class="text-sm text-gray-500 mb-2">Published: ${new Date(post.createdAt).toLocaleDateString()}</p>
+            <p class="text-gray-600 flex-grow">${post.content.substring(0, 100)}...</p>
+            <a href="#post/${post.slug}" class="text-indigo-500 font-medium mt-4">Read More →</a>
+          </div>
+        `).join("") :
+        `<p class='text-center text-gray-500 py-10 col-span-full'>No posts found.</p>`;
+    }
+
+    // --- NEW: Fetch Single Post & Related Posts ---
     async function fetchSinglePost(slug) {
       blogView.classList.add("hidden");
       singlePostView.classList.remove("hidden");
-      singlePostContainer.innerHTML = "<p class='text-center py-10'>Loading...</p>";
+      
+      // Clear previous content and show loading
+      singlePostContainer.innerHTML = "<p class='text-center py-10'>Loading post...</p>";
 
       try {
+        // 1. Fetch the Single Post
         const res = await fetch(`${API_BASE_URL}/${slug}`);
+        if (!res.ok) throw new Error("Post not found");
         const post = await res.json();
 
+        // 2. Render the Main Post Content
         singlePostContainer.innerHTML = `
-  ${post.imageUrl
-            ? `<img src="${post.imageUrl}" class="w-full h-400 object-cover rounded-lg mb-6">`
-            : ''}
-    
-  <h1 class="text-3xl font-bold text-indigo-700">${post.title}</h1>
-  <p class="text-gray-500 mb-3">Published: ${new Date(post.createdAt).toLocaleDateString()}</p>
-  <div class="text-gray-700 whitespace-pre-line">${post.content}</div>
-`;
-      } catch {
-        singlePostContainer.innerHTML = `<p class="text-red-600">Post not found.</p>`;
+          <div class="mb-10">
+             ${post.imageUrl ? `<img src="${post.imageUrl}" class="w-full max-h-[500px] object-cover rounded-xl mb-8 shadow-md">` : ''}
+             <div class="flex items-center gap-4 mb-4">
+                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-0.5 rounded">${post.category || 'General'}</span>
+                <p class="text-gray-500 text-sm">${new Date(post.createdAt).toLocaleDateString()}</p>
+             </div>
+             <h1 class="text-4xl font-bold text-gray-900 mb-6 leading-tight">${post.title}</h1>
+             <div class="text-gray-700 whitespace-pre-line text-lg leading-relaxed">${post.content}</div>
+          </div>
+
+          <div id="related-posts-section" class="border-t pt-10 mt-10">
+             <h3 class="text-2xl font-bold text-gray-800 mb-6">Related Posts</h3>
+             <div id="related-posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <p class="text-gray-500">Loading related posts...</p>
+             </div>
+          </div>
+        `;
+
+        // 3. Fetch Related Posts based on Category
+        if (post.category) {
+          fetchRelatedPosts(post.category, post._id, post.slug); // Pass ID or Slug to exclude current post
+        } else {
+          document.getElementById('related-posts-section').style.display = 'none';
+        }
+
+      } catch (err) {
+        singlePostContainer.innerHTML = `<div class="text-center py-10"><p class="text-red-600 text-xl">Post not found.</p></div>`;
+        console.error(err);
+      }
+    }
+
+    // --- NEW: Logic to fetch and display related posts ---
+    async function fetchRelatedPosts(category, currentPostId, currentSlug) {
+      const relatedGrid = document.getElementById("related-posts-grid");
+      const relatedSection = document.getElementById("related-posts-section");
+
+      try {
+        const res = await fetch(`${API_BASE_URL}/category/${category}`);
+        const allCategoryPosts = await res.json();
+
+        // Filter out the post currently being viewed
+        const relatedPosts = allCategoryPosts.filter(p => p.slug !== currentSlug && p._id !== currentPostId);
+
+        if (relatedPosts.length === 0) {
+          relatedSection.style.display = "none"; // Hide section if no related posts
+          return;
+        }
+
+        // Take only the top 3 related posts
+        const postsToShow = relatedPosts.slice(0, 3);
+
+        relatedGrid.innerHTML = postsToShow.map(post => `
+           <div class="bg-gray-50 p-4 rounded-lg border hover:shadow-md transition">
+              ${post.imageUrl ? `<img src="${post.imageUrl}" class="w-full h-32 object-cover rounded mb-3">` : ''}
+              <h4 class="font-bold text-indigo-700 text-lg mb-2 leading-snug">
+                <a href="#post/${post.slug}" class="hover:underline">${post.title}</a>
+              </h4>
+              <p class="text-xs text-gray-500 mb-2">${new Date(post.createdAt).toLocaleDateString()}</p>
+              <a href="#post/${post.slug}" class="text-sm text-indigo-500 font-semibold">Read Now →</a>
+           </div>
+        `).join("");
+
+      } catch (error) {
+        console.error("Error fetching related posts:", error);
+        relatedGrid.innerHTML = "<p class='text-red-400'>Unable to load related posts.</p>";
       }
     }
 
@@ -445,51 +506,58 @@
       if (hash.startsWith("#post/")) {
         const slug = hash.split("/")[1];
         fetchSinglePost(slug);
+        window.scrollTo(0,0); // Scroll to top when opening a post
+      } else {
+        showBlog();
       }
     }
 
     function showBlog() {
       singlePostView.classList.add("hidden");
       blogView.classList.remove("hidden");
-      window.location.hash = "";
+      // Only remove hash if we are actually on a hash URL, to prevent loop
+      if(window.location.hash.startsWith("#post/")) {
+        history.pushState("", document.title, window.location.pathname + window.location.search);
+      }
     }
 
-    window.addEventListener("hashchange", handleHashRoute);
-    window.addEventListener("DOMContentLoaded", () => {
-      fetchPosts();
-      handleHashRoute();
-    });
-
-
-    // FILTER BUTTON LOGIC
+    // Filter Buttons Logic
     document.querySelectorAll(".filter-btn").forEach(btn => {
       btn.addEventListener("click", async () => {
         const category = btn.dataset.category;
+        
+        // Visual feedback for active button
+        document.querySelectorAll(".filter-btn").forEach(b => {
+           b.classList.remove("bg-indigo-100", "text-indigo-700"); 
+           b.classList.add("bg-gray-100");
+        });
+        btn.classList.remove("bg-gray-100");
+        btn.classList.add("bg-indigo-100", "text-indigo-700");
 
         if (category === "all") {
           return fetchPosts();
         }
 
         postsContainer.innerHTML = "<p class='text-center py-10'>Loading...</p>";
-
-        const res = await fetch(`${API_BASE_URL}/category/${category}`);
-        const posts = await res.json();
-
-        postsContainer.innerHTML = posts.length
-          ? posts.map(post => `
-        <div class="post-card bg-white p-6 rounded-xl shadow-lg">
-          ${post.imageUrl
-            ? `<img src="${post.imageUrl}" class="w-full h-640 object-cover rounded-lg mb-6">`
-            : ''}
-          <h3>${post.title}</h3>
-          <p>${post.content.substring(0, 150)}...</p>
-          <a href="#post/${post.slug}" class="text-indigo-500">Read More →</a>
-        </div>
-      `).join("")
-          : `<p class='text-center text-gray-500 py-10'>No posts found.</p>`;
+        try {
+          const res = await fetch(`${API_BASE_URL}/category/${category}`);
+          const posts = await res.json();
+          renderPostList(posts, postsContainer);
+        } catch (e) {
+          postsContainer.innerHTML = `<p class="text-red-600">Error loading category.</p>`;
+        }
       });
     });
 
+    window.addEventListener("hashchange", handleHashRoute);
+    window.addEventListener("DOMContentLoaded", () => {
+      // Check if loaded with a hash
+      if (window.location.hash.startsWith("#post/")) {
+        handleHashRoute();
+      } else {
+        fetchPosts();
+      }
+    });
 
   </script>
 
