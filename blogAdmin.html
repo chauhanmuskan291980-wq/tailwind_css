@@ -103,7 +103,7 @@
       </button>
     </form>
 
-     
+
   </main>
 
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
@@ -203,7 +203,13 @@
       }
 
       try {
-        const res = await fetch(API_BASE_URL, { method: "POST", body: formData });
+        const res = await fetch(API_BASE_URL, {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${localStorage.getItem('authToken')}`
+          },
+          body: formData
+        });
         if (!res.ok) throw new Error("Error creating post");
 
         showMessage("Post created successfully!", "success");
@@ -221,7 +227,7 @@
     // This key must match what you put in the Backend Middleware
     const ADMIN_KEY = 'mysecret123';
 
-    
+
 
 
 
